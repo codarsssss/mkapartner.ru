@@ -1,501 +1,963 @@
-{% extends 'homeapp/base.html' %}
-{% load static %}
+{% extends 'homeapp/base.html' %} {% load static %} {% block content %}
 
+<!--================ Start Home Banner Area =================-->
+<style></style>
+<div class="hero">
+  <div class="container">
+    <img class="hero-1" src="{% static 'homeapp/img/fm.png' %}" alt="" />
+    <div class="hero-mobile">
+      <div class="image-wrapper">
+        <img src="{% static 'homeapp/img/fm.png' %}" alt="" />
 
-{% block content %}
+      </div>
+      <div class="image-wrapper">
+        <img src="{% static 'homeapp/img/ml.png' %}" alt="" />
 
-    <!--================ Start Home Banner Area =================-->
-    <div id="carouselExampleAutoplaying" class="carousel slide carousel-fade my_carousel" data-bs-ride="carousel"
-         xmlns="http://www.w3.org/1999/html">
-         <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="{% static 'homeapp/img/1.jpg' %}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block" style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <button type="button" class="btn btn-primary btn__carousel" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Получить консультацию
-                    </button>
-                    <h4 style="min-height: 65px; color: grey;">Минимизируем правовые риски для Вас и вашего бизнеса!</h4>
-                                        
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'homeapp/img/2.jpg' %}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block" style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <button type="button" class="btn btn-primary btn__carousel" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Получить консультацию
-                    </button>
-                    <h4 style="min-height: 65px; color: grey;">15 лет надежности и профессионализма: МКА Партнер Групп – ваш партнер в успешных сделках и стабильном развитии!</h4>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="{% static 'homeapp/img/3.jpg' %}" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block" style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <button type="button" class="btn btn-primary btn__carousel" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">Получить консультацию
-                    </button>
-                    <h4 style="min-height: 65px; color: grey;">Сила в знании, справедливость в действии: ваша защита – наша миссия!</h4>
-                                        
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-                data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
-
-    <div class="container-fluid container-ch-bg" id="bg">
-
-        <div class="row p-5">
-            <div class="col ">
-                <p class="text-center icon-bg pt-4" style="color: #2b3455"><i class="fa-solid fa-pen-nib fa-2xl"></i>
-                </p>
-                <p class="text-center pt-4 p-4" style="color: #2b3455">Экспертное правовое сопровождение
-                </p>
-            </div>
-            <div class="col">
-                <p class="text-center icon-bg pt-4" style="color: #2b3455"><i
-                        class="fa-solid fa-people-arrows fa-2xl"></i>
-                </p>
-                <p class="text-center pt-4 p-4" style="color: #2b3455">Индивидуальный подход к клиенту
-                </p>
-            </div>
-            <div class="col">
-                <p class="text-center icon-bg pt-4" style="color: #2b3455"><i class="fa-solid fa-handshake fa-2xl"></i>
-                </p>
-                <p class="text-center pt-4 p-4" style="color: #2b3455">Строим отношения на репутации и доверии
-            </div>
-        </div>
-        <div class="row container mb-5" style="margin-left: auto; margin-right: auto">
-            <div class="col ">
-                <p class="text-center p-3 p-md-5 p-sm-4 border rounded overflow-hidden flex-md-row mb-4 shadow index-top-talk "
-                   id="mission" style="color: #2b3455; background-color: white; border-radius: 60px!important;">Миссия МКА Партнер Групп заключается в предоставлении высококачественных юридических услуг, основанных на глубоком понимании потребностей и целей клиентов, с использованием инновационных подходов и экспертизы для достижения оптимальных результатов и установления долгосрочных партнерских отношений. </p>
-            </div>
-        </div>
-
-
-        <div class="row p-4 pb-5">
-            <div class="col-xxl-6 col-md-12">
-                <div class="justify-content-center align-items-center d-flex rl-pos">
-                    <a class="video-play-button"
-                       href="https://www.youtube.com/shorts/zZBQsR7PDA4"><img
-                            src="{% static 'homeapp/img/main_img_1.jpg' %}"><i
-                            class="fa-regular fa-circle-play fa-beat fa-2xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xxl-6">
-                <h1>Хотите быть уверенным в успехе своего бизнеса или нуждаетесь в помощи в решении сложных личных
-                    вопросов?</h1>
-                <p>МКА «Партнер Групп» не только решит Ваши проблемы, но и предотвратит новые.</p>
-
-                <div class="right-bottom-area">
-                    <div class="author-lacture">
-                        <p>Наша команда состоит из высококвалифицированных юристов и адвокатов, которые непрерывно
-                            повышают свою квалификацию, навыки и знания для сохранения Ваших интересов.
-                            Мы готовы предложить Вам уникальные юридические решения, адаптированные для каждого клиента,
-                            опираясь на Ваши специфические требования и запросы.
-                            В борьбе со сложностями на пути к успеху, каждая секунда на вес золота. Наши специалисты
-                            гарантируют Вам быструю и результативную работу, сокращая время от проблемы до решения.
-                            Мы обеспечиваем полную конфиденциальность и этичность во всех вопросах, связанных с Вашим
-                            делом.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+      </div>
 
     </div>
+    <div class="hero__text hero-2">
+      <h1>Партнер групп</h1>
+      <span>Московская коллегия адвокатов</span>
+      <img src="{% static 'homeapp/img/Vector.png' %}" alt="" />
+      <p>
+        Сила в знании, справедливость в действии: ваша защита – наша миссия!
+      </p>
+      <button>Получить консультацию</button>
+    </div>
+    <img class="hero-3" src="{% static 'homeapp/img/ml.png' %}" alt="" />
+  </div>
+</div>
 
-
-
-
-
-    <!-- about -->
-    <section class="about-area mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="about-inner">
-                        <div class="row">
-                            <h1 class="text-center">Абонентское обслуживание</h1>
-                            <p class="text-center">Абонентское обслуживание адвокатом подразумевает постоянное
-                                юридическое сопровождение
-                                клиента на протяжении определенного периода времени, обычно в течение года. Оно
-                                предоставляет клиентам возможность получить профессиональные юридические услуги и
-                                консультации от адвоката по различным вопросам без необходимости оплачивать каждую
-                                отдельную консультацию.<br>Основные преимущества абонентского обслуживания адвокатом:
-                            </p>
-                        </div>
-                        <div class="row">
-                            <!-- single success -->
-                            <div class="col-lg-6 col-md-6">
-                                <div class="single-success m-1 work_e p-2">
-                                    <p class="h3 p-2">Экономия</p>
-                                    <p class="">Клиент платит фиксированную сумму за годовое обслуживание и может
-                                        обращаться за помощью адвоката без дополнительной оплаты..</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="single-success m-1 work_e p-2">
-                                    <p class="h3 p-2">Уверенность</p>
-                                    <p class="">Клиент знает, что он всегда может
-                                        обратиться к опытному специалисту по вопросам права и получить нужную
-                                        помощь.</p>
-                                </div>
-                            </div>
-                            <!-- single success -->
-                            <div class="col-lg-6 col-md-6">
-                                <div class="single-success m-1 work_e p-2">
-                                    <p class="h3 p-2">Оперативность</p>
-                                    <p class="">Постоянный доступ к юридическим услугам. Клиент может получить
-                                        консультации и сопровождение адвоката по любым вопросам в течение установленного
-                                        периода.</p>
-                                </div>
-                            </div>
-                            <!-- single success -->
-                            <div class="col-lg-6 col-md-6">
-                                <div class="single-success m-1 work_e p-2">
-                                    <p class="h3 p-2">Осведомленность</p>
-                                    <p class="">Повышение уровня защиты интересов. Адвокат знаком с историей клиента и
-                                        его юридическими потребностями, что позволяет более эффективно защищать его
-                                        права и интересы.</p>
-                                </div>
-                            </div>
-                            <!-- single success -->
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <img style="width: 100%" src="{% static 'homeapp/img/work_day.jpg' %}">
-                </div>
-            </div>
+<div class="features__container" style="background: #f7f9ff" id="bg">
+  <div class="container">
+    <div class="features">
+      <div class="col feature">
+        <div class="feature-icon">
+          <img
+            style="width: 24px; height: 24px"
+            src="{% static 'homeapp/img/Mortarboard_alt.png' %}"
+            alt=""
+          />
         </div>
-    </section>
-    <!-- end about -->
-    <!--================ End video Area =================-->
 
-    <div class="container mt-5">
-        <h1>Этапы работы</h1>
-        <div class="accordion mt-5" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button " type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
-                        <h4 class="mb-0">Подбор и выбор адвоката</h4>
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        На этом этапе вам необходимо определиться с адвокатом, который <strong>способен решить вашу
-                        правовую
-                        проблему.</strong> При выборе адвоката важно учитывать его опыт и специализацию.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <h4 class="mb-0">Встреча и консультация с адвокатом</h4>
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        На данном этапе происходит знакомство с адвокатом и обсуждается ваше дело. Необходимо
-                        предоставить
-                        всю доступную информацию о вашей ситуации, задать вопросы и выслушать мнение адвоката о
-                        перспективах
-                        и возможных решениях вашей проблемы. Если адвокат готов взять ваше дело, обсуждается стоимость
-                        его
-                        услуг и детали сотрудничества.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        <h4 class="mb-0">Заключение договора</h4>
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        После того как вы выбрали адвоката и решились на сотрудничество, нужно заключить договор об
-                        оказании
-                        услуг. В договоре указываются условия сотрудничества, стоимость услуг адвоката, порядок
-                        предоставления отчетов о проделанной работе, а также ответственность сторон.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseTwo">
-                        <h4 class="mb-0">Изучение дела адвокатом и сбор информации</h4>
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        На этом этапе адвокат и его команда изучают документы по вашему делу, собирают доказательства и
-                        информацию, необходимую для успешного разрешения правовой проблемы. Адвокат может
-                        взаимодействовать с другими лицами, участвующими в деле, проводить переговоры и заниматься
-                        другими действиями для подготовки дела к разбирательству.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseTwo">
-                        <h4 class="mb-0">Проведение судебного процесса или альтернативных способов разрешения спора
-                            (если применимо)</h4>
-                    </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        В зависимости от ситуации, адвокат ведет дело в суде или с использованием альтернативных
-                        способов разрешения спора (например, переговоры или медиация). В процессе судебного
-                        разбирательства адвокат защищает ваши интересы, представляет доказательства и выступает перед
-                        судом.
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseTwo">
-                        <h4 class="mb-0">Завершение дела и окончание сотрудничества</h4>
-                    </button>
-                </h2>
-                <div id="collapseSix" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        После того как дело завершено и получено решение суда или достигнуто соглашение, адвокат
-                        помогает вам в исполнении решения или соглашения, а также при необходимости проводит
-                        апелляционное и кассационное обжалование. По окончании всех правовых процедур адвокат направляет
-                        вам итоговый акт выполненных услуг для оплаты. В конце сотрудничества стороны
-                        могут обсуждать возможность дельнейшего партнерства или поддержки по другим правовым вопросам.
-                    </div>
-                </div>
-            </div>
+        <p style="color: #2b3455">Экспертное правовое сопровождение</p>
+        <span>Мы знаем законы и имеем большой опыт работы.</span>
+      </div>
+      <div class="col feature">
+        <div class="feature-icon">
+          <img
+            style="width: 24px; height: 24px"
+            src="{% static 'homeapp/img/User_scan.png' %}"
+            alt=""
+          />
         </div>
+        <p style="color: #2b3455">Индивидуальный подход к клиенту</p>
+        <span>Учитываем все особенности вашей ситуации.</span>
+      </div>
+      <div class="col feature">
+        <div class="feature-icon">
+          <img
+            style="width: 24px; height: 24px"
+            src="{% static 'homeapp/img/Group.png' %}"
+            alt=""
+          />
+        </div>
+        <p style="color: #2b3455">Строим отношения на репутации и доверии</p>
+        <span>Наша цель — долгосрочное сотрудничество.</span>
+      </div>
     </div>
 
+    <div class="mission">
+      <span style="font-style: italic; font-weight: 700">"</span>
+      <p>
+        <b>Миссия</b>
+        МКА Партнер Групп заключается в предоставлении
+        <b>высококачественных юридических услуг</b>
+        , основанных на глубоком понимании потребностей и целей клиентов,
+        <b>с использованием инновационных подходов</b>
+        и экспертизы для достижения
+        <b>оптимальных результатов</b>
+        и установления долгосрочных партнерских отношений.
+      </p>
+      <span
+        style="
+          margin-left: auto;
+          display: block;
+          width: fit-content;
+          font-style: italic;
+          font-weight: 700;
+        "
+      >
+        "
+      </span>
+      <img src="{% static 'homeapp/img/logo.png' %}" alt="" />
+    </div>
+  </div>
 
-    <section>
-        <div class="container mt-3">
-            <div class="row">
-                <div class="col justify-content-between p-lg-4">
-                    <h1>Абонентское обслуживание</h1>
-                    <p class=" mt-5">Оплата за абонентское обслуживание может быть осуществлена ежемесячно или ежегодно.
-                        Стоимость
-                        обслуживания может варьироваться в зависимости от объема услуг, которые будут предоставлены
-                        адвокатом.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-4 col-lg-12 justify-content-between">
-                    <img class="m-0-auto" src="{% static 'homeapp/img/personal.jpg' %}">
-                    <h3 class="pt-3 mt-5">Личный адвокат</h3>
-                    <p>Заключив соглашение, доверитель получает квалифицированную юридическую помощь от группы адвокатов
-                         МКА «Партнер групп» по уголовным делам, административным делам 24/7.</p>
-                </div>
-                <div class="col-xl-4 col-lg-12 justify-content-between">
-                    <img class="m-0-auto" src="{% static 'homeapp/img/family.jpg' %}">
-                    <h3 class="pt-3 mt-5">Семейный адвокат</h3>
-                    <p>Абонентское обслуживание адвокатом для всей семьи - это услуга, которая позволяет обеспечить
-                        юридическую защиту группе лиц, состоящей из нескольких членов семьи. Это может включать
-                        супругов,
-                        детей, родителей и других близких родственников.</p>
-                </div>
-                <div class="col-xl-4 col-lg-12 justify-content-between">
-                    <img class="m-0-auto" src="{% static 'homeapp/img/business.jpg' %}">
-                    <h3 class="pt-3 mt-5">Сопровождение бизнеса</h3>
-                    <p>В своей деятельности МКА «Партнер групп» оказывает услуги компаниям на комплексной основе.
-                        Заключая
-                        соглашение о юридическом сопровождении бизнеса, вы избавляете себя от расходов, связанных с
-                        содержанием целого юридического департамента.</p>
-                </div>
-            </div>
+ 
+</div>
+<section class="vid container">
+  <div
+  class="video"
+  style="box-sizing: border-box; width: 100%; background: white"
+  >
+  <div class="container">
+    <div class="video-inner ">
+      <div style="width: 100%">
+        <div
+          style="height: 100%"
+          class="justify-content-center align-items-center d-flex rl-pos"
+        >
+          <a
+            style="height: 100%"
+            class="video-play-button"
+            href="https://www.youtube.com/shorts/zZBQsR7PDA4"
+          >
+            <img
+              style="
+                position: absolute;
+                transform: translate(-50%, -50%);
+                left: 50%;
+                top: 50%;
+                width: 70px;
+                height: 70px;
+              "
+              src="{% static 'homeapp/img/play.png' %}"
+            />
+            <img
+              style="width: 100%; max-width: 344px; height: 100%"
+              src="{% static 'homeapp/img/image4.png' %}"
+            />
+          </a>
         </div>
-    </section>
+      </div>
+      <div style="max-width: 825px">
+        <h2>
+          Хотите быть уверенным в успехе своего бизнеса или нуждаетесь в помощи
+          в решении сложных личных вопросов?
+        </h2>
+        <p>
+          МКА «Партнер Групп» не только решит Ваши проблемы, но и предотвратит
+          новые.
+        </p>
+  
+        <div class="right-bottom-area">
+          <div class="author-lacture">
+            <p>
+              Наша команда состоит из высококвалифицированных юристов и
+              адвокатов, которые непрерывно повышают свою квалификацию, навыки и
+              знания для сохранения Ваших интересов. Мы готовы предложить Вам
+              уникальные юридические решения, адаптированные для каждого
+              клиента, опираясь на Ваши специфические требования и запросы. В
+              борьбе со сложностями на пути к успеху, каждая секунда на вес
+              золота. Наши специалисты гарантируют Вам быструю и результативную
+              работу, сокращая время от проблемы до решения. Мы обеспечиваем
+              полную конфиденциальность и этичность во всех вопросах, связанных
+              с Вашим делом.
+            </p>
+          </div>
+        </div>
+  
+        <div style="display: flex; gap: 16px">
+          <button class="btn2">Все услуги</button>
+          <button class="btn1">Заказать звонок</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+</section>
 
-    <section class="service-area-2" style="background-color: rgba(0, 90, 255, 0.05);">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-lg-6">
-                    <div class="service-2-left">
-                        <div class="get-know">
-                            <p class="df-color mt-5">Почему необходим именно адвокат?</p>
-                            <h3>Адвокат является профессиональным юридическим консультантом
-                                и защитником!</h3>
-                            <p>Федеральный закон N 63-ФЗ «Об адвокатской деятельности и адвокатуре в Российской
-                                Федерации».</p>
-                        </div>
-                        <div class="author-lacture">
-                            <p>Устанавливает требования к квалификации адвокатов, определяет порядок присвоения им
-                                статуса адвоката, предусматривает меры наказания за нарушение этих требований и
-                                определяет гарантии прав и свобод адвокатов во время их профессиональной деятельности. В
-                                частности, закон обязывает адвокатов соблюдать конфиденциальность, защищать интересы
-                                клиентов, не допускать нарушений процедуры и соблюдать этические нормы. В целом, закон
-                                организует профессиональную деятельность адвокатов и обеспечивает защиту прав клиентов в
-                                процессе реализации их правовых интересов.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="service-2-right">
-                        <div class="row">
-                            <div class="col  col-sm-6">
-                                <div class="left-image">
-                                    <div class="s-img"><img class="img-fluid"
-                                                            src="{% static 'homeapp/img/service/service1.jpg' %}"
-                                                            alt=""></div>
-                                    <div class="s-img pt-5"><img class="img-fluid"
-                                                                 src="{% static 'homeapp/img/service/service2.jpg' %}"
-                                                                 alt=""></div>
-                                </div>
-                            </div>
-                            <div class="col  col-sm-6">
-                                <div class="right-image">
-                                    <div class="s-img"><img class="img-fluid"
-                                                            src="{% static 'homeapp/img/service/service3.jpg' %}"
-                                                            alt=""></div>
-                                    <div class="s-img pt-5"><img class="img-fluid"
-                                                                 src="{% static 'homeapp/img/service/service4.jpg' %}"
-                                                                 alt=""></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- about -->
+<section class="about-area">
+  <div class="container">
+    <div class="about">
+      <div>
+        <div class="about-inner">
+          <div class="about-wrapper">
+            <div>
+              <h2>Абонентское обслуживание</h2>
+              <p style="font-weight: 500; padding: 0px">
+                Абонентское обслуживание адвокатом подразумевает постоянное
+                юридическое сопровождение клиента на протяжении определенного
+                периода времени, обычно в течение года. Оно предоставляет клиентам
+                возможность получить профессиональные юридические услуги и
+                консультации от адвоката по различным вопросам без необходимости
+                оплачивать каждую отдельную консультацию.
+                <br />
+                Основные преимущества абонентского обслуживания адвокатом:
+              </p>
             </div>
-        </div>
-    </section>
-                <!--================ Партнеры =================-->
-    <section>
+            <div class="adventages">
+              <!-- single success -->
+              <div class="adventage">
+                <div>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 16px;
+                      align-items: center;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <img
+                      style="
+                        background: #2a3554;
+                        width: 43px;
+                        height: 43px;
+                        padding: 10px;
+                      "
+                      src="{% static 'homeapp/img/Wallet_alt.png' %}"
+                      alt=""
+                    />
+                    <p class="h3">Экономия</p>
+                  </div>
+                  <p class="">
+                    Клиент платит фиксированную сумму за годовое обслуживание и
+                    может обращаться за помощью адвоката без дополнительной
+                    оплаты..
+                  </p>
+                </div>
+              </div>
+              <div class="adventage">
+                <div>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 16px;
+                      align-items: center;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <img
+                      style="
+                        background: #2a3554;
+                        width: 43px;
+                        height: 43px;
+                        padding: 10px;
+                      "
+                      src="{% static 'homeapp/img/Fire.png' %}"
+                      alt=""
+                    />
+                    <p class="h3">Уверенность</p>
+                  </div>
+  
+                  <p class="">
+                    Клиент знает, что он всегда может обратиться к опытному
+                    специалисту по вопросам права и получить нужную помощь.
+                  </p>
+                </div>
+              </div>
+              <!-- single success -->
+              <div class="adventage">
+                <div>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 16px;
+                      align-items: center;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <img
+                      style="
+                        background: #2a3554;
+                        width: 43px;
+                        height: 43px;
+                        padding: 10px;
+                      "
+                      src="{% static 'homeapp/img/Speed_alt.png' %}"
+                      alt=""
+                    />
+                    <p class="h3">Оперативность</p>
+                  </div>
+                  <p class="">
+                    Постоянный доступ к юридическим услугам. Клиент может получить
+                    консультации и сопровождение адвоката по любым вопросам в
+                    течение установленного периода.
+                  </p>
+                </div>
+              </div>
+              <!-- single success -->
+              <div class="adventage">
+                <div>
+                  <div
+                    style="
+                      display: flex;
+                      gap: 16px;
+                      align-items: center;
+                      margin-bottom: 8px;
+                    "
+                  >
+                    <img
+                      style="
+                        background: #2a3554;
+                        width: 43px;
+                        height: 43px;
+                        padding: 10px;
+                      "
+                      src="{% static 'homeapp/img/Lamp.png' %}"
+                      alt=""
+                    />
+                    <p class="h3">Осведомленность</p>
+                  </div>
+                  <p class="">
+                    Повышение уровня защиты интересов. Адвокат знаком с историей
+                    клиента и его юридическими потребностями, что позволяет более
+                    эффективно защищать его права и интересы.
+                  </p>
+                </div>
+              </div>
+              <!-- single success -->
+            </div>
+           
+          </div>
+          <div class="adventages-wrap">
+            <img
+            style="width: 100%"
+            src="{% static 'homeapp/img/work_day.jpg' %}"
+          />
+          <div class="adventages adventages-mob">
+            <!-- single success -->
+            <div class="adventage">
+              <div>
+                <div
+                  style="
+                    display: flex;
+                    gap: 16px;
+                    align-items: center;
+                    margin-bottom: 8px;
+                  "
+                >
+                  <img
+                    style="
+                      background: #2a3554;
+                      width: 43px;
+                      height: 43px;
+                      padding: 10px;
+                    "
+                    src="{% static 'homeapp/img/Wallet_alt.png' %}"
+                    alt=""
+                  />
+                  <p class="h3">Экономия</p>
+                </div>
+                <p class="">
+                  Клиент платит фиксированную сумму за годовое обслуживание и
+                  может обращаться за помощью адвоката без дополнительной
+                  оплаты..
+                </p>
+              </div>
+            </div>
+            <div class="adventage">
+              <div>
+                <div
+                  style="
+                    display: flex;
+                    gap: 16px;
+                    align-items: center;
+                    margin-bottom: 8px;
+                  "
+                >
+                  <img
+                    style="
+                      background: #2a3554;
+                      width: 43px;
+                      height: 43px;
+                      padding: 10px;
+                    "
+                    src="{% static 'homeapp/img/Fire.png' %}"
+                    alt=""
+                  />
+                  <p class="h3">Уверенность</p>
+                </div>
+
+                <p class="">
+                  Клиент знает, что он всегда может обратиться к опытному
+                  специалисту по вопросам права и получить нужную помощь.
+                </p>
+              </div>
+            </div>
+            <!-- single success -->
+            <div class="adventage">
+              <div>
+                <div
+                  style="
+                    display: flex;
+                    gap: 16px;
+                    align-items: center;
+                    margin-bottom: 8px;
+                  "
+                >
+                  <img
+                    style="
+                      background: #2a3554;
+                      width: 43px;
+                      height: 43px;
+                      padding: 10px;
+                    "
+                    src="{% static 'homeapp/img/Speed_alt.png' %}"
+                    alt=""
+                  />
+                  <p class="h3">Оперативность</p>
+                </div>
+                <p class="">
+                  Постоянный доступ к юридическим услугам. Клиент может получить
+                  консультации и сопровождение адвоката по любым вопросам в
+                  течение установленного периода.
+                </p>
+              </div>
+            </div>
+            <!-- single success -->
+            <div class="adventage">
+              <div>
+                <div
+                  style="
+                    display: flex;
+                    gap: 16px;
+                    align-items: center;
+                    margin-bottom: 8px;
+                  "
+                >
+                  <img
+                    style="
+                      background: #2a3554;
+                      width: 43px;
+                      height: 43px;
+                      padding: 10px;
+                    "
+                    src="{% static 'homeapp/img/Lamp.png' %}"
+                    alt=""
+                  />
+                  <p class="h3">Осведомленность</p>
+                </div>
+                <p class="">
+                  Повышение уровня защиты интересов. Адвокат знаком с историей
+                  клиента и его юридическими потребностями, что позволяет более
+                  эффективно защищать его права и интересы.
+                </p>
+              </div>
+            </div>
+            <!-- single success -->
+          </div>
+          </div>
         
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col justify-content-center">
-                    <h1 class="mb-3">Партнеры коллегии</h1>
-                    <p class="mb-5">Наша команда - адвокаты и юристы с высоким уровнем экспертизы: выпускники лучших
-                        вузов и специалисты с опытом работы в правоохранительных органах, готовы оказать помощь в самых
-                        сложных ситуациях.</p>
-                </div>
-            </div>
-
-            <div class="row team-slider mt-5">
-                {% for partner in partners %}
-                <div class="col-md-12">
-                    <div class="details">
-                        <img class="rounded" src="{{ partner.photo.url }}" alt="{{ partner.name }}">
-                        <h5 class="text-center mt-3 fw-bold">{{ partner.name }}</h5>
-                        <ul class="list-unstyled list-group list-group-flush text-muted text-center ">
-
-                            <li class="list-group-item">{{ partner.min_context1 }}</li>
-                            <li class="list-group-item">{{ partner.min_context2 }}</li>
-                            <li class="list-group-item">{{ partner.min_context3 }}</li>
-                            <li class="list-group-item">{{ partner.min_context4 }}</li>
-                        </ul>
-                    </div>
-                </div>
-                {% endfor %}
-
-            </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end about -->
+<!--================ End video Area =================-->
+
+<div class="steps">
+  <div class="container">
+    <h2>Этапы работы</h2>
+    <div class="accordion mt-4" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            <span>1</span>
+            <h4 class="mb-0">Подбор и выбор адвоката</h4>
+          </button>
+        </h2>
+        <div
+          id="collapseOne"
+          class="accordion-collapse collapse show"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            На этом этапе вам необходимо определиться с адвокатом, который
+            <strong>способен решить вашу правовую проблему.</strong>
+            При выборе адвоката важно учитывать его опыт и специализацию.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseTwo"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            <span>2</span>
+            <h4 class="mb-0">Встреча и консультация с адвокатом</h4>
+          </button>
+        </h2>
+        <div
+          id="collapseTwo"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            На данном этапе происходит знакомство с адвокатом и обсуждается ваше
+            дело. Необходимо предоставить всю доступную информацию о вашей
+            ситуации, задать вопросы и выслушать мнение адвоката о перспективах
+            и возможных решениях вашей проблемы. Если адвокат готов взять ваше
+            дело, обсуждается стоимость его услуг и детали сотрудничества.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseThree"
+            aria-expanded="false"
+            aria-controls="collapseThree"
+          >
+            <span>3</span>
+            <h4 class="mb-0">Заключение договора</h4>
+          </button>
+        </h2>
+        <div
+          id="collapseThree"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            После того как вы выбрали адвоката и решились на сотрудничество,
+            нужно заключить договор об оказании услуг. В договоре указываются
+            условия сотрудничества, стоимость услуг адвоката, порядок
+            предоставления отчетов о проделанной работе, а также ответственность
+            сторон.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFour"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            <span>4</span>
+            <h4 class="mb-0">Изучение дела адвокатом и сбор информации</h4>
+          </button>
+        </h2>
+        <div
+          id="collapseFour"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            На этом этапе адвокат и его команда изучают документы по вашему
+            делу, собирают доказательства и информацию, необходимую для
+            успешного разрешения правовой проблемы. Адвокат может
+            взаимодействовать с другими лицами, участвующими в деле, проводить
+            переговоры и заниматься другими действиями для подготовки дела к
+            разбирательству.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseFive"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            <span style="width: 43px;">5</span>
+            <h4 class="mb-0">
+              Проведение судебного процесса или альтернативных способов
+              разрешения спора (если применимо)
+            </h4>
+          </button>
+        </h2>
+        <div
+          id="collapseFive"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            В зависимости от ситуации, адвокат ведет дело в суде или с
+            использованием альтернативных способов разрешения спора (например,
+            переговоры или медиация). В процессе судебного разбирательства
+            адвокат защищает ваши интересы, представляет доказательства и
+            выступает перед судом.
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseSix"
+            aria-expanded="false"
+            aria-controls="collapseTwo"
+          >
+            <span>6</span>
+            <h4 class="mb-0">Завершение дела и окончание сотрудничества</h4>
+          </button>
+        </h2>
+        <div
+          id="collapseSix"
+          class="accordion-collapse collapse"
+          data-bs-parent="#accordionExample"
+        >
+          <div class="accordion-body">
+            После того как дело завершено и получено решение суда или достигнуто
+            соглашение, адвокат помогает вам в исполнении решения или
+            соглашения, а также при необходимости проводит апелляционное и
+            кассационное обжалование. По окончании всех правовых процедур
+            адвокат направляет вам итоговый акт выполненных услуг для оплаты. В
+            конце сотрудничества стороны могут обсуждать возможность дельнейшего
+            партнерства или поддержки по другим правовым вопросам.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="aboniment">
+  <div class="container mt-3">
+    <div class="aboniment__text">
+      <div class=" ">
+        <h2>Абонентское обслуживание</h2>
+        <p>
+          Оплата за абонентское обслуживание может быть осуществлена ежемесячно
+          или ежегодно. Стоимость обслуживания может варьироваться в зависимости
+          от объема услуг, которые будут предоставлены адвокатом.
+        </p>
+      </div>
+    </div>
+    <div class="aboniments">
+      <div class="aboniment__item">
+        <img class="m-0-auto" src="{% static 'homeapp/img/personal.jpg' %}" />
+        <h3 class="">Личный адвокат</h3>
+        <p>
+          Заключив соглашение, доверитель получает квалифицированную юридическую
+          помощь от группы адвокатов  МКА «Партнер групп» по уголовным делам,
+          административным делам 24/7.
+        </p>
+        <a class="btn2" href="">Оформить подписку</a>
+      </div>
+      <div class="aboniment__item">
+        <img class="m-0-auto" src="{% static 'homeapp/img/family.jpg' %}" />
+        <h3 class="">Семейный адвокат</h3>
+        <p>
+          Абонентское обслуживание адвокатом для всей семьи - это услуга,
+          которая позволяет обеспечить юридическую защиту группе лиц, состоящей
+          из нескольких членов семьи. Это может включать супругов, детей,
+          родителей и других близких родственников.
+        </p>
+        <a class="btn2" href="">Оформить подписку</a>
+      </div>
+      <div class="aboniment__item">
+        <img class="m-0-auto" src="{% static 'homeapp/img/business.jpg' %}" />
+        <h3 class="">Сопровождение бизнеса</h3>
+        <p>
+          В своей деятельности МКА «Партнер групп» оказывает услуги компаниям на
+          комплексной основе. Заключая соглашение о юридическом сопровождении
+          бизнеса, вы избавляете себя от расходов, связанных с содержанием
+          целого юридического департамента.
+        </p>
+        <a class="btn2" href="">Оформить подписку</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section
+  class="service-area-2"
+  style="background-color: rgba(0, 90, 255, 0.05)"
+>
+  <div class="container">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-6">
+        <div class="service-2-left">
+          <div class="get-know">
+            <p class="df-color mt-5">Почему необходим именно адвокат?</p>
+            <h3>
+              Адвокат является профессиональным юридическим консультантом и
+              защитником!
+            </h3>
+            <p>
+              Федеральный закон N 63-ФЗ «Об адвокатской деятельности и
+              адвокатуре в Российской Федерации».
+            </p>
+          </div>
+          <div class="author-lacture">
+            <p>
+              Устанавливает требования к квалификации адвокатов, определяет
+              порядок присвоения им статуса адвоката, предусматривает меры
+              наказания за нарушение этих требований и определяет гарантии прав
+              и свобод адвокатов во время их профессиональной деятельности. В
+              частности, закон обязывает адвокатов соблюдать конфиденциальность,
+              защищать интересы клиентов, не допускать нарушений процедуры и
+              соблюдать этические нормы. В целом, закон организует
+              профессиональную деятельность адвокатов и обеспечивает защиту прав
+              клиентов в процессе реализации их правовых интересов.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="service-2-right">
+          <div class="row">
+            <div class="col col-sm-6">
+              <div class="left-image">
+                <div class="s-img">
+                  <img
+                    class="img-fluid"
+                    src="{% static 'homeapp/img/service/service1.jpg' %}"
+                    alt=""
+                  />
+                </div>
+                <div class="s-img pt-5">
+                  <img
+                    class="img-fluid"
+                    src="{% static 'homeapp/img/service/service2.jpg' %}"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col col-sm-6">
+              <div class="right-image">
+                <div class="s-img">
+                  <img
+                    class="img-fluid"
+                    src="{% static 'homeapp/img/service/service3.jpg' %}"
+                    alt=""
+                  />
+                </div>
+                <div class="s-img pt-5">
+                  <img
+                    class="img-fluid"
+                    src="{% static 'homeapp/img/service/service4.jpg' %}"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!--================ Партнеры =================-->
+<section>
+  <div class="container mt-5">
+    <div>
+      <div
+        style="background: rgb(42, 53, 84); padding: 32px; margin-bottom: 20px"
+        class="col justify-content-center"
+      >
+        <h2
+          style="
+            color: rgb(255, 255, 255);
+            font-family: Russo One;
+            font-size: 32px;
+            font-weight: 400;
+            text-align: left;
+            padding: 0px;
+          "
+          class="mb-3"
+        >
+          Партнеры коллегии
+        </h2>
+        <p style="color: white">
+          Наша команда - адвокаты и юристы с высоким уровнем экспертизы:
+          выпускники лучших вузов и специалисты с опытом работы в
+          правоохранительных органах, готовы оказать помощь в самых сложных
+          ситуациях.
+        </p>
+      </div>
+    </div>
+
+    <div class="team-slider mt-5">
+      {% for partner in partners %}
+      <div class="partner">
+        <div class="details">
+          <img
+            class="rounded"
+            src="{{ partner.photo.url }}"
+            alt="{{ partner.name }}"
+          />
+          <h5 class="mt-3 fw-bold">{{ partner.name }}</h5>
+          <ul
+            class="list-unstyled list-group list-group-flush text-muted text-center mb-4"
+          >
+            <li class="list-group-item">{{ partner.min_context1 }}</li>
+            <li class="list-group-item">{{ partner.min_context2 }}</li>
+            <li class="list-group-item">{{ partner.min_context3 }}</li>
+            <li class="list-group-item">{{ partner.min_context4 }}</li>
+          </ul>
+          <a class="btn1" href="">Получить консультацию</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!--================ презентация =================-->
+<div class="cta-area section_gap overlay">
+  <div class="container">
+    <div>
+      <div style="background: rgb(42, 53, 84); color: white;    padding: 32px;">
+        <h2
+          style="
+            color: rgb(255, 255, 255);
+            font-family: 'Russo One';
+            font-size: 32px;
+            font-weight: 400;
+            line-height: 39px;
+            text-align: left;
+            padding: 0px;
+            margin: 0px;
+          margin-bottom: 16px;
+          "
+        >
+          Ознакомиться с презентацией
+          <br />
+          МКА «Партнер Групп»
+        </h2>
+        <p
+          style="
+            color: rgb(255, 255, 255);
+
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 16px;
+          "
+        >
+          Приглашаем вас ознакомиться с презентацией компании МКА «Партнер
+          Групп» и узнать о нас в краткой удобной форме.
+        </p>
+        <a
+          href="{% static 'homeapp/docs/Партнер групп.pdf' %}"
+          class="btn1"
+          target="_blank"
+        >
+          Скачать презентацию PDF
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+<!--================ презентация =================-->
+
+{# slider#}
+<div class="container">
+  <div class="clients  mt-5">
+    <h2 style="color: rgb(42, 53, 84);
+  font-family: 'Russo One';
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 39px;
+    text-align: left;
+    padding: 0px;
+    margin-bottom: 16px;">Нам доверяют</h2>
+   
+    <section class="customer-logos slider">
+      <div class="slide">
+        <img src="{% static 'homeapp/img/partners/1.png' %}" />
+      </div>
+      <div class="slide">
+        <img src="{% static 'homeapp/img/partners/2.png' %}" />
+      </div>
+      <div class="slide">
+        <img src="{% static 'homeapp/img/partners/3.jpg' %}" />
+      </div>
+      <div class="slide">
+        <img src="{% static 'homeapp/img/partners/4.png' %}" />
+      </div>
+      <div class="slide">
+        <img src="{% static 'homeapp/img/partners/5.png' %}" />
+      </div>
+      <div class="slide">
+        <img src="{% static 'homeapp/img/partners/6.png' %}" />
+      </div>
+      <div class="slide">
+        <img src="{% static 'homeapp/img/partners/7.jpg' %}" />
+      </div>
     </section>
+  </div>
+</div>
 
-    <!--================ презентация =================-->
-    <div class="cta-area section_gap overlay">
-        <div class="container mt-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-
-                    <h1>Ознакомиться с презентацией<br>МКА «Партнер Групп»</h1>
-                    <p>Приглашаем вас ознакомиться с презентацией компании МКА «Партнер Групп» и узнать о нас в краткой
-                        удобной форме.</p>
-                    <a href="{% static 'homeapp/docs/Партнер групп.pdf' %}" class="btn btn-dark" target="_blank">Скачать
-                        презентацию
-                        PDF</a>
-
-
-                </div>
-            </div>
+{#slider#}
+<!--================ Новости =================-->
+{% comment %} {% if News %}
+<section class="news container">
+  <div class="news_feed_header">
+    <h1>Новости и публикации</h1>
+  </div>
+  <div class="news_feed_content mt-5">
+    <div class="row">
+      <!-- Самая свежая новость -->
+      {% if News %}
+      <div class="col-md-5">
+        <div class="news_item latest_news">
+          <div class="news_item_header">
+            <p class="text-end">{{ News.0.create_datetime }}</p>
+            <h2>{{ News.0.title }}</h2>
+          </div>
+          <div class="news_item_content">
+            <p>{{ News.0.text|safe|truncatechars:100 }}</p>
+          </div>
+          <div class="button-container" style="text-align: right">
+            <a href="/news_{{ News.0.slug }}" class="btn btn-primary">
+              Читать далее
+            </a>
+          </div>
         </div>
-    </div>
-    <!--================ презентация =================-->
+      </div>
 
-    {#    slider#}
-    <div class="container mt-5">
-        <h2>Нам доверяют</h2>
-        {#        <h5>Частные лица и компании разных отраслей. Многие из них сотрудничают с нами на долгосрочной основе, доверяя#}
-        {#            нам свои дела и бизнес.</h5>#}
-        <section class="customer-logos slider">
-            <div class="slide"><img src="{% static 'homeapp/img/partners/1.png' %}"></div>
-            <div class="slide"><img src="{% static 'homeapp/img/partners/2.png' %}"></div>
-            <div class="slide"><img src="{% static 'homeapp/img/partners/3.jpg' %}"></div>
-            <div class="slide"><img src="{% static 'homeapp/img/partners/4.png' %}"></div>
-            <div class="slide"><img src="{% static 'homeapp/img/partners/5.png' %}"></div>
-            <div class="slide"><img src="{% static 'homeapp/img/partners/6.png' %}"></div>
-            <div class="slide"><img src="{% static 'homeapp/img/partners/7.jpg' %}"></div>
-        </section>
+      <!-- Остальные новости -->
+      <div class="col-md-6">
+        <ul class="list_of_news">
+          {% for news in News|slice:"1:6" %}
+          <li class="news-line">
+            <div class="news_item_content line">
+              <p>
+                {{ news.create_datetime|date:"d-m-Y H:i:s" }} -
+                <a href="/news_{{ news.slug }}">{{ news.title }}</a>
+              </p>
+            </div>
+            {% comment %}
+            <div
+              class="news_item_content line"
+              style="
+                background-color: rgba(0, 90, 255, 0.05);
+                border-radius: 5px;
+              "
+            >
+              <p>
+                {{ news.create_datetime }} -
+                <a href="/news_{{ news.slug }}">{{ news.title }}</a>
+              </p>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
     </div>
-    {#slider#}
-    <!--================ Новости =================-->
-    {% comment %} {% if News %}
-        <section class="news container">
-            <div class="news_feed_header">
-                <h1>Новости и публикации</h1>
-            </div>
-            <div class="news_feed_content mt-5">
-                <div class="row">
-                    <!-- Самая свежая новость -->
-                    {% if News %}
-                        <div class="col-md-5">
-                            <div class="news_item latest_news">
-                                <div class="news_item_header">
-                                    <p class="text-end">{{ News.0.create_datetime }}</p>
-                                    <h2>{{ News.0.title }}</h2>
-                                </div>
-                                <div class="news_item_content">
-                                    <p>{{ News.0.text|safe|truncatechars:100 }}</p>
-                                </div>
-                                <div class="button-container" style="text-align: right;">
-                                    <a href="/news_{{ News.0.slug }}" class="btn btn-primary">Читать далее</a>
-                                </div>                               
-                                
-                            </div>
-                        </div>
-                        
-                        <!-- Остальные новости -->
-                        <div class="col-md-6">
-                            <ul class="list_of_news">
-                                {% for news in News|slice:"1:6" %}
-                                <li class="news-line">
-                                    <div class="news_item_content line">
-                                        <p>{{ news.create_datetime|date:"d-m-Y H:i:s" }} - <a href="/news_{{ news.slug }}">{{ news.title }}</a></p>
-                                    </div>
-                                    {% comment %} <div class="news_item_content line" 
-                                    style="background-color: rgba(0, 90, 255, 0.05);
-                                    border-radius: 5px;">
-                                        <p>{{ news.create_datetime }} - <a href="/news_{{ news.slug }}">{{ news.title }}</a></p>
-                                    </div>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>                        
-                    {% endif %}
-                </div>
-            </div>
-                
-        </section> 
-    {% endif %}{% endcomment %}
-{% endblock %}
+  </div>
+</section>
+{% endif %}{% endcomment %} {% endblock %}
