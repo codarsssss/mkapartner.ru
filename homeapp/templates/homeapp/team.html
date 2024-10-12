@@ -6,20 +6,6 @@
 
 <div class="container">
     {% for partner in partners %}
-    {% if partner.id|divisibleby:2 %}
-    <div class="row mt-5 partner__card">
-        <div class="col-lg-8 mt-4">
-            <h2 class="partner__card-title">{{ partner.name }}</h2>
-            <p>{{ partner.context|linebreaksbr }}</p>
-            <button type="button" class="btn1 partner__card-button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Получить консультацию
-            </button>
-        </div>
-        <div class="col-lg-4 order-first order-lg-last">
-            <img class="w-100" src="{{ partner.photo.url }}" alt="{{ partner.name }}">
-        </div>
-    </div>
-    {% else %}
     <div class="row mt-5 partner__card">
         <div class="col-lg-4">
             <img class="w-100" src="{{ partner.photo.url }}" alt="{{ partner.name }}">
@@ -33,9 +19,7 @@
         </div>
         {# <a href="">Получить консультацию</a> #}
     </div>
-    {% endif %}
     {% endfor %}
-
 </div>
 
 {% endblock %}

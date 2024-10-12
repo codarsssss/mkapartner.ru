@@ -5,6 +5,7 @@ from .models import Consultation, Worker, News, Partner
 from django.urls import reverse
 from django.utils.html import format_html
 from .models import PracticeCategory, PracticeInstance, PracticeInstanceImage
+from adminsortable2.admin import SortableAdminMixin
 
 
 @admin.register(Consultation)
@@ -56,7 +57,7 @@ class NewsAdmin(admin.ModelAdmin):
 
 
 @admin.register(Partner)
-class PartnerAdmin(admin.ModelAdmin):
+class PartnerAdmin(SortableAdminMixin, admin.ModelAdmin):
     form = PartnerForm
     list_display = ['name',]
 

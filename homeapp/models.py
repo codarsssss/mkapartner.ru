@@ -149,14 +149,25 @@ class Partner(models.Model):
     context = models.TextField(verbose_name="Полное описание")
     photo = models.ImageField(verbose_name="Фото", upload_to="partners/")
     time_create = models.DateTimeField(auto_now_add=True)
+    my_order = models.IntegerField(
+        blank=False,
+        null=False,
+        db_index=True,
+        verbose_name="Порядок"
+    )
 
     class Meta:
-        ordering = ["-time_create"]
-
+        ordering = ['my_order']
         verbose_name = "Партнера"
         verbose_name_plural = "Партнеры"
 
-    def __str__(self):        
+    def save(self, *args, **kwargs):
+        if not self.my_order:
+            super().save(*args, **kwargs)
+            self.my_order = self.pk
+        super().save(*args, **kwargs)
+
+    def __str__(self):
         return f"{self.name}: {self.work_place}"
 
 
