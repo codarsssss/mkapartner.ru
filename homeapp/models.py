@@ -149,9 +149,16 @@ class Partner(models.Model):
     context = models.TextField(verbose_name="Полное описание")
     photo = models.ImageField(verbose_name="Фото", upload_to="partners/")
     time_create = models.DateTimeField(auto_now_add=True)
+    my_order = models.IntegerField(
+        default=0,
+        blank=False,
+        null=False,
+        db_index=True,
+        verbose_name="Порядок"
+    )
 
     class Meta:
-        ordering = ["-time_create"]
+        ordering = ['my_order']
 
         verbose_name = "Партнера"
         verbose_name_plural = "Партнеры"
