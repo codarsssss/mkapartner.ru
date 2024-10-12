@@ -9,13 +9,23 @@ html {
   font-size: 18px;
 }
 
+body, html {
+  height: 100%;
+}
+
 body {
   font-family: "Cormorant Garamond", serif;
-
   font-weight: 400;
   color: #000;
   background-color: rgba(235, 239, 234, 0.3);
   min-width: 320px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.filling {
+  flex: 1;
 }
 
 .btn {
@@ -46,12 +56,23 @@ nav img {
 }
 
 .footer {
-  padding-top: 20px;
+  padding: 32px 0;
+  background-color: #2b3455;
 }
 
-.footer {
-  background-color: #2b3455;
-  padding-bottom: 3px;
+/* for modal window in footer*/
+.footer__modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  display: flex;
+}
+
+.modal-footer {
+  border-top: none;
 }
 
 footer img {
@@ -85,29 +106,23 @@ footer p {
 
 .btn__footer {
   background: #bbc4fc;
-  background: -moz-radial-gradient(
-    center,
-    ellipse cover,
-    #fceabb 0%,
-    #fccd4d 50%,
-    #f8b500 91%,
-    #fbdf93 100%
-  );
-  background: -webkit-radial-gradient(
-    center,
-    ellipse cover,
-    #fceabb 0%,
-    #fccd4d 50%,
-    #f800df 91%,
-    #fbdf93 100%
-  );
-  background: radial-gradient(
-    ellipse at center,
-    #fceabb 0%,
-    #fccd4d 50%,
-    #f8b500 91%,
-    #fbdf93 100%
-  );
+  background: -moz-radial-gradient(center,
+      ellipse cover,
+      #fceabb 0%,
+      #fccd4d 50%,
+      #f8b500 91%,
+      #fbdf93 100%);
+  background: -webkit-radial-gradient(center,
+      ellipse cover,
+      #fceabb 0%,
+      #fccd4d 50%,
+      #f800df 91%,
+      #fbdf93 100%);
+  background: radial-gradient(ellipse at center,
+      #fceabb 0%,
+      #fccd4d 50%,
+      #f8b500 91%,
+      #fbdf93 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fceabb', endColorstr='#fbdf93', GradientType=1);
   color: #2b3455;
   margin: 30px 0;
@@ -118,29 +133,23 @@ footer p {
 
 .btn__carousel {
   background: #bbc4fc;
-  background: -moz-radial-gradient(
-    center,
-    ellipse cover,
-    #fceabb 0%,
-    #fccd4d 50%,
-    #f8b500 91%,
-    #fbdf93 100%
-  );
-  background: -webkit-radial-gradient(
-    center,
-    ellipse cover,
-    #fceabb 0%,
-    #fccd4d 50%,
-    #f800df 91%,
-    #fbdf93 100%
-  );
-  background: radial-gradient(
-    ellipse at center,
-    #fceabb 0%,
-    #fccd4d 50%,
-    #f8b500 91%,
-    #fbdf93 100%
-  );
+  background: -moz-radial-gradient(center,
+      ellipse cover,
+      #fceabb 0%,
+      #fccd4d 50%,
+      #f8b500 91%,
+      #fbdf93 100%);
+  background: -webkit-radial-gradient(center,
+      ellipse cover,
+      #fceabb 0%,
+      #fccd4d 50%,
+      #f800df 91%,
+      #fbdf93 100%);
+  background: radial-gradient(ellipse at center,
+      #fceabb 0%,
+      #fccd4d 50%,
+      #f8b500 91%,
+      #fbdf93 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fceabb', endColorstr='#fbdf93', GradientType=1);
   color: #2b3455;
   margin: 10px 0;
@@ -354,7 +363,15 @@ h2 {
 }
 
 .slick-initialized .slick-slide {
-  display: block;
+  display: flex;
+  align-self: stretch;
+  height: auto;
+}
+
+.details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .slick-loading .slick-slide {
@@ -575,8 +592,9 @@ h2 {
 /*}*/
 
 .news_item {
-  background-color: rgba(0, 90, 255, 0.05);
-  padding: 10px;
+  /* background-color: rgba(0, 90, 255, 0.05); */
+  background-color: #F6F9FF;
+  padding: 24px;
   border-radius: 5px;
 }
 
@@ -606,16 +624,19 @@ h2 {
 }
 
 .line {
-  background-color: rgba(
-    0,
-    90,
-    255,
-    0.05
-  ); /* Цвет фона - светло-серый, вы можете выбрать любой цвет */
-  margin-bottom: 10px; /* Добавляет небольшой отступ снизу для каждой строки */
-  padding: 10px; /* Добавляет внутренние отступы для некоторого пространства вокруг текста */
-  border-radius: 5px; /* Слегка закругляет углы для более современного вида */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Небольшая тень для лучшего визуального разделения */
+  background-color: rgba(0,
+      90,
+      255,
+      0.05);
+  /* Цвет фона - светло-серый, вы можете выбрать любой цвет */
+  margin-bottom: 10px;
+  /* Добавляет небольшой отступ снизу для каждой строки */
+  padding: 10px;
+  /* Добавляет внутренние отступы для некоторого пространства вокруг текста */
+  border-radius: 5px;
+  /* Слегка закругляет углы для более современного вида */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* Небольшая тень для лучшего визуального разделения */
 }
 
 .list_of_news {
@@ -624,74 +645,100 @@ h2 {
 }
 
 .list_of_news li {
-  padding: 5px 0; /* Добавляет небольшое пространство между строками */
+  padding: 5px 0;
+  /* Добавляет небольшое пространство между строками */
 }
 
 .icon-nav {
-  position: relative; /* Определяет, что позиционирование дочерних элементов будет относительно этого блока */
-  display: inline-block; /* Это делает контейнер только таким большим, как его содержимое */
+  position: relative;
+  /* Определяет, что позиционирование дочерних элементов будет относительно этого блока */
+  display: inline-block;
+  /* Это делает контейнер только таким большим, как его содержимое */
 }
 
 .hidden-menu {
-  display: none; /* Скрывает меню по умолчанию */
-  position: absolute; /* Позиционирует меню относительно ближайшего родительского элемента с position: relative */
-  background-color: #fff; /* Фоновый цвет меню */
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2); /* Добавляет тень для визуального эффекта */
-  min-width: 160px; /* Минимальная ширина меню */
-  z-index: 1; /* Устанавливает меню поверх других элементов */
+  display: none;
+  /* Скрывает меню по умолчанию */
+  position: absolute;
+  /* Позиционирует меню относительно ближайшего родительского элемента с position: relative */
+  background-color: #fff;
+  /* Фоновый цвет меню */
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  /* Добавляет тень для визуального эффекта */
+  min-width: 160px;
+  /* Минимальная ширина меню */
+  z-index: 1;
+  /* Устанавливает меню поверх других элементов */
 }
 
 #menu-trigger:hover .hidden-menu,
 .hidden-menu:hover {
-  display: block; /* Показывает меню при наведении */
+  display: block;
+  /* Показывает меню при наведении */
 }
 
 .hidden-menu ul {
-  list-style-type: none; /* Убирает стандартные маркеры списка */
+  list-style-type: none;
+  /* Убирает стандартные маркеры списка */
   margin: 0;
   padding: 0;
 }
 
 .hidden-menu li a {
-  color: black; /* Цвет текста ссылок */
-  padding: 12px 16px; /* Паддинги для каждой ссылки */
-  text-decoration: none; /* Убирает подчеркивание текста */
-  display: block; /* Заставляет ссылки заполнять весь доступный горизонтальный пространство */
-  text-align: left; /* Выравнивание текста по левому краю */
+  color: black;
+  /* Цвет текста ссылок */
+  padding: 12px 16px;
+  /* Паддинги для каждой ссылки */
+  text-decoration: none;
+  /* Убирает подчеркивание текста */
+  display: block;
+  /* Заставляет ссылки заполнять весь доступный горизонтальный пространство */
+  text-align: left;
+  /* Выравнивание текста по левому краю */
 }
 
 .hidden-menu li a:hover {
-  background-color: #ddd; /* Цвет фона для ссылок при наведении */
+  background-color: #ddd;
+  /* Цвет фона для ссылок при наведении */
 }
 
 .navbar-nav {
-  display: flex; /* Удостоверьтесь, что это flex контейнер, если list-group-horizontal не управляет этим */
-  gap: 10px; /* Управляет расстоянием между элементами списка */
+  display: flex;
+  /* Удостоверьтесь, что это flex контейнер, если list-group-horizontal не управляет этим */
+  gap: 10px;
+  /* Управляет расстоянием между элементами списка */
 }
 
 .nav-item {
-  margin-right: 5px; /* Уменьшает правый маржин каждого элемента списка */
-  margin-left: 5px; /* Уменьшает левый маржин каждого элемента списка */
+  margin-right: 5px;
+  /* Уменьшает правый маржин каждого элемента списка */
+  margin-left: 5px;
+  /* Уменьшает левый маржин каждого элемента списка */
 }
 
 /* Увеличение ширины выпадающего списка */
 .dropdown-menu-search {
-  min-width: 400px; /* Или вы можете задать конкретную ширину, например 300px */
+  min-width: 400px;
+  /* Или вы можете задать конкретную ширину, например 300px */
 }
 
 /* Стилизация элемента с классом .dropdown-search, чтобы он занимал всю ширину выпадающего списка */
 .dropdown-search .form-search {
-  width: 100%; /* Форма поиска будет занимать всю ширину .dropdown-menu */
+  width: 100%;
+  /* Форма поиска будет занимать всю ширину .dropdown-menu */
 }
 
 /* Дополнительные стили для поля ввода, если необходимо увеличить размер текста или высоту поля ввода */
 .dropdown-search .form-control {
-  font-size: 1rem; /* Можно увеличить, если нужно */
-  height: auto; /* Или установите конкретную высоту, например 40px */
+  font-size: 1rem;
+  /* Можно увеличить, если нужно */
+  height: auto;
+  /* Или установите конкретную высоту, например 40px */
 }
 
 .list-group-item {
-  font-size: 22px; /* Укажите нужный размер шрифта */
+  font-size: 22px;
+  /* Укажите нужный размер шрифта */
 }
 
 .images ul {
@@ -710,3 +757,437 @@ h2 {
   background: #fff;
 }
 
+.service-list {
+  background-color: #fff;
+  margin: 60px 0;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.service-list__title {
+  margin-bottom: 0;
+  font-family: 'Russo One';
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 38.56px;
+  text-align: left;
+  color: #2A3554;
+  /* TODO: add color to variables */
+}
+
+.service-list__items {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.service-list__item {
+  width: calc(100% / 2 - 4px);
+  background-color: #F6F9FF;
+  /* TODO: add color to variables */
+  min-height: 72px;
+  padding: 0;
+}
+
+.service-list__item span {
+  width: calc(100% - 24px);
+}
+
+.service-list__item img {
+  transition: all .3s;
+}
+
+.news__title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #2A3554;
+  text-transform: uppercase;
+  line-height: 19.34px;
+  text-align: left;
+}
+
+.news__date {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.24px;
+  text-align: right;
+  color: #2A3554;
+}
+
+@media (hover: hover) {
+  .service-list__item:hover img {
+    transform: translateX(20%);
+  }
+}
+
+@media (hover: none) {
+  .service-list__item:active img {
+    transform: translateX(20%);
+  }
+}
+
+.list-group-flush>.service-list__item {
+  border-width: 0;
+}
+
+.service-list__item a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
+  font-weight: 600;
+  font-size: 16px;
+  color: #2A3554;
+  /* TODO: add color to variables */
+  text-decoration: none;
+  justify-content: space-between;
+}
+
+.send-request {
+  background-color: #2A3554;
+  padding: 32px;
+}
+
+.send-request .container {
+  padding: 0;
+}
+
+.send-request__content {
+  width: calc(100% - 185px);
+}
+
+.send-request__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.job-form {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.send-request__title {
+  margin-bottom: 16px;
+  color: white;
+  font-family: 'Russo One';
+  font-weight: 400;
+  font-size: 32px;
+  padding: 0;
+  text-align: left;
+  line-height: 38.56px;
+}
+
+.half {
+  width: calc(50% - 8px)
+}
+
+.question {
+  min-height: 90px;
+}
+
+.send-request input,
+.send-request textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  transition: all .3s;
+  padding: 16px 24px;
+  font-size: 14px;
+  color: white;
+  border-radius: 0;
+}
+
+.send-request textarea {
+  resize: none;
+}
+
+.send-request__img {
+  max-height: 174px;
+  margin-top: 24px;
+}
+
+.send-request input::placeholder {
+  color: white;
+  font-size: 14px;
+}
+
+.job-form__submit {
+  background: white;
+  border: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16.93px;
+  color: #2A3554;
+  padding: 16px 24px;
+  transition: all .3s;
+}
+
+@media (hover:hover) {
+  .job-form__submit:hover {
+    background: #2A3554;
+    color: white;
+    outline: 1px solid white;
+  }
+}
+
+@media (hover:none) {
+  .job-form__submit:active {
+    background: #2A3554;
+    color: white;
+    outline: 1px solid white;
+  }
+}
+
+.service__texts {
+  gap: 12px;
+}
+
+.service__texts .list-group-item {
+  background-color: #F6F9FF;
+  padding: 24px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.service__texts .list-group-item:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.service__texts ul {
+  list-style-type: disc;
+}
+
+.service__texts li {
+  color: #2A3554;
+}
+
+.page-section {
+  background-color: white;
+  padding: 32px;
+  margin-top: 60px;
+}
+
+.page-section p {
+  text-align: left;
+}
+
+.page-section__title {
+  font-family: 'Russo One';
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 38.56px;
+  text-align: left;
+  color: #2A3554;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.cases__item {
+  min-height: 124px;
+  width: calc(100% / 4 - 6px);
+}
+
+.cases__card {
+  background-color: #F6F9FF;
+  border: none;
+  padding: 24px 43px;
+}
+
+.cases__card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cases__row {
+  gap: 8px;
+}
+
+.cases__row>* {
+  padding: 0;
+}
+
+.cases__item-text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.09px;
+  color: #2A3554;
+}
+
+.practice-categories__item {
+  width: 100%;
+}
+
+.practice-categories__link {
+  text-decoration: none;
+  color: #000000;
+}
+
+.partner__card {
+  background-color: #2A3554;
+  padding: 32px;
+}
+
+.partner__card p {
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.partner__card-title {
+  color: white;
+  font-family: 'Russo One';
+  font-size: 36px;
+  line-height: 43.38px;
+  text-align: start;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+.partner__card-button {
+  width: max-content;
+}
+
+.news__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-section.container {
+  padding: 0;
+}
+
+.news_item_content > p {
+  height: 48px;
+}
+
+.news_item_content p,
+.news_item_content span {
+  text-align: left;
+  height: 100%;
+  font-weight: 400;
+  font-size: 14px !important;
+  font-family: 'Gilroy' !important;
+  color: #2A3554;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 16.24px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.news_item_fakelink {
+  background-color: #2A3554;
+  color: #F6F9FF;
+  padding: 16px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all .3s;
+  width: max-content;
+  margin-top: 16px;
+}
+
+.news_item_fakelink:hover {
+  outline: 1px solid #2A3554;
+  background-color: transparent;
+  color: #2A3554;
+}
+
+/* Костыль, чтоб правильно оформить текст в карточке новости. 
+.news_item_content - селектор div'а с текстом новости, который передает бэк
+p:not(:empty) - первый не пустой параграф. Нужно, потому что попадаются пустые теги параграфов
+~ * - все элементы, после первого непустого параграфа скрываются, ибо нужно чтобы выводилось только первые три строки текста, остальное не нужно.*/
+.news_item_content p:not(:empty) ~ * {
+  display: none;
+}
+
+.news_item_content p:empty,
+.news_item_content span:empty {
+  display: none;
+}
+
+.news_item {
+  max-height: 207px;
+  min-height: 207px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1200px) {
+  .cases__item {
+    width: calc(100% / 3 - 6px);
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  html {
+    height: 100%;
+  }
+
+  .page-section {
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .service-list__item {
+    width: 100%;
+  }
+
+  .cases__item {
+    width: calc(100% / 2 - 4px);
+  }
+
+  .half {
+    width: 100%;
+  }
+
+  .send-request__img {
+    display: none;
+  }
+
+  .send-request__content {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 767px) { 
+  :root {
+    --stick_size: calc( (100vw - 320px)/(1280 - 320) * (36 - 28) + 56px);
+  }
+
+  .team-slider {
+    margin-top: 128px !important;
+  }
+
+  .slick-arrow {
+    top: -48px !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cases__item {
+    width: 100%;
+  }
+}
