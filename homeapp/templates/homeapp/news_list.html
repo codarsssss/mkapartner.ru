@@ -2,73 +2,92 @@
 {% load static %}
 {% block content %}
 
-    {% comment %} {% if News %}
-    <section class="news container">
-        <div class="news_feed_header">
-            <h1>Новости и публикации</h1>
+{% comment %} {% if News %}
+<section class="news-section container">
+    <div class="page-section">
+        <div class="news-section__content news_feed_header">
+            <h1 class="news_item_header page-section__title">Новости и публикации</h1>
         </div>
-        <div class="news_feed_content mt-5">
+        <div class="news_feed_content">
             <div class="row">
                 <!-- Самая свежая новость -->
                 {% if News %}
-                    <div class="col-md-5">
-                        <div class="news_item latest_news">
-                            <div class="news_item_header">
-                                <p class="text-end">{{ News.0.create_datetime }}</p>
-                                <h2>{{ News.0.title }}</h2>
-                            </div>
-                            <div class="news_item_content">
-                                <p>{{ News.0.text|safe|truncatechars:100 }}</p>
-                            </div>
-                            <div class="button-container" style="text-align: right;">
-                                <a href="/news_{{ News.0.slug }}" class="btn btn-primary">Читать далее</a>
-                            </div>                               
-                            
+                <div class="col-md-5">
+                    <div class="news_item latest_news">
+                        <div class="news_item_header">
+                            <p class="text-end news__date">{{ News.0.create_datetime }}</p>
+                            <h2 class="page-section__title">{{ News.0.title }}</h2>
                         </div>
+                        <div class="news_item_content">
+                            <p>{{ News.0.text|safe|truncatechars:100 }}</p>
+                        </div>
+                        <div class="button-container" style="text-align: right;">
+                            <a href="/news_{{ News.0.slug }}" class="btn btn-primary">Читать далее</a>
+                        </div>
+
                     </div>
-                    
-                    <!-- Остальные новости -->
-                    <div class="col-md-6">
-                        <ul class="list_of_news">
-                            {% for news in News|slice:"1:6" %}
-                            <li class="news-line">
-                                <div class="news_item_content line">
-                                    <p>{{ news.create_datetime|date:"d-m-Y H:i:s" }} - <a href="/news_{{ news.slug }}">{{ news.title }}</a></p>
-                                </div>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>                        
+                </div>
+
+                <!-- Остальные новости -->
+                <div class="col-md-6">
+                    <ul class="list_of_news">
+                        {% for news in News|slice:"1:6" %}
+                        <li class="news-line">
+                            <div class="news_item_content line">
+                                <p>{{ news.create_datetime|date:"d-m-Y H:i:s" }} - <a href="/news_{{ news.slug }}">{{
+                                        news.title }}</a></p>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
                 {% endif %}
             </div>
-        </div>       
+        </div>
+    </div>
+</section> {% endcomment %}
 
-    </section> {% endcomment %}
-
-    {% if News %}
-        <section class="news container">
-            <div class="news_feed_header">
-                <h1>Новости и публикации</h1>
-            </div>
-            <div class="news_feed_content swiper mySlider mt-5">
-                <div class="news_content_wrapper swiper-wrapper">
-                    {% for news in News %}
-                        <a class="swiper-slide" href="/news_{{ news.slug }}">
-                            <div class="news_item">
-                                <div class="news_item_header ">
-                                    <p class="text-end">{{ news.create_datetime }}</p>
-                                    <h1>{{ news.title }}</h1>
-                                </div>
-                                <div class="news_item_content">
-                                    <p>{{ news.text|safe }}</p>
-                                </div>
+{% if News %}
+<section class="news-section container">
+    <div class="page-section">
+        <div class="news_feed_header">
+            <h1 class="page-section__title">Новости и публикации</h1>
+        </div>
+        <div class="news-section__content news_feed_content swiper mySlider">
+            <div class="news_content_wrapper swiper-wrapper">
+                {% for news in News %}
+                <a class="swiper-slide" href="/news_{{ news.slug }}">
+                    <div class="news_item">
+                        <div class="news_content-group">
+                            <div class="news__header">
+                                <h1 class="news__title">{{ news.title }}</h1>
+                                <p class="text-end news__date">{{ news.create_datetime }}</p>
                             </div>
-                        </a>
-                    {% endfor %}
-                </div>
+                            <div class="news_item_content">
+                                <p>{{ news.text|safe }}</p>
+                            </div>
+                        </div>
+                        <div class="news_item_fakelink">Подробнее</div>
+                    </div>
+                </a>
+                {% endfor %}
             </div>
-        </section>
-    {% endif %}
+        </div>
+    </div>
+
+    <div class="send-request">
+        <div class="container">
+            <div class="send-request__inner">
+                <div class="send-request__content">
+                    <h2 class="send-request__title">Оставить заявку:</h2>
+                    {% include 'homeapp/forms/application_form.html' %}
+                </div>
+                <img class="send-request__img" src="{% static 'homeapp/img/form-img.png' %}">
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
 
 
 

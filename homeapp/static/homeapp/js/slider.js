@@ -8,19 +8,19 @@ var swiper = new Swiper(".mySlider", {
   breakpoints: {
     320: {
       slidesPerView: 1,
-      spaceBetween: 20
+      spaceBetween: 8
     },
     480: {
       slidesPerView: 1,
-      spaceBetween: 30
+      spaceBetween: 8
     },
     720: {
       slidesPerView: 2,
-      spaceBetween: 40
+      spaceBetween: 8
     },
     1000: {
       slidesPerView: 3,
-      spaceBetween: 60
+      spaceBetween: 8
     }
   }
 });

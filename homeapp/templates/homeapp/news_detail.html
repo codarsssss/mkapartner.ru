@@ -2,12 +2,15 @@
 {% load static %}
 
 {% block content %}
-    {#    <div style="background: url({% static 'homeapp/img/first_screen.png'%}); height: 200px; width: 100%; background-size: cover"></div>#}
-    <div class="container" style="min-height: 341px">
+<!-- <div
+    style="background: url({% static 'homeapp/img/first_screen.png'%}); height: 200px; width: 100%; background-size: cover">
+</div> -->
+<div class="container">
+    <div class="page-section">
         <div class="row">
             <div class="col justify-content-center text-center">
                 <div class="body-header">
-                    <h1>{{ news_obj.title }}</h1>
+                    <h1 class="page-section__title">{{ news_obj.title }}</h1>
                     <div class="photo-grid">
                     </div>
                     <div class="bode-text">
@@ -17,4 +20,5 @@
             </div>
         </div>
     </div>
+</div>
 {% endblock %}
