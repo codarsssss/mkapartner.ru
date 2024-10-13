@@ -171,6 +171,15 @@ class Partner(models.Model):
         return f"{self.name}: {self.work_place}"
 
 
+class PartnerPhoto(models.Model):
+    partner = models.ForeignKey('Partner', related_name='photos', on_delete=models.CASCADE)
+    photo = models.ImageField(upload_to='partner_photos/')
+    caption = models.CharField(max_length=100, blank=True, verbose_name="Подпись к фото")
+
+    def __str__(self):
+        return f"Фото {self.partner.name}"
+
+
 class PracticeCategory(models.Model):
     title = models.CharField(
         max_length=128, verbose_name="Наименование категории практики"
