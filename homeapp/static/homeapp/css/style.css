@@ -9,7 +9,8 @@ html {
   font-size: 18px;
 }
 
-body, html {
+body,
+html {
   height: 100%;
 }
 
@@ -1064,7 +1065,7 @@ h2 {
   padding: 0;
 }
 
-.news_item_content > p {
+.news_item_content>p {
   height: 48px;
 }
 
@@ -1107,7 +1108,7 @@ h2 {
 .news_item_content - селектор div'а с текстом новости, который передает бэк
 p:not(:empty) - первый не пустой параграф. Нужно, потому что попадаются пустые теги параграфов
 ~ * - все элементы, после первого непустого параграфа скрываются, ибо нужно чтобы выводилось только первые три строки текста, остальное не нужно.*/
-.news_item_content p:not(:empty) ~ * {
+.news_item_content p:not(:empty)~* {
   display: none;
 }
 
@@ -1122,6 +1123,33 @@ p:not(:empty) - первый не пустой параграф. Нужно, п�
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.team__slide {
+  position: relative;
+}
+
+.team__slide .carousel-caption {
+  bottom: 2.5%;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  width: 100%;
+  top: auto;
+  padding: 0;
+}
+
+.diploms .slick-dots li button:before {
+  color: black;
+}
+
+.diploms img {
+  height: 100%;
+  object-fit: cover;
+}
+
+.diploms .slick-dots li.slick-active button:before {
+  color: white;
 }
 
 @media screen and (max-width: 1200px) {
@@ -1169,9 +1197,9 @@ p:not(:empty) - первый не пустой параграф. Нужно, п�
   }
 }
 
-@media screen and (max-width: 767px) { 
+@media screen and (max-width: 767px) {
   :root {
-    --stick_size: calc( (100vw - 320px)/(1280 - 320) * (36 - 28) + 56px);
+    --stick_size: calc((100vw - 320px)/(1280 - 320) * (36 - 28) + 56px);
   }
 
   .team-slider {
