@@ -1206,6 +1206,24 @@ button:focus {
   cursor: pointer;
 }
 
+.pricing-packages {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pricing-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.price {
+  margin-top: auto;
+}
+
+
 @media screen and (max-width: 1200px) {
   .cases__item {
     width: calc(100% / 3 - 6px);
