@@ -3,6 +3,8 @@
 <html lang="en">
 
 <head>
+  <script src="{% static 'homeapp/js/preloader.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'homeapp/css/preloader.css' %}" />
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function (m, e, t, r, i, k, a) {
@@ -81,6 +83,12 @@
 </head>
 
 <body>
+  <div class="preloader">
+    <div class="preloader__row">
+      <div class="preloader__item"></div>
+      <div class="preloader__item"></div>
+    </div>
+  </div>
   {% for message in messages %} {% if message.tags == 'success' %}
   <div class="alert alert-success alert-dismissible fade show text-center h3 {{ message.tags }}" role="alert">
     <strong>{{ message }}</strong>
