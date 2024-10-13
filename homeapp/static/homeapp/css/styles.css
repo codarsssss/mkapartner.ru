@@ -496,7 +496,6 @@ body{
 }
 
 .partner {
-  /* max-width: 394px; */
   background: rgb(42, 53, 84);
   padding: 24px;
   color: white;
@@ -742,7 +741,7 @@ body{
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 767px) {
   .hero__text h1 {
     font-size: 36px;
   }
@@ -778,11 +777,18 @@ body{
   .about{
     padding: 0px !important;
   }
+  .partner img {
+    max-height: none;
+  }
 }
 
 @media screen and (max-width: 500px) {
   .footer__buttons {
     flex-direction: column;
+  }
+
+  .partner img {
+    max-height: 346px;
   }
 
   .footer__buttons a {
