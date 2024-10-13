@@ -773,8 +773,7 @@ h2 {
   font-size: 32px;
   line-height: 38.56px;
   text-align: left;
-  color: #2A3554;
-  /* TODO: add color to variables */
+  color: var(--blue);
 }
 
 .service-list__items {
@@ -787,7 +786,6 @@ h2 {
 .service-list__item {
   width: calc(100% / 2 - 4px);
   background-color: #F6F9FF;
-  /* TODO: add color to variables */
   min-height: 72px;
   padding: 0;
 }
@@ -803,7 +801,7 @@ h2 {
 .news__title {
   font-weight: 700;
   font-size: 16px;
-  color: #2A3554;
+  color: var(--blue);
   text-transform: uppercase;
   line-height: 19.34px;
   text-align: left;
@@ -814,7 +812,7 @@ h2 {
   font-size: 14px;
   line-height: 16.24px;
   text-align: right;
-  color: #2A3554;
+  color: var(--blue);
 }
 
 @media (hover: hover) {
@@ -841,14 +839,13 @@ h2 {
   padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
   font-weight: 600;
   font-size: 16px;
-  color: #2A3554;
-  /* TODO: add color to variables */
+  color: var(--blue);
   text-decoration: none;
   justify-content: space-between;
 }
 
 .send-request {
-  background-color: #2A3554;
+  background-color: var(--blue);
   padding: 32px;
 }
 
@@ -926,14 +923,14 @@ h2 {
   font-weight: 600;
   font-size: 14px;
   line-height: 16.93px;
-  color: #2A3554;
+  color: var(--blue);
   padding: 16px 24px;
   transition: all .3s;
 }
 
 @media (hover:hover) {
   .job-form__submit:hover {
-    background: #2A3554;
+    background: var(--blue);
     color: white;
     outline: 1px solid white;
   }
@@ -941,7 +938,7 @@ h2 {
 
 @media (hover:none) {
   .job-form__submit:active {
-    background: #2A3554;
+    background: var(--blue);
     color: white;
     outline: 1px solid white;
   }
@@ -967,7 +964,7 @@ h2 {
 }
 
 .service__texts li {
-  color: #2A3554;
+  color: var(--blue);
 }
 
 .page-section {
@@ -986,7 +983,7 @@ h2 {
   font-size: 32px;
   line-height: 38.56px;
   text-align: left;
-  color: #2A3554;
+  color: var(--blue);
   margin-bottom: 24px;
   width: 100%;
 }
@@ -1020,7 +1017,7 @@ h2 {
   font-weight: 600;
   font-size: 16px;
   line-height: 19.09px;
-  color: #2A3554;
+  color: var(--blue);
 }
 
 .practice-categories__item {
@@ -1033,7 +1030,7 @@ h2 {
 }
 
 .partner__card {
-  background-color: #2A3554;
+  background-color: var(--blue);
   padding: 32px;
 }
 
@@ -1078,7 +1075,7 @@ h2 {
   font-weight: 400;
   font-size: 14px !important;
   font-family: 'Gilroy' !important;
-  color: #2A3554;
+  color: var(--blue);
   margin-top: 0;
   margin-bottom: 0;
   line-height: 16.24px;
@@ -1090,7 +1087,7 @@ h2 {
 }
 
 .news_item_fakelink {
-  background-color: #2A3554;
+  background-color: var(--blue);
   color: #F6F9FF;
   padding: 16px 24px;
   font-weight: 600;
@@ -1101,9 +1098,9 @@ h2 {
 }
 
 .news_item_fakelink:hover {
-  outline: 1px solid #2A3554;
+  outline: 1px solid var(--blue);
   background-color: transparent;
-  color: #2A3554;
+  color: var(--blue);
 }
 
 /* Костыль, чтоб правильно оформить текст в карточке новости. 
