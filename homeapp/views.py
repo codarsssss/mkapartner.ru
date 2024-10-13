@@ -895,6 +895,19 @@ def get_online_consultation_detail(request: HttpRequest):
     return render(request, 'homeapp/services/individuals/online_consultation_service.html', context=context)
 
 
+def tariffs_view(request: HttpRequest):
+    if request.method == 'POST':
+        if handle_form(request, ConsultationForm):
+            return redirect('individual-service-list/online-consultation/')
+        user_input = request.POST.get('search_input')
+        return search_form(request, user_input)
+    context = {
+        'title': 'Онлайн консультации',
+        'user': request.session.get('username'),
+    }
+    return render(request, 'homeapp/tariffs.html', context=context)
+
+
 def cases_view(request: HttpRequest):
     if request.method == 'POST':
         if handle_form(request, ConsultationForm):
