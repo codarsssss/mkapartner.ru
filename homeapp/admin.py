@@ -1,10 +1,11 @@
 from django.contrib.auth.models import User, Group
 from django.contrib import admin
 from .forms import NewsForm, PartnerForm
-from .models import Consultation, Worker, News, Partner
+from .models import Consultation, Worker, News, Partner, PartnerPhoto
 from django.urls import reverse
 from django.utils.html import format_html
 from .models import PracticeCategory, PracticeInstance, PracticeInstanceImage
+from adminsortable2.admin import SortableAdminMixin
 
 
 @admin.register(Consultation)
@@ -55,10 +56,19 @@ class NewsAdmin(admin.ModelAdmin):
     readonly_fields = ['create_datetime']
 
 
+# Создаём инлайн-редактирование для фотографий
+class PartnerPhotoInline(admin.TabularInline):
+    model = PartnerPhoto
+    extra = 1  # Количество пустых форм для добавления новых фото
+    fields = ['photo', 'caption']  # Указываем поля для редактирования
+
+
+# Настройки для модели Partner в админке
 @admin.register(Partner)
-class PartnerAdmin(admin.ModelAdmin):
-    form = PartnerForm
-    list_display = ['name',]
+class PartnerAdmin(SortableAdminMixin, admin.ModelAdmin):
+    form = PartnerForm  # Подключаем кастомную форму
+    list_display = ['name', 'work_place']
+    inlines = [PartnerPhotoInline]  # Добавляем инлайн-редактирование фотографий
 
 
 class PracticeCategoryAdmin(admin.ModelAdmin):

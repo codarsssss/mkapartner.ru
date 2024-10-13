@@ -1,11 +1,11 @@
-<form method="POST">
+<!-- <form method="POST">
     {% csrf_token %}
-    <div class="input-group input-group-lg">                                    
+    <div class="input-group input-group-lg">
         <input name="username" type="text" class="form-control mb-2"
                placeholder="Имя" aria-label="Sizing example input"
                aria-describedby="inputGroup-sizing-lg">
     </div>
-    <div class="input-group input-group-lg" style="margin: 0 0 9px;">                                    
+    <div class="input-group input-group-lg" style="margin: 0 0 9px;">
         <input name="number" type="text" class="form-control telmask"
                placeholder="Телефон" maxlength="12"
                aria-label="Sizing example input"
@@ -21,7 +21,7 @@
 
             <div class="row ">
                 <div class="col-4 ">
-                    <button type="submit" class="btn btn-secondary "
+                    <button type="submit" class="btn btn-secondary form__submit"
                             data-bs-dismiss="modal">
                         Оставить
                         заявку
@@ -36,4 +36,24 @@
             </div>
         </div>
     </div>
-</form>
+</form> -->
+
+<!-- Вставка скрипта AmoCRM -->
+<script>
+    !function(a,m,o,c,r,m){
+        a[o+c]=a[o+c]||{setMeta:function(p){this.params=(this.params||[]).concat([p])}},
+        a[o+r]=a[o+r]||function(f){a[o+r].f=(a[o+r].f||[]).concat([f])},
+        a[o+r]({id:"1425986",hash:"c2018d654ac59354cad149e225e79dd5",locale:"ru"}),
+        a[o+m]=a[o+m]||function(f,k){a[o+m].f=(a[o+m].f||[]).concat([[f,k]])}
+    }(window,0,"amo_forms_","params","load","loaded");
+
+    // Загрузка и отображение формы в элементе с ID 'amoCRM-form-container'
+    amo_forms_load({
+        id: "amoCRM-form-container",
+        action: "load",
+        locale: "ru"
+    });
+</script>
+<script id="amoforms_script_1425986" async="async" charset="utf-8" 
+        src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1728824018">
+</script>

@@ -1,214 +1,154 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-      (function (m, e, t, r, i, k, a) {
-        m[i] =
-          m[i] ||
-          function () {
-            (m[i].a = m[i].a || []).push(arguments);
-          };
-        m[i].l = 1 * new Date();
-        for (var j = 0; j < document.scripts.length; j++) {
-          if (document.scripts[j].src === r) {
-            return;
-          }
-        }
-        (k = e.createElement(t)),
-          (a = e.getElementsByTagName(t)[0]),
-          (k.async = 1),
-          (k.src = r),
-          a.parentNode.insertBefore(k, a);
-      })(
-        window,
-        document,
-        "script",
-        "https://mc.yandex.ru/metrika/tag.js",
-        "ym"
-      );
 
-      ym(94569343, "init", {
-        clickmap: true,
-        trackLinks: true,
-        accurateTrackBounce: true,
-        webvisor: true,
-      });
-    </script>
-    <noscript>
-      <div>
-        <img
-          src="https://mc.yandex.ru/watch/94569343"
-          style="position: absolute; left: -9999px"
-          alt=""
-        />
-      </div>
-    </noscript>
-    <!-- /Yandex.Metrika counter -->
-    <meta name="yandex-verification" content="5ceccd2da73fbdf4" />
-
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ title }}</title>
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-      crossorigin="anonymous"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="{% static 'homeapp/css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'homeapp/css/styles.css' %}" />
-    <link rel="stylesheet" href="{% static 'homeapp/css/news_slider.css' %}" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
-      integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
-      integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="shortcut icon"
-      type="image/png"
-      href="{% static 'homeapp/img/bg-logo.ico' %}"
-    />
-    <style>
-      @media (max-width: 930px) {
-        #carouselExampleAutoplaying {
-          display: none;
+<head>
+  <script src="{% static 'homeapp/js/preloader.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'homeapp/css/preloader.css' %}" />
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function (m, e, t, r, i, k, a) {
+      m[i] =
+        m[i] ||
+        function () {
+          (m[i].a = m[i].a || []).push(arguments);
+        };
+      m[i].l = 1 * new Date();
+      for (var j = 0; j < document.scripts.length; j++) {
+        if (document.scripts[j].src === r) {
+          return;
         }
       }
-    </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    {% for message in messages %} {% if message.tags == 'success' %}
-    <div
-      class="alert alert-success alert-dismissible fade show text-center h3 {{ message.tags }}"
-      role="alert"
-    >
-      <strong>{{ message }}</strong>
-      <button
-        type="button"
-        class="btn-close"
-        data-bs-dismiss="alert"
-        aria-label="Close"
-      ></button>
+      (k = e.createElement(t)),
+        (a = e.getElementsByTagName(t)[0]),
+        (k.async = 1),
+        (k.src = r),
+        a.parentNode.insertBefore(k, a);
+    })(
+      window,
+      document,
+      "script",
+      "https://mc.yandex.ru/metrika/tag.js",
+      "ym"
+    );
+
+    ym(94569343, "init", {
+      clickmap: true,
+      trackLinks: true,
+      accurateTrackBounce: true,
+      webvisor: true,
+    });
+  </script>
+  <noscript>
+    <div>
+      <img src="https://mc.yandex.ru/watch/94569343" style="position: absolute; left: -9999px" alt="" />
     </div>
-    {% else %}
-    <div
-      class="alert alert-danger text-center alert-dismissible text-center h3"
-      role="alert"
-    >
-      {{ message.tags }}
+  </noscript>
+  <!-- /Yandex.Metrika counter -->
+  <meta name="yandex-verification" content="5ceccd2da73fbdf4" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }}</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="{% static 'homeapp/css/style.css' %}" />
+  <link rel="stylesheet" href="{% static 'homeapp/css/styles.css' %}" />
+  <link rel="stylesheet" href="{% static 'homeapp/css/news_slider.css' %}" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="shortcut icon" type="image/png" href="{% static 'homeapp/img/bg-logo.ico' %}" />
+  <style>
+    @media (max-width: 930px) {
+      #carouselExampleAutoplaying {
+        display: none;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="preloader">
+    <div class="preloader__row">
+      <div class="preloader__item"></div>
+      <div class="preloader__item"></div>
     </div>
-    {% endif %} {% endfor %}
+  </div>
+  {% for message in messages %} {% if message.tags == 'success' %}
+  <div class="alert alert-success alert-dismissible fade show text-center h3 {{ message.tags }}" role="alert">
+    <strong>{{ message }}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% else %}
+  <div class="alert alert-danger text-center alert-dismissible text-center h3" role="alert">
+    {{ message.tags }}
+  </div>
+  {% endif %} {% endfor %}
 
-    <nav class="navbar navbar-expand-xl bg-body-tertiary">
-      <div class="container">
-        <a class="navbar-brand" href="{% url 'homeapp:index' %}">
-          <img src="{% static 'homeapp/img/logo.png' %}" alt="" />
-        </a>
-        <a style="width: 22px;height: 38px;" href="" class="logo-mob">
-          <img style="width: 100%;height: fit-content; object-fit: contain;" src="{% static 'homeapp/img/Frame 1000000988.png' %}" alt="" alt="">
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span style="border: none;">
-            <img style="width: 24px; height: 24px; background:#2A3554;" src="{% static 'homeapp/img/sort.svg' %}" alt="">
-          </span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 top-menu">
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                aria-current="page"
-                href="{% url 'homeapp:index' %}"
-              >
-                Главная
-              </a>
-            </li>
+  <nav class="navbar navbar-expand-xl bg-body-tertiary">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'homeapp:index' %}">
+        <img src="{% static 'homeapp/img/logo.png' %}" alt="" />
+      </a>
+      <a style="width: 22px;height: 38px;" href="" class="logo-mob">
+        <img style="width: 100%;height: fit-content; object-fit: contain;"
+          src="{% static 'homeapp/img/Frame 1000000988.png' %}" alt="" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span style="border: none;">
+          <img style="width: 24px; height: 24px; background:#2A3554;" src="{% static 'homeapp/img/sort.svg' %}" alt="">
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 top-menu">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'homeapp:index' %}">
+              Главная
+            </a>
+          </li>
 
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Услуги
-                <img
-                  style="width: 16px; height: 16px; object-fit: scale-down"
-                  src="{% static 'homeapp/img/arrow.png' %}"
-                  alt=""
-                />
-              </a>
-              <ul class="dropdown-menu">
-                <li class="dropdown-submenu dropdown">
-                  <a
-                    class="dropdown-item"
-                    href="{% url 'homeapp:individual_service_list' %}"
-                  >
-                    Для физических лиц
-                  </a>
-                </li>
-                <li class="dropdown-submenu dropdown">
-                  <a
-                    class="dropdown-item"
-                    href="{% url 'homeapp:legal_service_list' %}"
-                  >
-                    Для юридических лиц
-                  </a>
-                </li>
-              </ul>
-            </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Услуги
+              <img style="width: 16px; height: 16px; object-fit: scale-down" src="{% static 'homeapp/img/arrow.png' %}"
+                alt="" />
+            </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-submenu dropdown">
+                <a class="dropdown-item" href="{% url 'homeapp:individual_service_list' %}">
+                  Для физических лиц
+                </a>
+              </li>
+              <li class="dropdown-submenu dropdown">
+                <a class="dropdown-item" href="{% url 'homeapp:legal_service_list' %}">
+                  Для юридических лиц
+                </a>
+              </li>
+            </ul>
+          </li>
 
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                aria-current="page"
-                href="{% url 'homeapp:cases' %}"
-              >
-                Практика адвокатов
-              </a>
-            </li>
-
-            <li class="nav-item dropdown">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'homeapp:cases' %}">
+              Практика адвокатов
+            </a>
+          </li>
+          <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
                 href="#"
@@ -224,636 +164,494 @@
                     Офис в Москве
                   </a>
                 </li>
-                {% comment %}
                 <li>
-                  <a class="dropdown-item" href="{% url 'homeapp:ulyanovsk' %}">
+                  <a class="dropdown-item" href="https://mkapartner.ru/">
                     Филиал в Ульяновске
                   </a>
-                  {% endcomment %}
                 </li>
               </ul>
             </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'homeapp:news_list' %}">
+              Новости
+            </a>
+          </li>
+          <li class="nav-item dropdown">
+            <ul class="dropdown-menu dropdown-menu-search" aria-labelledby="navbarDropdown">
+              <li class="dropdown-search">
+                <form class="d-flex p-2 form-search" role="search" method="POST">
+                  {% csrf_token %}
+                  <input class="form-control me-2" required name="search_input" type="search" placeholder="поиск"
+                    aria-label="Search" />
+                  <button class="btn btn-outline-success" type="submit">
+                    Найти
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </li>
+        </ul>
 
-            <li class="nav-item">
-              <a
-                class="nav-link"
-                aria-current="page"
-                href="{% url 'homeapp:news_list' %}"
-              >
-                Новости
-              </a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-search fa-5xl"></i> 
-                    </a> -->
-              <ul
-                class="dropdown-menu dropdown-menu-search"
-                aria-labelledby="navbarDropdown"
-              >
-                <li class="dropdown-search">
-                  <form
-                    class="d-flex p-2 form-search"
-                    role="search"
-                    method="POST"
-                  >
-                    {% csrf_token %}
-                    <input
-                      class="form-control me-2"
-                      required
-                      name="search_input"
-                      type="search"
-                      placeholder="поиск"
-                      aria-label="Search"
-                    />
-                    <button class="btn btn-outline-success" type="submit">
-                      Найти
-                    </button>
-                  </form>
-                </li>
-              </ul>
-            </li>
-          </ul>
-
-          <ul
-            class="socials navbar-nav list-group-horizontal ms-auto mb-2 mt-2 mb-lg-0 mt-lg-0 justify-content-center icon-nav pt-1"
-          >
-            <li class="nav-item p-1">
-              <a
-                class="nav-link"
-                aria-current="page"
-                href="https://www.instagram.com/advocate_konstantinova_pg?utm_source=qr"
-              >
-                <img
-                  style="
+        <ul
+          class="socials navbar-nav list-group-horizontal ms-auto mb-2 mt-2 mb-lg-0 mt-lg-0 justify-content-center icon-nav pt-1">
+          <li class="nav-item p-1">
+            <a class="nav-link" aria-current="page"
+              href="https://www.instagram.com/advocate_konstantinova_pg?utm_source=qr">
+              <img style="
                     width: 32px;
                     object-fit: scale-down;
                     height: fit-content;
-                  "
-                  src="{% static 'homeapp/img/Instagram.png' %}"
-                  alt=""
-                />
-              </a>
-            </li>
-            <li class="nav-item p-1">
-              <a
-                class="nav-link"
-                aria-current="page"
-                href="https://t.me/angelina_KPG"
-              >
-                <i
-                  class="fa-brands fa-telegram fa-3xl"
-                  style="color: #2b3455; width: 32px; height: 32px"
-                ></i>
-              </a>
-            </li>
-            <li class="nav-item p-1">
-              <a class="nav-link" aria-current="page" href="tel:+79160050999">
-                <img
-                  style="
+                  " src="{% static 'homeapp/img/Instagram.png' %}" alt="" />
+            </a>
+          </li>
+          <li class="nav-item p-1">
+            <a class="nav-link" aria-current="page" href="https://t.me/MBA_Partner">
+              <i class="fa-brands fa-telegram fa-3xl" style="color: #2b3455; width: 32px; height: 32px"></i>
+            </a>
+          </li>
+          <li class="nav-item p-1">
+            <a class="nav-link" aria-current="page" href="tel:+79671328133">
+              <img style="
                     width: 32px;
                     object-fit: scale-down;
                     height: fit-content;
-                  "
-                  src="{% static 'homeapp/img/WhatsApp_white.png' %}"
-                  alt=""
-                />
-              </a>
-            </li>
-          </ul>
+                  " src="{% static 'homeapp/img/WhatsApp_white.png' %}" alt="" />
+            </a>
+          </li>
+        </ul>
 
-          <div class="menu">
-            <a href="tel:+79151678864">8 915 167 88 64</a>
-            <a href="">Получить консультацию</a>
-          </div>
+        <div class="menu">
+          <a class="button-white" href="tel:+79671328133">8 967 132 81 33</a>
+          <button type="button" class="btn1 button-blue" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Получить консультацию
+          </button>
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    {% block content %} {% endblock %}
+  {% block content %} {% endblock %}
 
-    <footer class="mt-5">
-      <section class="footer">
-        <div class="container">
-          <div class="row">
-            <div
-              class="modal fade"
-              id="exampleModal"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">
-                      Требуется консультация?
-                    </h1>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    {% include "homeapp/forms/consultation_form.html" %}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {#modal contact#} {#modal download#}
-          <div>
-            <div
-              class="modal fade"
-              id="downloadModal"
-              tabindex="-1"
-              aria-labelledby="downloadModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  <div
-                    class="modal-header border"
-                    style="background-color: rgba(239, 236, 123, 0.81)"
-                  >
-                    <h1 class="modal-title fs-5" id="downloadModalLabel">
-                      Что бы скачать материалы с сайта, оставьте контактные
-                      данные
-                    </h1>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body">
-                    <form method="POST">
-                      {% csrf_token %}
-                      <div class="input-group input-group-lg">
-                        {#
-                        <span
-                          class="input-group-text"
-                          id="inputGroup-sizing-lg"
-                        >
-                          Имя
-                        </span>
-                        #}
-                        <input
-                          name="username"
-                          type="text"
-                          class="form-control mb-2"
-                          placeholder="Имя"
-                          aria-label="Sizing example input"
-                          aria-describedby="inputGroup-sizing-lg"
-                        />
-                      </div>
-                      <div class="input-group input-group-lg">
-                        {#
-                        <span
-                          class="input-group-text"
-                          id="inputGroup-sizing-lg"
-                        >
-                          Телефон
-                        </span>
-                        #}
-                        <input
-                          name="number"
-                          type="text"
-                          class="form-control phone_mask"
-                          placeholder="Телефон"
-                          maxlength="12"
-                          aria-label="Sizing example input"
-                          aria-describedby="inputGroup-sizing-lg"
-                        />
-                      </div>
-                      <div class="modal-footer justify-content-center ps-0">
-                        <div class="container-fluid ps-0">
-                          <div class="row">
-                            <div class="col col-md-4">
-                              <button
-                                type="submit"
-                                class="btn btn-secondary"
-                                data-bs-dismiss="modal"
-                              >
-                                Оставить заявку
-                              </button>
-                            </div>
-                            <div class="col">
-                              <p class="text-start h5">
-                                Нажимая на кнопку, вы соглашаетесь с
-                                <br />
-                                <a href="{% url 'homeapp:privicy' %}">
-                                  политикой конфиденциальности
-                                </a>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {#modal download#}
-          <div class="footer-inner">
-            <div class="footer-contacts">
-              <div class="">
-                <ul class="list-unstyled">
-                  <li
-                    style="
+  <div class="filling"></div>
+  <footer class="mt-5">
+    <section class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-contacts">
+            <div class="">
+              <ul class="list-unstyled">
+                <li style="
                       color: rgba(255, 255, 255, 0.7);
   
                       font-size: 14px;
                       font-weight: 400;
                       margin-bottom: 8px;
-                    "
-                  >
-                    Разделы
-                  </li>
-                  <li class="nav-item nav_footer">
-                    <a
-                      class="nav-link"
-                      aria-current="page"
-                      href="{% url 'homeapp:index' %}"
-                    >
-                      Главная
-                    </a>
-                  </li>
-  
-                  <li class="nav-item dropdown" style="padding: 0 0 10px">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Услуги
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="{% url 'homeapp:individual_service_list' %}"
-                        >
-                          Для физических лиц
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="{% url 'homeapp:legal_service_list' %}"
-                        >
-                          Для юридических лиц
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
-  
-                  <li class="nav-item dropdown" style="padding: 0 0 10px">
-                    <a
-                      class="nav-link dropdown-toggle"
-                      href="#"
-                      role="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      Адвокаты
-                    </a>
-                    <ul class="dropdown-menu">
-                      <li>
-                        <a class="dropdown-item" href="{% url 'homeapp:team' %}">
-                          Офис в Москве
-                        </a>
-                      </li>
-                      {% comment %}
-                      <li>
-                        <a
-                          class="dropdown-item"
-                          href="{% url 'homeapp:ulyanovsk' %}"
-                        >
-                          Филиал в Ульяновске
-                        </a>
-                        {% endcomment %}
-                      </li>
-                    </ul>
-                  </li>
-  
-                  <li class="nav-item nav_footer">
-                    <a
-                      class="nav-link"
-                      aria-current="page"
-                      href="{% url 'homeapp:cases' %}"
-                    >
-                      Практика адвокатов
-                    </a>
-                  </li>
-  
-                  <li class="nav-item nav_footer">
-                    <a
-                      class="nav-link"
-                      aria-current="page"
-                      href="{% url 'homeapp:news_list' %}"
-                    >
-                      Новости
-                    </a>
-                  </li>
-                </ul>
-              </div>
-  
-              <div class="requisites">
-                <ul class="list-unstyled">
-                  <p
-                    style="
+                    ">
+                  Разделы
+                </li>
+                <li class="nav-item nav_footer">
+                  <a class="nav-link" aria-current="page" href="{% url 'homeapp:index' %}">
+                    Главная
+                  </a>
+                </li>
+
+                <li class="nav-item dropdown" style="padding: 0 0 10px">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Услуги
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="{% url 'homeapp:individual_service_list' %}">
+                        Для физических лиц
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="{% url 'homeapp:legal_service_list' %}">
+                        Для юридических лиц
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Адвокаты
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="{% url 'homeapp:team' %}">
+                    Офис в Москве
+                  </a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="https://mkapartner.ru/">
+                    Филиал в Ульяновске
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+                <li class="nav-item nav_footer">
+                  <a class="nav-link" aria-current="page" href="{% url 'homeapp:cases' %}">
+                    Практика адвокатов
+                  </a>
+                </li>
+
+                <li class="nav-item nav_footer">
+                  <a class="nav-link" aria-current="page" href="{% url 'homeapp:news_list' %}">
+                    Новости
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="requisites">
+              <ul class="list-unstyled">
+                <p style="
                       color: rgba(255, 255, 255, 0.7);
   
                       font-size: 14px;
                       font-weight: 400;
-                    "
-                    class="footer__text mb-2"
-                  >
-                    Получить консультацию и пошаговый план действий
-                  </p>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      aria-current="page"
-                      href="mailto:info@mkapartner.ru"
-                    >
-                      info@mkapartner.ru
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      aria-current="page"
-                      href="tel:+79160050999"
-                    >
-                      +79160050999
-                    </a>
-                  </li>
-                  <p
-                    class="mb-2"
-                    style="
+                    " class="footer__text mb-2">
+                  Получить консультацию и пошаговый план действий
+                </p>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="mailto:info@mkapartner.ru">
+                    info@mkapartner.ru
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="tel:+79671328133">
+                    +79671328133
+                  </a>
+                </li>
+                <p class="mb-2" style="
                       color: rgba(255, 255, 255, 0.7);
   
                       font-size: 14px;
                       font-weight: 400;
                       margin-top: 24px;
-                    "
-                  >
-                    Адрес
-                  </p>
-                  <li class="nav-item">
-                    <a
-                      class="nav-link"
-                      aria-current="page"
-                      href="https://yandex.ru/maps/-/CDFTaX~8"
-                    >
-                      123112, Россия, г.Москва,
-                      <br />
-                      Пресненская наб., д. 12, помещ. 45н
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                    ">
+                  Адрес
+                </p>
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="https://yandex.ru/maps/-/CDFTaX~8">
+                    123112, Россия, г.Москва,
+                    <br />
+                    Пресненская наб., д. 12, помещ. 45н
+                  </a>
+                </li>
+              </ul>
             </div>
-            <div class="footer-menu">
-              <div style="display: flex; gap: 8px">
-                <a
-                  class="btn2"
-                  style="border: 1px solid white"
-                  href="tel:+79151678864"
-                >
-                  8 915 167 88 64
+          </div>
+          <div class="footer-menu">
+            <div class="footer__buttons" style="display: flex; gap: 8px">
+              <a class="btn2 button-blue" href="tel:+79671328133">
+                8 967 132 81 33
+              </a>
+
+              <button type="button" class="btn1 button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Получить консультацию
+              </button>
+            </div>
+            <div class="footer-socials">
+              <div class="text-center">
+                <a class="nav-link footer__nav-link" aria-current="page" href="https://t.me/MBA_Partner">
+                  <i class="fa-brands fa-telegram fa-2xl" style="color: white"></i>
                 </a>
-                <button
-                  type="button"
-                  class="btn1"
-                  data-bs-toggle="modal"
-                  data-bs-target="#exampleModal"
-                >
-                  Получить консультацию
-                </button>
               </div>
-              <div class="footer-socials">
-                <div class="text-center">
-                  <a
-                    class="nav-link footer__nav-link"
-                    aria-current="page"
-                    href="https://t.me/angelina_KPG"
-                  >
-                    <i
-                      class="fa-brands fa-telegram fa-2xl"
-                      style="color: white"
-                    ></i>
-                  </a>
-                </div>
-                <div class="text-center">
-                  <a
-                    class="nav-link footer__nav-link"
-                    aria-current="page"
-                    href="https://www.instagram.com/advocate_konstantinova_pg?utm_source=qr"
-                  >
-                    <i
-                      class="fa-brands fa-instagram fa-2xl"
-                      style="color: white"
-                    ></i>
-                  </a>
-                </div>
+              <div class="text-center">
+                <a class="nav-link footer__nav-link" aria-current="page"
+                  href="https://www.instagram.com/advocate_konstantinova_pg?utm_source=qr">
+                  <i class="fa-brands fa-instagram fa-2xl" style="color: white"></i>
+                </a>
               </div>
             </div>
           </div>
-          
-          <div
-         
-          >
-            <p style="color: rgb(255, 255, 255);
+        </div>
+
+        <div>
+          <p style="color: rgb(255, 255, 255);
     
             font-size: 12px;
             font-weight: 400;">
-              Copyright © 2024 Московская колления адвокатов "Партнер Групп".
-              При использовании любой информации, оставляйте ссылку на сайт.
-              <a style="text-decoration: none; color: white;" href="{% url 'homeapp:privicy' %}">
-                Политика конфиденциальности
-              </a>
-            </p>
-            <a style="text-decoration: none; color: white; font-size: 13px;" href="https://t.me/arsssss" class="developer_link">
-              разработано @codarsssss
+            Copyright © 2024 Московская колления адвокатов "Партнер Групп".
+            При использовании любой информации, оставляйте ссылку на сайт.
+            <a style="text-decoration: none; color: white;" href="{% url 'homeapp:privicy' %}">
+              Политика конфиденциальности
             </a>
+          </p>
+          <a style="text-decoration: none; color: white; font-size: 13px;" href="https://t.me/arsssss"
+            class="developer_link">
+            разработано @codarsssss
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="modal fade amo-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg footer__modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Требуется консультация?
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                {% include "homeapp/forms/consultation_form.html" %}
+              </div>
+            </div>
           </div>
         </div>
-      </section>
-    </footer>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://kit.fontawesome.com/f8895a3494.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
-      integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+      </div>
+      {#modal contact#} {#modal download#}
+      <div>
+        <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog footer__modal modal-lg">
+            <div class="modal-content">
+              <div class="modal-header border" style="background-color: rgba(239, 236, 123, 0.81)">
+                <h1 class="modal-title fs-5" id="downloadModalLabel">
+                  Что бы скачать материалы с сайта, оставьте контактные
+                  данные
+                </h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form method="POST">
+                  {% csrf_token %}
+                  <div class="input-group input-group-lg">
+                    {#
+                    <span class="input-group-text" id="inputGroup-sizing-lg">
+                      Имя
+                    </span>
+                    #}
+                    <input name="username" type="text" class="form-control mb-2" placeholder="Имя"
+                      aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+                  </div>
+                  <div class="input-group input-group-lg">
+                    {#
+                    <span class="input-group-text" id="inputGroup-sizing-lg">
+                      Телефон
+                    </span>
+                    #}
+                    <input name="number" type="text" class="form-control phone_mask" placeholder="Телефон"
+                      maxlength="12" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" />
+                  </div>
+                  <div class="modal-footer justify-content-center ps-0">
+                    <div class="container-fluid ps-0">
+                      <div class="row">
+                        <div class="col col-md-4">
+                          <button type="submit" class="btn btn-secondary form__submit" data-bs-dismiss="modal">
+                            Оставить заявку
+                          </button>
+                        </div>
+                        <div class="col">
+                          <p class="text-start h5">
+                            Нажимая на кнопку, вы соглашаетесь с
+                            <br />
+                            <a href="{% url 'homeapp:privicy' %}">
+                              политикой конфиденциальности
+                            </a>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <script type="text/javascript">
-      $(".team-slider").slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: true,
-            },
+      {#modal download#}
+    </section>
+  </footer>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/f8895a3494.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Находим все изображения дипломов
+      const diplomaImages = document.querySelectorAll('.diploma-img');
+      const modalImage = document.getElementById('diplomaModalImage');
+      const modalLabel = document.getElementById('diplomaModalLabel');
+
+      diplomaImages.forEach(function (image) {
+        // Обработчик клика для каждого изображения
+        image.addEventListener('click', function (image) {
+          console.log(image)
+          // Подставляем URL изображения в модальное окно
+          modalImage.src = event.target.src;
+          console.log(modalImage.alt)
+          modalImage.alt = event.target.alt;
+          modalLabel.innerHTML = event.target.alt;
+        });
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(".team-slider").slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            infinite: true,
+            dots: true,
           },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-            },
+        },
+        {
+          breakpoint: 767,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
           },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-            },
+        },
+        {
+          breakpoint: 520,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots: false,
           },
-        ],
-      });
-    </script>
-    <script>
-      const input = document.body.querySelector(".telmask");
+        }
+      ],
+    });
+  </script>
+  <script>
+    const input = document.body.querySelector(".telmask");
 
-      input.addEventListener("keypress", (evt) => {
-        if (evt.keyCode < 47 || evt.keyCode > 57) {
-          evt.preventDefault();
-        }
+    input.addEventListener("keypress", (evt) => {
+      if (evt.keyCode < 47 || evt.keyCode > 57) {
+        evt.preventDefault();
+      }
+    });
+
+    input.addEventListener("focus", () => {
+      if (input.value.length === 0) {
+        input.value = "+7";
+        input.selectionStart = input.value.length;
+      }
+    });
+
+    input.addEventListener("click", (evt) => {
+      if (input.selectionStart < 2) {
+        input.selectionStart = input.value.length;
+      }
+      if (evt.key === "Backspace" && input.value.length <= 2) {
+        evt.preventDefault();
+      }
+    });
+
+    input.addEventListener("blur", () => {
+      if (input.value === "+7") {
+        input.value = "";
+      }
+    });
+
+    input.addEventListener("keydown", (evt) => {
+      if (evt.key === "Backspace" && input.value.length <= 2) {
+        evt.preventDefault();
+      }
+    });
+  </script>
+  <script>
+    const input_1 = document.body.querySelector(".phone_mask");
+
+    input_1.addEventListener("keypress", (evt) => {
+      if (evt.keyCode < 47 || evt.keyCode > 57) {
+        evt.preventDefault();
+      }
+    });
+
+    input_1.addEventListener("focus", () => {
+      if (input_1.value.length === 0) {
+        input_1.value = "+7";
+        input_1.selectionStart = input_1.value.length;
+      }
+    });
+
+    input_1.addEventListener("click", (evt) => {
+      if (input_1.selectionStart < 2) {
+        input_1.selectionStart = input_1.value.length;
+      }
+      if (evt.key === "Backspace" && input_1.value.length <= 2) {
+        evt.preventDefault();
+      }
+    });
+
+    input_1.addEventListener("blur", () => {
+      if (input_1.value === "+7") {
+        input_1.value = "";
+      }
+    });
+
+    input_1.addEventListener("keydown", (evt) => {
+      if (evt.key === "Backspace" && input_1.value.length <= 2) {
+        evt.preventDefault();
+      }
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var submenus = document.querySelectorAll(
+        ".dropdown-submenu .dropdown-toggle"
+      );
+      submenus.forEach(function (submenu) {
+        var dropdownContent = submenu.nextElementSibling; // Получаем подменю, связанное с каждым элементом
+
+        // Слушатель для открытия подменю по клику
+        submenu.addEventListener("click", function (event) {
+          event.stopPropagation(); // Предотвращаем всплытие события
+          // Переключаем видимость подменю
+          dropdownContent.style.display =
+            dropdownContent.style.display === "block" ? "none" : "block";
+        });
       });
 
-      input.addEventListener("focus", () => {
-        if (input.value.length === 0) {
-          input.value = "+7";
-          input.selectionStart = input.value.length;
-        }
-      });
-
-      input.addEventListener("click", (evt) => {
-        if (input.selectionStart < 2) {
-          input.selectionStart = input.value.length;
-        }
-        if (evt.key === "Backspace" && input.value.length <= 2) {
-          evt.preventDefault();
-        }
-      });
-
-      input.addEventListener("blur", () => {
-        if (input.value === "+7") {
-          input.value = "";
-        }
-      });
-
-      input.addEventListener("keydown", (evt) => {
-        if (evt.key === "Backspace" && input.value.length <= 2) {
-          evt.preventDefault();
-        }
-      });
-    </script>
-    <script>
-      const input_1 = document.body.querySelector(".phone_mask");
-
-      input_1.addEventListener("keypress", (evt) => {
-        if (evt.keyCode < 47 || evt.keyCode > 57) {
-          evt.preventDefault();
-        }
-      });
-
-      input_1.addEventListener("focus", () => {
-        if (input_1.value.length === 0) {
-          input_1.value = "+7";
-          input_1.selectionStart = input_1.value.length;
-        }
-      });
-
-      input_1.addEventListener("click", (evt) => {
-        if (input_1.selectionStart < 2) {
-          input_1.selectionStart = input_1.value.length;
-        }
-        if (evt.key === "Backspace" && input_1.value.length <= 2) {
-          evt.preventDefault();
-        }
-      });
-
-      input_1.addEventListener("blur", () => {
-        if (input_1.value === "+7") {
-          input_1.value = "";
-        }
-      });
-
-      input_1.addEventListener("keydown", (evt) => {
-        if (evt.key === "Backspace" && input_1.value.length <= 2) {
-          evt.preventDefault();
-        }
-      });
-    </script>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var submenus = document.querySelectorAll(
-          ".dropdown-submenu .dropdown-toggle"
+      // Слушатель для закрытия всех подменю, если клик произошел вне подменю
+      document.addEventListener("click", function () {
+        var openDropdowns = document.querySelectorAll(
+          ".dropdown-submenu .dropdown-menu"
         );
-        submenus.forEach(function (submenu) {
-          var dropdownContent = submenu.nextElementSibling; // Получаем подменю, связанное с каждым элементом
-
-          // Слушатель для открытия подменю по клику
-          submenu.addEventListener("click", function (event) {
-            event.stopPropagation(); // Предотвращаем всплытие события
-            // Переключаем видимость подменю
-            dropdownContent.style.display =
-              dropdownContent.style.display === "block" ? "none" : "block";
-          });
-        });
-
-        // Слушатель для закрытия всех подменю, если клик произошел вне подменю
-        document.addEventListener("click", function () {
-          var openDropdowns = document.querySelectorAll(
-            ".dropdown-submenu .dropdown-menu"
-          );
-          openDropdowns.forEach(function (openDropdown) {
-            if (openDropdown.style.display === "block") {
-              openDropdown.style.display = "none";
-            }
-          });
+        openDropdowns.forEach(function (openDropdown) {
+          if (openDropdown.style.display === "block") {
+            openDropdown.style.display = "none";
+          }
         });
       });
-    </script>
+    });
+  </script>
 
-    <script src="{% static 'homeapp/js/main.js' %}"></script>
-    <script src="{% static 'homeapp/js/slider.js' %}"></script>
-  </body>
+  <script src="{% static 'homeapp/js/main.js' %}"></script>
+  <script src="{% static 'homeapp/js/slider.js' %}"></script>
+</body>
+
 </html>

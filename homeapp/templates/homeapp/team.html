@@ -1,34 +1,49 @@
 {% extends 'homeapp/base.html' %}
 {% load static %}
 
-
 {% block content %}
+<div class="container">
+    {% for partner in partners %}
+    <div class="row mt-5 partner__card">
+        <div class="col-lg-4">
+            <img class="w-100" src="{{ partner.photo.url }}" alt="{{ partner.name }}">
+        </div>
+        <div class="col-lg-8 mt-4">
+            <h2 class="partner__card-title">{{ partner.name }}</h2>
+            <p>{{ partner.context|linebreaksbr }}</p>
 
-    <div class="container">
-        {% for partner in partners %}
-            {% if partner.id|divisibleby:2 %}
-                <div class="row mt-5 ">
-            <div class="col-lg-8 mt-4">
-                <h2>{{ partner.name }}</h2>
-                <p>{{ partner.context|linebreaksbr }}</p>
-            </div>
-            <div class="col-lg-4 order-first order-lg-last">
-                <img class="rounded w-100" src="{{ partner.photo.url }}" alt="{{ partner.name }}">
+            <!-- Карусель для фотографий дипломов партнёра -->
+            <div class="diploms slider">
+                {% for photo in partner.photos.all %}
+                <div class="slide team__slide">
+                    <!-- Клик на изображение вызывает модальное окно -->
+                    <img class="d-block w-100 diploma-img" src="{{ photo.photo.url }}" alt="{{ photo.caption }}"
+                        data-bs-toggle="modal" data-bs-target="#diplomaModal">
+                    {% if photo.caption %}
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>{{ photo.caption }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
             </div>
         </div>
-            {% else %}
-                <div class="row mt-5">
-            <div class="col-lg-4">
-                <img class="rounded w-100" src="{{ partner.photo.url }}" alt="{{ partner.name }}">
-            </div>
-            <div class="col-lg-8 mt-4">
-                <h2>{{ partner.name }}</h2>
-                <p>{{ partner.context|linebreaksbr }}</p>
-            </div>
-        </div>
-            {% endif %}
-        {% endfor %}
-
     </div>
+    {% endfor %}
+</div>
 
+<!-- Модальное окно для увеличенного изображения диплома -->
+<div class="modal fade" id="diplomaModal" tabindex="-1" aria-labelledby="diplomaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="diplomaModalLabel">Увеличенное изображение</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="diplomaModalImage" class="img-fluid" src="" alt="Diploma">
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

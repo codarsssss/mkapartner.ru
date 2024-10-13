@@ -13,4 +13,3 @@ async def send_telegram_message(message):
         await bot.send_message(chat_id=CHAT_ID, text=message)
     except Exception as e:
         await bot.send_message(chat_id=ADMIN_ID, text=e)
-    pass

@@ -1,56 +1,127 @@
 {% extends 'homeapp/base.html' %}
-{% load static %}    
-    
-{% block content %}
-    
-        <div class="container">  
-            <h1 class="text-center h1">Услуги, оказываемые физическим лицам:</h1>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:criminal_defense' %}" 
-                    style="text-decoration: none; color: #000000;">Адвокаты по уголовным делам</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:civil_defense' %}"
-                    style="text-decoration: none; color: #000000;">Адвокаты по гражданским делам</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:inheritance' %}"
-                    style="text-decoration: none; color: #000000;">Адвокаты по делам o наследстве 
-                    (Наследственный адвокат)</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:migration' %}"
-                    style="text-decoration: none; color: #000000;">Адвокаты по миграционным делам 
-                    (Миграционный адвокат)</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:traffic_accident' %}"
-                    style="text-decoration: none; color: #000000;">Адвокаты по ДТП (Автоюрист)</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:license_revocation' %}"
-                    style="text-decoration: none; color: #000000;">Адвокаты по лишению водительских прав</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:family_matters' %}"
-                    style="text-decoration: none; color: #000000;">Адвокаты по семейным делам 
-                    (Семейный адвокат)</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:individual_bankruptcy' %}"
-                    style="text-decoration: none; color: #000000;">Адвокат по банкротству</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:consumer_protection' %}"
-                    style="text-decoration: none; color: #000000;">Адвокат по защите прав потребителей</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:land_disputes' %}"
-                    style="text-decoration: none; color: #000000;">Адвокат по земельным спорам</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:debt_recovery' %}"
-                    style="text-decoration: none; color: #000000;">Адвокат по взысканию долгов</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:medical' %}"
-                    style="text-decoration: none; color: #000000;">Адвокат по возмещению вреда здоровью 
-                    (Медицинский адвокат)</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:enforcement_lawyer' %}"
-                    style="text-decoration: none; color: #000000;">Адвокат по работе c приставами 
-                    (Юрист в исполнительном производстве)</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:appeals' %}"
-                    style="text-decoration: none; color: #000000;">Апелляционное и кассационное обжалование судебных решений 
-                    (Адвокат по обжалованию решений, приговоров либо постановлений)</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:administrative_penalties' %}"
-                    style="text-decoration: none; color: #000000;">Обжалование административных наказаний</a></li>
-                <li class="list-group-item m-2"><a href="{% url 'homeapp:online_consultation' %}"
-                    style="text-decoration: none; color: #000000;">Юридические консультации онлайн</a></li>
-            </ul>
+{% load static %}
 
-            <div class="container bg-light py-2 px-3 mt-2 mb-2 border rounded">
-                <h2 class="text-center">Оставить заявку:</h2>
-                {% include 'homeapp/forms/application_form.html' %}
-            </div>   
-    
-        </div>    
-    
+{% block content %}
+
+<div class="container">
+        <div class="service-list">
+                <h1 class="h1 service-list__title">Услуги, оказываемые физическим лицам</h1>
+                <ul class="list-group list-group-flush  service-list__items">
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:criminal_defense' %}">
+                                        <span>Адвокаты по уголовным делам</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:civil_defense' %}">
+                                        <span> Адвокаты по гражданским делам</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:inheritance' %}">
+                                        <span>Адвокаты по делам o наследстве (Наследственный адвокат)</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:migration' %}">
+                                        <span>Адвокаты по миграционным делам (Миграционный адвокат)</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:traffic_accident' %}">
+                                        <span>Адвокаты по ДТП (Автоюрист)</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:license_revocation' %}">
+                                        <span>Адвокаты по лишению водительских прав</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:family_matters' %}">
+                                        <span>Адвокаты по семейным делам (Семейный адвокат)</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:individual_bankruptcy' %}">
+                                        <span>Адвокат по банкротству</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:consumer_protection' %}">
+                                        <span>Адвокат по защите прав потребителей</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:land_disputes' %}">
+                                        <span>Адвокат по земельным спорам</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:debt_recovery' %}">
+                                        <span>Адвокат по взысканию долгов</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:medical' %}">
+                                        <span>Адвокат по возмещению вреда здоровью (Медицинский адвокат)</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:enforcement_lawyer' %}">
+                                        <span>
+                                                Адвокат по работе c приставами (Юрист в исполнительном производстве)
+                                        </span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:appeals' %}">
+                                        <span>
+                                                Апелляционное и кассационное обжалование судебных решений
+                                                (Адвокат по обжалованию решений, приговоров либо постановлений)
+                                        </span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:administrative_penalties' %}">
+                                        <span>Обжалование административных наказаний</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                        <li class="list-group-item  service-list__item">
+                                <a href="{% url 'homeapp:online_consultation' %}">
+                                        <span>Юридические консультации онлайн</span>
+                                        <img src="{% static 'homeapp/img/arrow-right.png' %}" alt="" />
+                                </a>
+                        </li>
+                </ul>
+        </div>
+
+        <div class="send-request">
+                <div class="container">
+                        <div class="send-request__inner">
+                                <div class="send-request__content">
+                                        <h2 class="send-request__title">Оставить заявку:</h2>
+                                        {% include 'homeapp/forms/application_form.html' %}
+                                </div>
+                                <img class="send-request__img" src="{% static 'homeapp/img/form-img.png' %}">
+                        </div>
+                </div>
+        </div>
+</div>
+
 {% endblock %}
