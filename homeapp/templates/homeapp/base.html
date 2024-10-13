@@ -140,37 +140,17 @@
               Практика адвокатов
             </a>
           </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'homeapp:team' %}">
               Адвокаты
             </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a class="dropdown-item" href="{% url 'homeapp:team' %}">
-                  Офис в Москве
-                </a>
-              </li>
-              {% comment %}
-              <li>
-                <a class="dropdown-item" href="{% url 'homeapp:ulyanovsk' %}">
-                  Филиал в Ульяновске
-                </a>
-                {% endcomment %}
-              </li>
-            </ul>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="{% url 'homeapp:news_list' %}">
               Новости
             </a>
           </li>
-
           <li class="nav-item dropdown">
-            <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fa fa-search fa-5xl"></i> 
-                    </a> -->
             <ul class="dropdown-menu dropdown-menu-search" aria-labelledby="navbarDropdown">
               <li class="dropdown-search">
                 <form class="d-flex p-2 form-search" role="search" method="POST">
@@ -216,7 +196,9 @@
 
         <div class="menu">
           <a href="tel:+79151678864">8 915 167 88 64</a>
-          <a href="">Получить консультацию</a>
+          <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Получить консультацию
+          </button>
         </div>
       </div>
     </div>
@@ -266,25 +248,10 @@
                   </ul>
                 </li>
 
-                <li class="nav-item dropdown" style="padding: 0 0 10px">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                <li class="nav-item nav_footer">
+                  <a class="nav-link" aria-current="page" href="{% url 'homeapp:team' %}">
                     Адвокаты
                   </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <a class="dropdown-item" href="{% url 'homeapp:team' %}">
-                        Офис в Москве
-                      </a>
-                    </li>
-                    {% comment %}
-                    <li>
-                      <a class="dropdown-item" href="{% url 'homeapp:ulyanovsk' %}">
-                        Филиал в Ульяновске
-                      </a>
-                      {% endcomment %}
-                    </li>
-                  </ul>
                 </li>
 
                 <li class="nav-item nav_footer">
@@ -345,6 +312,7 @@
               <a class="btn2" style="border: 1px solid white" href="tel:+79151678864">
                 8 915 167 88 64
               </a>
+
               <button type="button" class="btn1" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Получить консультацию
               </button>
@@ -478,7 +446,6 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      console.log('тест')
       // Находим все изображения дипломов
       const diplomaImages = document.querySelectorAll('.diploma-img');
       const modalImage = document.getElementById('diplomaModalImage');
