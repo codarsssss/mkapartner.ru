@@ -1,9 +1,7 @@
 {% extends 'homeapp/base.html' %}
 {% load static %}
 
-
 {% block content %}
-
 <div class="container">
     {% for partner in partners %}
     <div class="row mt-5 partner__card">
@@ -13,33 +11,39 @@
         <div class="col-lg-8 mt-4">
             <h2 class="partner__card-title">{{ partner.name }}</h2>
             <p>{{ partner.context|linebreaksbr }}</p>
-            <!-- Карусель для фотографий партнёра -->
-            <div id="carouselPartner{{ partner.id }}" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    {% for photo in partner.photos.all %}
-                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                        <img class="d-block w-100" src="{{ photo.photo.url }}" alt="{{ photo.caption }}">
-                        {% if photo.caption %}
-                        <div class="carousel-caption d-none d-md-block">
-                            <p>{{ photo.caption }}</p>
-                        </div>
-                        {% endif %}
+
+            <!-- Карусель для фотографий дипломов партнёра -->
+            <div class="diploms slider">
+                {% for photo in partner.photos.all %}
+                <div class="slide team__slide">
+                    <!-- Клик на изображение вызывает модальное окно -->
+                    <img class="d-block w-100 diploma-img" src="{{ photo.photo.url }}" alt="{{ photo.caption }}"
+                        data-bs-toggle="modal" data-bs-target="#diplomaModal">
+                    {% if photo.caption %}
+                    <div class="carousel-caption d-none d-md-block">
+                        <p>{{ photo.caption }}</p>
                     </div>
-                    {% endfor %}
+                    {% endif %}
                 </div>
-                <a class="carousel-control-prev" href="#carouselPartner{{ partner.id }}" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselPartner{{ partner.id }}" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </a>
+                {% endfor %}
             </div>
         </div>
-        {# <a href="">Получить консультацию</a> #}
     </div>
     {% endfor %}
 </div>
 
+<!-- Модальное окно для увеличенного изображения диплома -->
+<div class="modal fade" id="diplomaModal" tabindex="-1" aria-labelledby="diplomaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="diplomaModalLabel">Увеличенное изображение</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="diplomaModalImage" class="img-fluid" src="" alt="Diploma">
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
