@@ -1152,6 +1152,60 @@ p:not(:empty) - первый не пустой параграф. Нужно, п�
   color: white;
 }
 
+.amo-form iframe {
+  height: auto !important;
+  margin-bottom: 0 !important;
+  min-height: 347px;
+}
+
+.amo-form #amofroms_main_wrapper.sidebar_left .amoforms-form {
+  border: none !important;
+}
+
+.amo-form #amofroms_main_wrapper {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.hero__subtitle {
+  color: white;
+}
+
+button, a {
+  transition: all .3s;
+  cursor: pointer;
+  border: none !important;
+}
+
+button:focus {
+  outline: none;
+}
+
+.button-white {
+  outline: 1px solid var(--blue) !important;
+}
+
+.button-blue {
+  outline: 1px solid white !important;
+}
+
+.button-white:hover {
+  background-color: var(--blue) !important;
+  color: white !important;
+  outline: 1px solid white !important;
+}
+
+.button-blue:hover {
+  background-color: transparent !important;
+  color: var(--blue) !important;
+  outline: 1px solid var(--blue) !important;
+  background-color: white !important;
+}
+
+.diploma-img {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1200px) {
   .cases__item {
     width: calc(100% / 3 - 6px);

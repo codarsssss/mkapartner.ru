@@ -20,10 +20,12 @@
       <h1>Партнер групп</h1>
       <span>Московская коллегия адвокатов</span>
       <img src="{% static 'homeapp/img/Vector.png' %}" alt="" />
-      <p>
+      <p class="hero__subtitle">
         Сила в знании, справедливость в действии: ваша защита – наша миссия!
       </p>
-      <button>Получить консультацию</button>
+      <button type="button"class="button-white"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Получить консультацию
+      </button>
     </div>
     <img class="hero-3" src="{% static 'homeapp/img/ml.png' %}" alt="" />
   </div>
@@ -130,8 +132,10 @@
           </div>
 
           <div style="display: flex; gap: 16px">
-            <button class="btn2">Все услуги</button>
-            <button class="btn1">Заказать звонок</button>
+            <a class="btn2 button-blue">Все услуги</a>
+            <button type="button" class="btn1 button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Заказать звонок
+            </button>
           </div>
         </div>
       </div>
@@ -511,7 +515,6 @@
           помощь от группы адвокатов  МКА «Партнер групп» по уголовным делам,
           административным делам 24/7.
         </p>
-        <a class="btn2" href="">Оформить подписку</a>
       </div>
       <div class="aboniment__item">
         <img class="m-0-auto" src="{% static 'homeapp/img/family.jpg' %}" />
@@ -522,7 +525,6 @@
           из нескольких членов семьи. Это может включать супругов, детей,
           родителей и других близких родственников.
         </p>
-        <a class="btn2" href="">Оформить подписку</a>
       </div>
       <div class="aboniment__item">
         <img class="m-0-auto" src="{% static 'homeapp/img/business.jpg' %}" />
@@ -533,7 +535,6 @@
           бизнеса, вы избавляете себя от расходов, связанных с содержанием
           целого юридического департамента.
         </p>
-        <a class="btn2" href="">Оформить подписку</a>
       </div>
     </div>
   </div>
@@ -721,7 +722,7 @@
           Приглашаем вас ознакомиться с презентацией компании МКА «Партнер
           Групп» и узнать о нас в краткой удобной форме.
         </p>
-        <a href="{% static 'homeapp/docs/Партнер групп.pdf' %}" class="btn1" target="_blank">
+        <a href="{% static 'homeapp/docs/Партнер групп.pdf' %}" class="btn1 button-white" target="_blank">
           Скачать презентацию PDF
         </a>
       </div>
