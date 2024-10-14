@@ -121,9 +121,22 @@ body {
   text-transform: uppercase;
 }
 
-.hero img {
-  object-fit: scale-down;
+.hero {
+  display: flex;
+  align-items: center;
 }
+
+.hero img {
+  object-fit: cover;
+  height: auto;
+}
+
+.image-wrapper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
 .hero__text img,
 .hero__text span,
 .hero__text p {
