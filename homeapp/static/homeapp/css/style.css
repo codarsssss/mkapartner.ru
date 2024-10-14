@@ -1171,7 +1171,8 @@ p:not(:empty) - первый не пустой параграф. Нужно, п�
   color: white;
 }
 
-button, a {
+button,
+a {
   transition: all .3s;
   cursor: pointer;
   border: none !important;
@@ -1187,19 +1188,38 @@ button:focus {
 
 .button-blue {
   outline: 1px solid white !important;
-}
-
-.button-white:hover {
   background-color: var(--blue) !important;
-  color: white !important;
-  outline: 1px solid white !important;
+  color: #fff !important;
 }
 
-.button-blue:hover {
-  background-color: transparent !important;
-  color: var(--blue) !important;
-  outline: 1px solid var(--blue) !important;
-  background-color: white !important;
+@media (hover: hover) {
+  .button-white:hover {
+    background-color: var(--blue) !important;
+    color: white !important;
+    outline: 1px solid white !important;
+  }
+
+  .button-blue:hover {
+    background-color: transparent !important;
+    color: var(--blue) !important;
+    outline: 1px solid var(--blue) !important;
+    background-color: white !important;
+  }
+}
+
+@media (hover: none) {
+  .button-white:active {
+    background-color: var(--blue) !important;
+    color: white !important;
+    outline: 1px solid white !important;
+  }
+
+  .button-blue:active {
+    background-color: transparent !important;
+    color: var(--blue) !important;
+    outline: 1px solid var(--blue) !important;
+    background-color: white !important;
+  }
 }
 
 .diploma-img {
@@ -1223,7 +1243,7 @@ button:focus {
   margin-top: auto;
 }
 
-.tarif  {
+.tarif {
   background-color: #f7f9ff;
 }
 
