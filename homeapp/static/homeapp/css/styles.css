@@ -787,6 +787,10 @@ body{
     flex-direction: column;
   }
 
+  .hero-mobile img {
+    height: auto;
+  }
+
   .partner img {
     max-height: 346px;
   }
