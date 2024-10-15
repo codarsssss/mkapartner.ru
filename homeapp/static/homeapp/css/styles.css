@@ -816,3 +816,10 @@ body{
     gap: 32px;
   }
 }
+
+@media screen and (max-width: 320px) {
+  .button__header {
+    padding: 6px 12px !important;
+    align-items: center;
+  }
+}
