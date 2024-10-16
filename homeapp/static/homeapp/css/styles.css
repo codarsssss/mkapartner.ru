@@ -4,7 +4,7 @@ body {
 }
 
 .navbar-brand {
-  max-width: 169px;
+  max-width: 200px;
   margin-right: 24px;
 }
 
@@ -817,7 +817,7 @@ body{
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 340px) {
   .button__header {
     padding: 6px 12px !important;
     align-items: center;
