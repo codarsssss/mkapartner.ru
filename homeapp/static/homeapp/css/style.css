@@ -1143,6 +1143,12 @@ p:not(:empty) - первый не пустой параграф. Нужно, п�
   color: black;
 }
 
+.mt {
+  margin-top: 60px;
+}
+
+
+
 .diploms img {
   height: 100%;
   object-fit: cover;
