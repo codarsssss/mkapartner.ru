@@ -110,13 +110,15 @@
           src="{% static 'homeapp/img/Frame 1000000988.png' %}" alt="" alt="">
       </a>
       <div class="d-flex gap-2">
-        <button type="button" class="btn1 button-blue button__header d-xl-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button type="button" class="btn1 button-blue button__header d-xl-none" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">
           Получить консультацию
         </button>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span style="border: none;">
-            <img style="width: 24px; height: 24px; background:#2A3554;" src="{% static 'homeapp/img/sort.svg' %}" alt="">
+            <img style="width: 24px; height: 24px; background:#2A3554;" src="{% static 'homeapp/img/sort.svg' %}"
+              alt="">
           </span>
         </button>
       </div>
@@ -154,28 +156,22 @@
             </a>
           </li>
           <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Адвокаты
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="{% url 'homeapp:team' %}">
-                    Офис в Москве
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="https://mkapartner.ru/">
-                    Филиал в Ульяновске
-                  </a>
-                </li>
-              </ul>
-            </li>
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Адвокаты
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="{% url 'homeapp:team' %}">
+                  Офис в Москве
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="https://mkapartner.ru/">
+                  Филиал в Ульяновске
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="{% url 'homeapp:news_list' %}">
               Новости
@@ -239,7 +235,7 @@
   {% block content %} {% endblock %}
 
   <div class="filling"></div>
-  <footer class="mt-5">
+  <footer>
     <section class="footer">
       <div class="container">
         <div class="footer-inner">
@@ -281,28 +277,23 @@
                 </li>
 
                 <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Адвокаты
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="{% url 'homeapp:team' %}">
-                    Офис в Москве
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Адвокаты
                   </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a class="dropdown-item" href="{% url 'homeapp:team' %}">
+                        Офис в Москве
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="https://mkapartner.ru/">
+                        Филиал в Ульяновске
+                      </a>
+                    </li>
+                  </ul>
                 </li>
-                <li>
-                  <a class="dropdown-item" href="https://mkapartner.ru/">
-                    Филиал в Ульяновске
-                  </a>
-                </li>
-              </ul>
-            </li>
 
                 <li class="nav-item nav_footer">
                   <a class="nav-link" aria-current="page" href="{% url 'homeapp:cases' %}">
@@ -374,6 +365,11 @@
                 </a>
               </div>
               <div class="text-center">
+                <a class="nav-link footer__nav-link" aria-current="page" href="tel:+79671328133">
+                  <i class="fa-brands fa-whatsapp fa-2xl" style="color: white;"></i>
+                </a>
+              </div>
+              <div class="text-center">
                 <a class="nav-link footer__nav-link" aria-current="page"
                   href="https://www.instagram.com/advocate_konstantinova_pg?utm_source=qr">
                   <i class="fa-brands fa-instagram fa-2xl" style="color: white"></i>
@@ -401,7 +397,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="modal fade amo-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade amo-form" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
           <div class="modal-dialog modal-lg footer__modal">
             <div class="modal-content">
               <div class="modal-header">

@@ -43,7 +43,8 @@ body {
 }
 
 section {
-  padding: 50px 0;
+  /* padding: 50px 0; */
+  margin-bottom: 60px;
 }
 
 nav img {
@@ -245,7 +246,14 @@ footer p {
   /*position: relative;*/
   /*padding-top: 75%;*/
   /*background-size: cover;*/
+}
 
+.service {
+  margin-top: 60px;
+}
+
+body > .container > .page-section {
+  margin-top: 60px;
 }
 
 .icon-bg {
@@ -971,7 +979,7 @@ h2 {
 .page-section {
   background-color: white;
   padding: 32px;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .page-section p {
@@ -1142,12 +1150,6 @@ p:not(:empty) - первый не пустой параграф. Нужно, п�
 .diploms .slick-dots li button:before {
   color: black;
 }
-
-.mt {
-  margin-top: 60px;
-}
-
-
 
 .diploms img {
   height: 100%;
