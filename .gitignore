@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+homeapp/notification_bot.py
 # C extensions
 *.so
 
