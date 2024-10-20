@@ -11,6 +11,7 @@ body {
 .dropdown-toggle::after {
   display: none;
 }
+
 .navbar {
   padding-top: 24px;
   padding-bottom: 24px;
@@ -19,12 +20,15 @@ body {
   z-index: 100;
   background: #ffffff !important;
 }
+
 .navbar-nav {
   gap: 16px;
 }
+
 .nav-item {
   margin: 0;
 }
+
 .nav-link {
   padding: 0px !important;
 }
@@ -63,6 +67,7 @@ body {
   font-weight: 500;
   background: white;
 }
+
 .btn2,
 .menu :nth-child(2) {
   font-size: 14px;
@@ -154,6 +159,7 @@ body {
 .hero__text span {
   text-transform: uppercase;
 }
+
 .hero__text p,
 .hero__text span {
   font-size: 16px;
@@ -175,6 +181,7 @@ body {
   gap: 32px;
   align-items: center;
 }
+
 .feature-icon {
   background: #2a3554;
   height: 43px;
@@ -280,6 +287,7 @@ body {
   background: white;
   text-align: left;
 }
+
 .about-wrapper {
   max-width: 800px;
 }
@@ -298,6 +306,7 @@ body {
   max-width: 364px;
   object-fit: scale-down;
 }
+
 .about {
   max-width: 1200px;
   box-sizing: border-box;
@@ -393,6 +402,7 @@ p {
   background: white;
   color: rgb(42, 53, 84);
 }
+
 .accordion-item:last-of-type .accordion-collapse,
 .accordion-item:first-of-type .accordion-button,
 .accordion-button,
@@ -499,9 +509,8 @@ p {
 .aboniment__item .btn2 {
   margin-top: auto;
 }
-body{
 
-}
+body {}
 
 
 .partner * {
@@ -559,6 +568,17 @@ body{
   padding: 32px;
 }
 
+.clients h2 {
+  color: rgb(42, 53, 84);
+  font-family: 'Russo One';
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 39px;
+  text-align: left;
+  padding: 0px;
+  margin-bottom: 16px;
+}
+
 .footer-menu {
   display: flex;
   flex-direction: column;
@@ -575,12 +595,18 @@ body{
   display: flex;
   justify-content: space-between;
 }
+
 .footer-socials {
   display: flex;
   gap: 8px;
 
   justify-content: flex-end;
 }
+
+.footer {
+  margin-bottom: 0;
+}
+
 .footer .nav-link {
   font-size: 14px;
   font-weight: 600 !important;
@@ -609,21 +635,26 @@ body{
 .navbar-toggler {
   border-radius: 0px !important;
 }
+
 .adventages-mob {
   display: none;
 }
-.accordion-button span{
+
+.accordion-button span {
   min-width: 43px;
 }
+
 .adventages-wrap {
   display: flex;
 
   justify-content: space-between;
   width: 100%;
 }
+
 .adventages-mob {
   justify-content: flex-end;
 }
+
 .footer .container {
   display: flex;
   flex-direction: column;
@@ -633,6 +664,7 @@ body{
 .logo-mob {
   display: none;
 }
+
 @media only screen and (max-width: 1200px) {
   .navbar-brand {
     display: none;
@@ -641,10 +673,12 @@ body{
   .logo-mob {
     display: flex;
   }
+
   .hero-1,
   .hero-3 {
     display: none;
   }
+
   .hero-mobile {
     display: flex !important;
     align-items: flex-end;
@@ -667,7 +701,8 @@ body{
   .hero-mobile {
     display: flex !important;
     align-items: flex-end;
-    justify-content: center; /* Расположите изображения по центру */
+    justify-content: center;
+    /* Расположите изображения по центру */
     width: 100%;
   }
 
@@ -687,6 +722,7 @@ body{
     flex-direction: column;
     align-items: flex-start;
   }
+
   .video .container {
     justify-content: center;
   }
@@ -696,23 +732,22 @@ body{
     align-items: flex-start;
   }
 
-  .footer .container{
+  .footer .container {
     background-image: none;
   }
 
-  nav .container{
+  nav .container {
     gap: 20px;
   }
 
-  .navbar-toggler:focus{
-    
-  }
+  .navbar-toggler:focus {}
 
-  body{
+  body {
     background: white;
   }
-  .features__container{
-    background: white ;
+
+  .features__container {
+    background: white;
   }
 }
 
@@ -745,9 +780,11 @@ body{
     gap: 20px;
     align-items: center;
   }
+
   .adventages-mob {
     justify-content: center;
   }
+
   .menu {
     flex-direction: column;
     text-align: center;
@@ -758,38 +795,47 @@ body{
   .hero__text h1 {
     font-size: 36px;
   }
-  .aboniment__text{
+
+  .aboniment__text {
     max-width: 390px;
     margin-left: auto;
     margin-right: auto;
   }
-  .btn1{
+
+  .btn1 {
     text-align: center;
     display: flex;
   }
-  .aboniment{
+
+  .aboniment {
     padding-bottom: 0px;
   }
+
   .hero__text {
     padding-top: 10px;
   }
+
   .features {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-  .mission{
+
+  .mission {
     max-width: 390px;
     justify-content: center;
     margin-left: auto;
     margin-right: auto;
   }
-  .about-area{
+
+  .about-area {
     background: white !important;
   }
-  .about{
+
+  .about {
     padding: 0px !important;
   }
+
   .partner img {
     max-height: none;
   }

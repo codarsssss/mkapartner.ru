@@ -56,26 +56,22 @@
     </div>
 
     <div class="mission">
-      <span style="font-style: italic; font-weight: 700">"</span>
-      <p>
-        <b>Миссия</b>
+      <span style="font-style: italic; font-weight: 700; display: inline;">"</span>
+      <p style="display: inline;">
+        <b style="display: inline;">Миссия</b>
         МКА Партнер Групп заключается в предоставлении
-        <b>высококачественных юридических услуг</b>
+        <b style="display: inline;">высококачественных юридических услуг</b>
         , основанных на глубоком понимании потребностей и целей клиентов,
-        <b>с использованием инновационных подходов</b>
+        <b style="display: inline;">с использованием инновационных подходов</b>
         и экспертизы для достижения
-        <b>оптимальных результатов</b>
-        и установления долгосрочных партнерских отношений.
+        <b style="display: inline;">оптимальных результатов</b>
+        и установления долгосрочных партнерских отношений.<span style="
+        margin-left: auto;
+        display: inline;
+        font-style: italic;
+        font-weight: 700;
+      ">"</span>
       </p>
-      <span style="
-          margin-left: auto;
-          display: block;
-          width: fit-content;
-          font-style: italic;
-          font-weight: 700;
-        ">
-        "
-      </span>
       <img src="{% static 'homeapp/img/logo.png' %}" alt="" />
     </div>
   </div>
@@ -371,7 +367,7 @@
 <!-- end about -->
 <!--================ End video Area =================-->
 
-<div class="steps">
+<section class="steps">
   <div class="container">
     <h2>Этапы работы</h2>
     <div class="accordion mt-4" id="accordionExample">
@@ -489,7 +485,7 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <section class="aboniment">
   <div class="container mt-3">
@@ -618,7 +614,7 @@
 </section> -->
 <!--================ Партнеры =================-->
 <section>
-  <div class="container mt-5">
+  <div class="container">
     <div>
       <div style="background: rgb(42, 53, 84); padding: 32px; margin-bottom: 20px" class="col justify-content-center">
         <h2 style="
@@ -720,7 +716,7 @@
 {% endif %}
 
 <!--================ презентация =================-->
-<div class="cta-area section_gap overlay mt">
+<section class="cta-area section_gap overlay mt">
   <div class="container">
     <div>
       <div style="background: rgb(42, 53, 84); color: white;    padding: 32px;">
@@ -755,46 +751,40 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 <!--================ презентация =================-->
 
 {# slider#}
-<div class="container">
-  <div class="clients  mt-5">
-    <h2 style="color: rgb(42, 53, 84);
-  font-family: 'Russo One';
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 39px;
-    text-align: left;
-    padding: 0px;
-    margin-bottom: 16px;">Нам доверяют</h2>
-
-    <section class="customer-logos slider">
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/1.png' %}" />
+<section>
+  <div class="container">
+    <div class="clients">
+      <h2>Нам доверяют</h2>
+      <div class="customer-logos slider">
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/1.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/2.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/3.jpg' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/4.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/5.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/6.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/7.jpg' %}" />
+        </div>
       </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/2.png' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/3.jpg' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/4.png' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/5.png' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/6.png' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/7.jpg' %}" />
-      </div>
-    </section>
+    </div>
   </div>
-</div>
+</section>
 
 {#slider#}
 {% endblock %}
