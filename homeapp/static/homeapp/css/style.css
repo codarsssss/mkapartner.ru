@@ -397,6 +397,10 @@ h2 {
   display: none;
 }
 
+.partner__card:last-child {
+  margin-bottom: 3rem !important;
+}
+
 @media (min-width: 992px) {
   .navbar-brand .smal {
     display: none;
@@ -1343,6 +1347,10 @@ button:focus {
   justify-content: center; /* Горизонтальное выравнивание */
   align-items: center; /* Вертикальное выравнивание */
   padding-top: 24px;
+}
+
+.form-wrapper iframe {
+  z-index: 0 !important;
 }
 
 form {
