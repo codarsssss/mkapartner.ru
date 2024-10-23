@@ -3,7 +3,7 @@
 {% block content %}
 
 {% comment %} {% if News %}
-<section class="news-section container">
+<section class="news-section container mb-0">
     <div class="page-section">
         <div class="news-section__content news_feed_header">
             <h1 class="news_item_header page-section__title">Новости и публикации</h1>
@@ -74,18 +74,9 @@
             </div>
         </div>
     </div>
-
-    <section class="send-request">
-        <div class="container">
-            <div class="send-request__inner">
-                <div class="send-request__content">
-                    <h2 class="send-request__title">Оставить заявку:</h2>
-                    {% include 'homeapp/forms/application_form.html' %}
-                </div>
-                <img class="send-request__img" src="{% static 'homeapp/img/form-img.png' %}">
-            </div>
-        </div>
-    </section>
+<div class="form-wrapper">
+    {% include "homeapp/forms/amo-form.html" %}
+</div>
 </section>
 {% endif %}
 
