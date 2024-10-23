@@ -4,7 +4,7 @@ body {
 }
 
 .navbar-brand {
-  max-width: 200px;
+  /* max-width: 200px; */
   margin-right: 24px;
 }
 
@@ -36,14 +36,17 @@ body {
 .navbar-nav a {
   color: rgba(42, 53, 84, 0.7);
   font-family: "Gilroy";
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
 }
 
 .navbar-brand img {
-  width: 100%;
-  object-fit: scale-down;
-  height: fit-content;
+  /* width: 100%; */
+  width: auto;
+  /* object-fit: scale-down; */
+  object-fit: contain;
+  /* height: fit-content; */
+  height: 60px;
 }
 
 .socials {
@@ -608,7 +611,7 @@ body {}
 }
 
 .footer .nav-link {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600 !important;
 }
 
@@ -663,6 +666,16 @@ body {}
 
 .logo-mob {
   display: none;
+}
+
+.logo-mob img {
+  width: auto;
+  height: 65px;
+  object-fit: contain;
+}
+
+.navbar .container {
+  align-items: center;
 }
 
 @media only screen and (max-width: 1200px) {
