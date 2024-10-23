@@ -14,7 +14,6 @@ from .search import search
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.urls import reverse
 from django.conf import settings
-from .notification_bot import send_telegram_message
 
 
 def download_resume(request, file_path):

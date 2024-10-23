@@ -43,17 +43,9 @@
             возникающие юридические вопросы..</p>
     </section>
 
-    <section class="send-request">
-        <div class="container">
-            <div class="send-request__inner">
-                <div class="send-request__content">
-                    <h2 class="send-request__title">Оставить заявку:</h2>
-                    {% include 'homeapp/forms/application_form.html' %}
-                </div>
-                <img class="send-request__img" src="{% static 'homeapp/img/form-img.png' %}">
-            </div>
-        </div>
-    </section>
+<div class="form-wrapper">
+    {% include "homeapp/forms/amo-form.html" %}
+</div>
 </div>
 
 {% endblock %}
