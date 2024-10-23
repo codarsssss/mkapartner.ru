@@ -8,13 +8,10 @@
     <div class="hero-mobile">
       <div class="image-wrapper">
         <img src="{% static 'homeapp/img/fm.png' %}" alt="" />
-
       </div>
       <div class="image-wrapper">
         <img src="{% static 'homeapp/img/ml.png' %}" alt="" />
-
       </div>
-
     </div>
     <div class="hero__text hero-2">
       <h1>Партнер групп</h1>
@@ -23,7 +20,7 @@
       <p class="hero__subtitle">
         Сила в знании, справедливость в действии: ваша защита – наша миссия!
       </p>
-      <button type="button"class="button-white"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <button type="button" class="button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Получить консультацию
       </button>
     </div>
@@ -59,26 +56,22 @@
     </div>
 
     <div class="mission">
-      <span style="font-style: italic; font-weight: 700">"</span>
-      <p>
-        <b>Миссия</b>
+      <span style="font-style: italic; font-weight: 700; display: inline;">"</span>
+      <p style="display: inline;">
+        <b style="display: inline;">Миссия</b>
         МКА Партнер Групп заключается в предоставлении
-        <b>высококачественных юридических услуг</b>
+        <b style="display: inline;">высококачественных юридических услуг</b>
         , основанных на глубоком понимании потребностей и целей клиентов,
-        <b>с использованием инновационных подходов</b>
+        <b style="display: inline;">с использованием инновационных подходов</b>
         и экспертизы для достижения
-        <b>оптимальных результатов</b>
-        и установления долгосрочных партнерских отношений.
+        <b style="display: inline;">оптимальных результатов</b>
+        и установления долгосрочных партнерских отношений.<span style="
+        margin-left: auto;
+        display: inline;
+        font-style: italic;
+        font-weight: 700;
+      ">"</span>
       </p>
-      <span style="
-          margin-left: auto;
-          display: block;
-          width: fit-content;
-          font-style: italic;
-          font-weight: 700;
-        ">
-        "
-      </span>
       <img src="{% static 'homeapp/img/logo.png' %}" alt="" />
     </div>
   </div>
@@ -374,7 +367,7 @@
 <!-- end about -->
 <!--================ End video Area =================-->
 
-<div class="steps">
+<section class="steps">
   <div class="container">
     <h2>Этапы работы</h2>
     <div class="accordion mt-4" id="accordionExample">
@@ -492,7 +485,7 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <section class="aboniment">
   <div class="container mt-3">
@@ -621,7 +614,7 @@
 </section> -->
 <!--================ Партнеры =================-->
 <section>
-  <div class="container mt-5">
+  <div class="container">
     <div>
       <div style="background: rgb(42, 53, 84); padding: 32px; margin-bottom: 20px" class="col justify-content-center">
         <h2 style="
@@ -655,7 +648,6 @@
             <li class="list-group-item">{{ partner.min_context3 }}</li>
             <li class="list-group-item">{{ partner.min_context4 }}</li>
           </ul>
-          <div class="filling"></div>
           <div class="diploms slider">
             {% for photo in partner.photos.all %}
             <div class="slide team__slide">
@@ -692,8 +684,39 @@
   </div>
 </section>
 
+<!--================ Новости =================-->
+{% if News %}
+<section class="news-section container">
+  <div class="page-section">
+    <div class="news_feed_header">
+      <h1 class="page-section__title">Новости и публикации</h1>
+    </div>
+    <div class="news-section__content news_feed_content swiper mySlider">
+      <div class="news_content_wrapper swiper-wrapper">
+        {% for news in News %}
+        <a class="swiper-slide" href="/news_{{ news.slug }}">
+          <div class="news_item">
+            <div class="news_content-group">
+              <div class="news__header">
+                <h1 class="news__title">{{ news.title }}</h1>
+                <p class="text-end news__date">{{ news.create_datetime }}</p>
+              </div>
+              <div class="news_item_content">
+                <p>{{ news.text|safe }}</p>
+              </div>
+            </div>
+            <div class="news_item_fakelink">Подробнее</div>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 <!--================ презентация =================-->
-<div class="cta-area section_gap overlay">
+<section class="cta-area section_gap overlay mt">
   <div class="container">
     <div>
       <div style="background: rgb(42, 53, 84); color: white;    padding: 32px;">
@@ -728,102 +751,40 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 <!--================ презентация =================-->
 
 {# slider#}
-<div class="container">
-  <div class="clients  mt-5">
-    <h2 style="color: rgb(42, 53, 84);
-  font-family: 'Russo One';
-    font-size: 32px;
-    font-weight: 400;
-    line-height: 39px;
-    text-align: left;
-    padding: 0px;
-    margin-bottom: 16px;">Нам доверяют</h2>
-
-    <section class="customer-logos slider">
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/1.png' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/2.png' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/3.jpg' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/4.png' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/5.png' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/6.png' %}" />
-      </div>
-      <div class="slide">
-        <img src="{% static 'homeapp/img/partners/7.jpg' %}" />
-      </div>
-    </section>
-  </div>
-</div>
-
-{#slider#}
-<!--================ Новости =================-->
-{% comment %} {% if News %}
-<section class="news container">
-  <div class="news_feed_header">
-    <h1>Новости и публикации</h1>
-  </div>
-  <div class="news_feed_content mt-5">
-    <div class="row">
-      <!-- Самая свежая новость -->
-      {% if News %}
-      <div class="col-md-5">
-        <div class="news_item latest_news">
-          <div class="news_item_header">
-            <p class="text-end">{{ News.0.create_datetime }}</p>
-            <h2>{{ News.0.title }}</h2>
-          </div>
-          <div class="news_item_content">
-            <p>{{ News.0.text|safe|truncatechars:100 }}</p>
-          </div>
-          <div class="button-container" style="text-align: right">
-            <a href="/news_{{ News.0.slug }}" class="btn btn-primary">
-              Читать далее
-            </a>
-          </div>
+<section>
+  <div class="container">
+    <div class="clients">
+      <h2>Нам доверяют</h2>
+      <div class="customer-logos slider">
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/1.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/2.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/3.jpg' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/4.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/5.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/6.png' %}" />
+        </div>
+        <div class="slide">
+          <img src="{% static 'homeapp/img/partners/7.jpg' %}" />
         </div>
       </div>
-
-      <!-- Остальные новости -->
-      <div class="col-md-6">
-        <ul class="list_of_news">
-          {% for news in News|slice:"1:6" %}
-          <li class="news-line">
-            <div class="news_item_content line">
-              <p>
-                {{ news.create_datetime|date:"d-m-Y H:i:s" }} -
-                <a href="/news_{{ news.slug }}">{{ news.title }}</a>
-              </p>
-            </div>
-            {% comment %}
-            <div class="news_item_content line" style="
-                background-color: rgba(0, 90, 255, 0.05);
-                border-radius: 5px;
-              ">
-              <p>
-                {{ news.create_datetime }} -
-                <a href="/news_{{ news.slug }}">{{ news.title }}</a>
-              </p>
-            </div>
-          </li>
-          {% endfor %}
-        </ul>
-      </div>
-      {% endif %}
     </div>
   </div>
 </section>
-{% endif %}{% endcomment %} {% endblock %}
+
+{#slider#}
+{% endblock %}

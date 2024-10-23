@@ -43,7 +43,8 @@ body {
 }
 
 section {
-  padding: 50px 0;
+  /* padding: 50px 0; */
+  margin-bottom: 60px;
 }
 
 nav img {
@@ -245,7 +246,14 @@ footer p {
   /*position: relative;*/
   /*padding-top: 75%;*/
   /*background-size: cover;*/
+}
 
+.service {
+  margin-top: 60px;
+}
+
+body > .container > .page-section {
+  margin-top: 60px;
 }
 
 .icon-bg {
@@ -971,7 +979,7 @@ h2 {
 .page-section {
   background-color: white;
   padding: 32px;
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 
 .page-section p {
@@ -1171,7 +1179,8 @@ p:not(:empty) - первый не пустой параграф. Нужно, п�
   color: white;
 }
 
-button, a {
+button,
+a {
   transition: all .3s;
   cursor: pointer;
   border: none !important;
@@ -1187,19 +1196,38 @@ button:focus {
 
 .button-blue {
   outline: 1px solid white !important;
-}
-
-.button-white:hover {
   background-color: var(--blue) !important;
-  color: white !important;
-  outline: 1px solid white !important;
+  color: #fff !important;
 }
 
-.button-blue:hover {
-  background-color: transparent !important;
-  color: var(--blue) !important;
-  outline: 1px solid var(--blue) !important;
-  background-color: white !important;
+@media (hover: hover) {
+  .button-white:hover {
+    background-color: var(--blue) !important;
+    color: white !important;
+    outline: 1px solid white !important;
+  }
+
+  .button-blue:hover {
+    background-color: transparent !important;
+    color: var(--blue) !important;
+    outline: 1px solid var(--blue) !important;
+    background-color: white !important;
+  }
+}
+
+@media (hover: none) {
+  .button-white:active {
+    background-color: var(--blue) !important;
+    color: white !important;
+    outline: 1px solid white !important;
+  }
+
+  .button-blue:active {
+    background-color: transparent !important;
+    color: var(--blue) !important;
+    outline: 1px solid var(--blue) !important;
+    background-color: white !important;
+  }
 }
 
 .diploma-img {
@@ -1223,6 +1251,23 @@ button:focus {
   margin-top: auto;
 }
 
+.tarif {
+  background-color: #f7f9ff;
+}
+
+.tarif .card-header {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: var(--blue);
+}
+
+.tarif .card-body {
+  display: flex;
+  flex-direction: column;
+}
 
 @media screen and (max-width: 1200px) {
   .cases__item {
@@ -1280,6 +1325,10 @@ button:focus {
 
   .slick-arrow {
     top: -48px !important;
+  }
+
+  .page-section {
+    padding: 16px;
   }
 }
 
