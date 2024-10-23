@@ -111,17 +111,10 @@
                 </ul>
         </div>
 
-        <section class="send-request">
+        <section>
                 <div class="container">
-                        <div class="send-request__inner">
-                                <div class="send-request__content">
-                                        <h2 class="send-request__title">Оставить заявку:</h2>
-                                        {% include 'homeapp/forms/application_form.html' %}
-                                </div>
-                                <img class="send-request__img" src="{% static 'homeapp/img/form-img.png' %}">
-                        </div>
+                        {% include "homeapp/forms/consultation_form.html" %}
                 </div>
         </section>
 </div>
-
 {% endblock %}
