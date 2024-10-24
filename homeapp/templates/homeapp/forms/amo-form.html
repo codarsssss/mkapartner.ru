@@ -1,0 +1,28 @@
+<!-- Вставка скрипта AmoCRM -->
+
+<script>
+  !function(window, undefined, amo_forms_, params, load, loaded){
+    window[amo_forms_ + params] = window[amo_forms_ + params] || {
+      setMeta: function(p){
+        this.params = (this.params || []).concat([p]);
+      }
+    };
+
+    window[amo_forms_ + load] = window[amo_forms_ + load] || function(f){
+      window[amo_forms_ + load].f = (window[amo_forms_ + load].f || []).concat([f]);
+    };
+
+    window[amo_forms_ + load]({
+      id: "1432202",
+      hash: "ebb16bb1cc2d800f5cb7316670a2f786",
+      locale: "ru"
+    });
+
+    window[amo_forms_ + loaded] = window[amo_forms_ + loaded] || function(f, k){
+      window[amo_forms_ + loaded].f = (window[amo_forms_ + loaded].f || []).concat([[f, k]]);
+    };
+
+  }(window, 0, "amo_forms_", "params", "load", "loaded");
+</script>
+
+<script id="amoforms_script_1432202" async="async" charset="utf-8" src="https://forms.amocrm.ru/forms/assets/js/amoforms.js?1729708250"></script>

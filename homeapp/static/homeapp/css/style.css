@@ -397,6 +397,10 @@ h2 {
   display: none;
 }
 
+.partner__card:last-child {
+  margin-bottom: 3rem !important;
+}
+
 @media (min-width: 992px) {
   .navbar-brand .smal {
     display: none;
@@ -917,7 +921,7 @@ h2 {
 }
 
 .send-request__img {
-  max-height: 174px;
+  max-height: 360px;
   margin-top: 24px;
 }
 
@@ -1337,3 +1341,29 @@ button:focus {
     width: 100%;
   }
 }
+
+.form-wrapper {
+  display: flex;
+  justify-content: center; /* Горизонтальное выравнивание */
+  align-items: center; /* Вертикальное выравнивание */
+  padding-top: 24px;
+}
+
+.form-wrapper iframe {
+  z-index: 0 !important;
+}
+
+form {
+    /* Можно добавить ширину формы для контроля */
+    width: 100%; /* Или укажите фиксированную ширину, если необходимо */
+}
+
+.send-request__img {
+    width: 100%; /* Изображение будет занимать всю ширину доступного блока */
+    max-width: 600px; /* Ограничьте максимальную ширину, чтобы изображение не растягивалось слишком сильно */
+    object-fit: contain; /* Сохранение пропорций */
+    margin-left: auto; /* Центрируем изображение */
+    margin-right: auto; /* Центрируем изображение */
+    display: block; /* Устанавливаем изображение как блочный элемент */
+}
+
