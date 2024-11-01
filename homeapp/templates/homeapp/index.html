@@ -4,38 +4,27 @@
 <style></style>
 <div class="hero">
   <div class="container">
-    <div class="banner__content">
-      <div class="banner__text">
-        <h2 class="banner__title">Минимизируем правовые риски для Вас и вашего бизнеса!</h2>
-        <ul class="banner__list">
-          <li>Уголовно-правовая защита по делам об экономических и коррупционных преступлениях.</li>
-          <li>Защита деловой репутации в суде.</li>
-          <li>Арбитражная практика.</li>
-        </ul>
-        <p class="banner__desc">Общий юридический стаж более 20 лет;<br />
-          Повышение квалификации НИУ ВШЭ;<br />
-          Успешная адвокатская практика по делам о преступлениях тяжкой и особо-тяжкой категории;<br />
-          Автор множества научно-практических публикаций.</p>
-        <div class="banner__buttons">
-          <button type="button" class="button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Получить консультацию
-          </button>
-          <button type="button" class="button-blue">Бидюк Егор Николаевич</button>
-          <button type="button" class="button-blue">
-            <span>Все адвокаты</span>
-            <svg xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 320 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-              <path fill="#ffffff"
-                d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
-            </svg>
-            {# <img src="{% static 'homeapp/img/arrow-right-white.svg' %}" alt="" /> #}
-          </button>
-        </div>
+    <img class="hero-1" src="{% static 'homeapp/img/fm.png' %}" alt="" />
+    <div class="hero-mobile">
+      <div class="image-wrapper">
+        <img src="{% static 'homeapp/img/fm.png' %}" alt="" />
       </div>
-      <div class="banner__image">
-        <img src="{% static 'homeapp/img/bor.jpg' %}" alt="Юрист" />
+      <div class="image-wrapper">
+        <img src="{% static 'homeapp/img/ml.png' %}" alt="" />
       </div>
     </div>
+    <div class="hero__text hero-2">
+      <h1>Партнер групп</h1>
+      <span>Московская коллегия адвокатов</span>
+      <img src="{% static 'homeapp/img/Vector.png' %}" alt="" />
+      <p class="hero__subtitle">
+        Сила в знании, справедливость в действии: ваша защита – наша миссия!
+      </p>
+      <button type="button" class="button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Получить консультацию
+      </button>
+    </div>
+    <img class="hero-3" src="{% static 'homeapp/img/ml.png' %}" alt="" />
   </div>
 </div>
 
