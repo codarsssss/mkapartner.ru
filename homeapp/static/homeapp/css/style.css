@@ -254,6 +254,7 @@ footer p {
 
 body > .container > .page-section {
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .icon-bg {
@@ -1204,6 +1205,11 @@ button:focus {
   color: #fff !important;
 }
 
+.button-blue svg {
+  width: 4px;
+  height: 8px;
+}
+
 @media (hover: hover) {
   .button-white:hover {
     background-color: var(--blue) !important;
@@ -1216,6 +1222,11 @@ button:focus {
     color: var(--blue) !important;
     outline: 1px solid var(--blue) !important;
     background-color: white !important;
+  }
+
+  .button-blue:hover path {
+    fill: var(--blue);
+    stroke: var(--blue);
   }
 }
 
@@ -1385,7 +1396,6 @@ button:focus {
   .banner__text {
     max-width: none;
   }
-
   .banner__image {
     max-height: none;
   }
@@ -1462,8 +1472,10 @@ button:focus {
 
 .form-wrapper {
   display: flex;
-  justify-content: center; /* Горизонтальное выравнивание */
-  align-items: center; /* Вертикальное выравнивание */
+  justify-content: center;
+  /* Горизонтальное выравнивание */
+  align-items: center;
+  /* Вертикальное выравнивание */
   padding-top: 24px;
 }
 
@@ -1472,16 +1484,128 @@ button:focus {
 }
 
 form {
-    /* Можно добавить ширину формы для контроля */
-    width: 100%; /* Или укажите фиксированную ширину, если необходимо */
+  /* Можно добавить ширину формы для контроля */
+  width: 100%;
+  /* Или укажите фиксированную ширину, если необходимо */
 }
 
 .send-request__img {
-    width: 100%; /* Изображение будет занимать всю ширину доступного блока */
-    max-width: 600px; /* Ограничьте максимальную ширину, чтобы изображение не растягивалось слишком сильно */
-    object-fit: contain; /* Сохранение пропорций */
-    margin-left: auto; /* Центрируем изображение */
-    margin-right: auto; /* Центрируем изображение */
-    display: block; /* Устанавливаем изображение как блочный элемент */
+  width: 100%;
+  /* Изображение будет занимать всю ширину доступного блока */
+  max-width: 600px;
+  /* Ограничьте максимальную ширину, чтобы изображение не растягивалось слишком сильно */
+  object-fit: contain;
+  /* Сохранение пропорций */
+  margin-left: auto;
+  /* Центрируем изображение */
+  margin-right: auto;
+  /* Центрируем изображение */
+  display: block;
+  /* Устанавливаем изображение как блочный элемент */
 }
 
+.banner {
+  background-color: #1a2a4b;
+  padding: 50px 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner__content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 106px;
+  padding: 32px 0;
+}
+
+.banner__text {
+  max-width: 50%;
+  color: #fff;
+}
+
+.banner__buttons button {
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+.banner__title {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 0;
+  text-align: start;
+}
+
+.banner__list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.banner__list li {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 30px;
+  line-height: 1.2;
+}
+
+.banner__list li::before {
+  content: '';
+  background-image: url("/static/homeapp/img/point.png");
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.banner__desc {
+  font-size: 1em;
+  margin-bottom: 20px;
+  background-color: #FFFFFF0D;
+  color: #FFFFFF;
+  padding: 16px;
+}
+
+.banner__buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.banner__buttons img {
+  height: 16px;
+  width: 16px;
+}
+
+.button-white,
+.button-dark {
+  padding: 15px 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  border: none;
+}
+
+.button-white {
+  background-color: #fff;
+  color: #1a2a4b;
+}
+
+.button-dark {
+  background-color: #333;
+  color: #fff;
+}
+
+.banner__image img {
+  max-width: 100%;
+  height: auto;
+}
