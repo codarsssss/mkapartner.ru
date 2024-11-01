@@ -1350,7 +1350,7 @@ button:focus {
 }
 
 .banner__image {
-  max-height: 570px;
+  max-height: 670px;
 }
 
 .banner__image img {
@@ -1362,6 +1362,11 @@ button:focus {
 .banner__buttons svg {
   width: 4px;
   height: 8px;
+}
+
+.button-blue:hover path {
+  fill: var(--blue);
+  stroke: var(--blue);
 }
 
 @media screen and (max-width: 1200px) {
@@ -1379,6 +1384,10 @@ button:focus {
 
   .banner__text {
     max-width: none;
+  }
+
+  .banner__image {
+    max-height: none;
   }
 }
 
