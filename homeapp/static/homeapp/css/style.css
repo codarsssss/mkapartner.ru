@@ -1278,6 +1278,77 @@ button:focus {
   padding: 50px 0;
 }
 
+.banner__content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 106px;
+  padding: 32px 0;
+}
+
+.banner__text {
+  max-width: 50%;
+  color: #fff;
+}
+
+.banner__buttons button {
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+.banner__title {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 0;
+  text-align: start;
+}
+
+.banner__list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.banner__list li {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 30px;
+  line-height: 1.2;
+}
+
+.banner__list li::before {
+  content: '';
+  background-image: url("/static/homeapp/img/point.png");
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.banner__desc {
+  font-size: 1em;
+  margin-bottom: 20px;
+  background-color: #FFFFFF0D;
+  color: #FFFFFF;
+  padding: 16px;
+}
+
+.banner__buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.banner__buttons img {
+  height: 16px;
+  width: 16px;
+}
+
 @media screen and (max-width: 1200px) {
   .cases__item {
     width: calc(100% / 3 - 6px);
