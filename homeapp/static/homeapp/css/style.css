@@ -1349,6 +1349,21 @@ button:focus {
   width: 16px;
 }
 
+.banner__image {
+  max-height: 570px;
+}
+
+.banner__image img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.banner__buttons svg {
+  width: 4px;
+  height: 8px;
+}
+
 @media screen and (max-width: 1200px) {
   .cases__item {
     width: calc(100% / 3 - 6px);
