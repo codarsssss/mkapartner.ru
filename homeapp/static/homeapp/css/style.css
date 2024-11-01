@@ -1273,9 +1273,122 @@ button:focus {
   flex-direction: column;
 }
 
+.banner {
+  background-color: #1a2a4b;
+  padding: 50px 0;
+}
+
+.banner__content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 106px;
+  padding: 32px 0;
+}
+
+.banner__text {
+  max-width: 50%;
+  color: #fff;
+}
+
+.banner__buttons button {
+  font-size: 14px;
+  padding: 16px 24px;
+}
+
+.banner__title {
+  font-size: 2.5em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 0;
+  text-align: start;
+}
+
+.banner__list {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.banner__list li {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 30px;
+  line-height: 1.2;
+  padding-left: 2rem;
+}
+
+.banner__list li::before {
+  content: '';
+  background-image: url("/static/homeapp/img/point.png");
+  background-size: 30px 30px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.banner__desc {
+  font-size: 1em;
+  margin-bottom: 20px;
+  background-color: #FFFFFF0D;
+  color: #FFFFFF;
+  padding: 16px;
+}
+
+.banner__buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.banner__buttons img {
+  height: 16px;
+  width: 16px;
+}
+
+.banner__image {
+  max-height: 670px;
+}
+
+.banner__image img {
+  object-fit: cover !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.banner__buttons svg {
+  width: 4px;
+  height: 8px;
+}
+
+.button-blue:hover path {
+  fill: var(--blue);
+  stroke: var(--blue);
+}
+
 @media screen and (max-width: 1200px) {
   .cases__item {
     width: calc(100% / 3 - 6px);
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .banner__content  {
+    flex-direction: column;
+    gap: 36px;
+    align-items: center;
+  }
+
+  .banner__text {
+    max-width: none;
+  }
+
+  .banner__image {
+    max-height: none;
   }
 }
 
@@ -1336,6 +1449,12 @@ button:focus {
   }
 }
 
+@media screen and (max-width: 654px) {
+  .banner__buttons {
+    flex-direction: column;
+  }
+}
+
 @media screen and (max-width: 600px) {
   .cases__item {
     width: 100%;
@@ -1366,4 +1485,3 @@ form {
     margin-right: auto; /* Центрируем изображение */
     display: block; /* Устанавливаем изображение как блочный элемент */
 }
-
