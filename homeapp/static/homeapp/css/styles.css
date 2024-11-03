@@ -246,12 +246,12 @@ body {
 }
 
 .mission img {
-  margin-left: auto;
   display: block;
   width: fit-content;
   max-width: 221px;
-  height: fit-content;
   object-fit: scale-down;
+  margin-left: auto;
+  margin-top: 36px;
 }
 
 .video {
