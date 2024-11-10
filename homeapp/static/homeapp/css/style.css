@@ -1440,8 +1440,16 @@ button:focus {
     margin-top: 128px !important;
   }
 
-  .slick-arrow {
-    top: -48px !important;
+  .slick-next {
+    right: -15px !important;
+  }
+
+  .slick-prev:before, .slick-next:before {
+    font-size: 2rem !important;
+  }
+
+  .slick-slider {
+    padding: 0 1rem !important;
   }
 
   .page-section {
