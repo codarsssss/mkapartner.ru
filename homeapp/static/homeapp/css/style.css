@@ -299,6 +299,7 @@ h2 {
   -ms-touch-action: pan-y;
   touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
+  padding: 0 2rem;
 }
 
 .slick-list {
@@ -474,22 +475,21 @@ h2 {
 
 .slick-prev,
 .slick-next {
-  top: -35px !important;
   width: var(--stick_size) !important;
 }
 
 .slick-prev {
-  left: var(--stick_position) !important;
+  left: -15px !important;
 }
 
 .slick-next {
-  right: var(--stick_position) !important;
+  right: 1px !important;
 }
 
 .slick-prev:before,
 .slick-next:before {
   color: #2b3455 !important;
-  font-size: var(--stick_size) !important;
+  font-size: 3rem !important;
 }
 
 /*.work_e {*/
@@ -1440,8 +1440,16 @@ button:focus {
     margin-top: 128px !important;
   }
 
-  .slick-arrow {
-    top: -48px !important;
+  .slick-next {
+    right: -15px !important;
+  }
+
+  .slick-prev:before, .slick-next:before {
+    font-size: 2rem !important;
+  }
+
+  .slick-slider {
+    padding: 0 1rem !important;
   }
 
   .page-section {
