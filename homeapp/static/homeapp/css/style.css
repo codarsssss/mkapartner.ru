@@ -1440,6 +1440,10 @@ button:focus {
     margin-top: 128px !important;
   }
 
+  .team-slider .slick-arrow {
+    display: none!important;
+  }
+
   .slick-next {
     right: -15px !important;
   }

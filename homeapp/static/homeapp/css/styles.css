@@ -566,6 +566,18 @@ body {}
   padding-bottom: 0px;
 }
 
+.customer-logos.slick-slider {
+  padding: 0;
+}
+
+.customer-logos .slick-slide {
+  margin: 0;
+}
+
+.customer-logos .slick-track {
+  gap: 8px;
+}
+
 .clients {
   background: white;
   padding: 32px;
@@ -851,6 +863,22 @@ body {}
 
   .partner img {
     max-height: none;
+  }
+
+  .customer-logos {
+    padding: 0!important;
+  }
+
+  .team-slider.slick-slider {
+    padding: 0!important;
+  }
+
+  .video .container {
+    padding: 0;
+  }
+
+  .video iframe {
+    width: 100%;
   }
 }
 

@@ -10,14 +10,48 @@ $(document).ready(function () {
         responsive: [{
             breakpoint: 768,
             settings: {
-                slidesToShow: 4
+                slidesToShow: 3
             }
         }, {
             breakpoint: 520,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 2
             }
         }]
+    });
+
+    $(".team-slider").slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+              dots: true,
+            },
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+          {
+            breakpoint: 520,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              dots: false,
+            },
+          }
+        ],
     });
 
     $('.diploms').slick({
@@ -26,7 +60,7 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 1500,
         arrows: false,
-        dots: true,
+        dots: false,
         draggable: false,
         pauseOnHover: true,
         responsive: [{
@@ -42,13 +76,11 @@ $(document).ready(function () {
         }, {
             breakpoint: 520,
             settings: {
-                dots: false,
                 slidesToShow: 3
             }
         }],
     });
 
-    console.log('тест')
     // Находим все изображения дипломов
     const diplomaImages = document.querySelectorAll('.diploma-img');
     const modalImage = document.getElementById('diplomaModalImage');
@@ -57,10 +89,8 @@ $(document).ready(function () {
     diplomaImages.forEach(function (image) {
         // Обработчик клика для каждого изображения
         image.addEventListener('click', function (image) {
-            console.log(image)
             // Подставляем URL изображения в модальное окно
             modalImage.src = event.target.src;
-            console.log(modalImage.alt)
             modalImage.alt = event.target.alt;
             modalLabel.innerHTML = event.target.alt;
         });
