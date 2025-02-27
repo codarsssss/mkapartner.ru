@@ -28,7 +28,7 @@ if os.path.isfile(dotenv_file):
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv(
     "KEY",
-    'l~FkLoa91lgKpY~%KgWP@0wiq2}s%~kwEssdsvsdKr~dWsBOM8Ofdsaljfds1bct$YwLx}a',
+    'l~FkLoa91lgKpY~KgWP@0wiq2s~kwEssdsvsdKr~dWsBOM8Ofdsaljfds1bc',
 )
 
 if os.environ.get('DEBUG', default=False) in ['True', 'true', '1', True]:
