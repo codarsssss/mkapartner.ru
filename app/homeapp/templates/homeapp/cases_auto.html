@@ -1,0 +1,36 @@
+{% extends 'homeapp/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+    <div class="page-section">
+        <h1 class="page-section__title">Практика адвокатов нашей коллегии</h1>
+        <div class="row cases__row">
+            {% for category in practice_categories %}
+            <!-- Используем col-md-4 для 3 карточек в ряду и col-sm-6 для 2 карточек в ряду на маленьких экранах -->
+            <div class="col-sm-6 col-md-3 d-flex align-items-stretch  cases__item">
+                <a class="text-decoration-none w-100" href="{% url 'homeapp:practice_category_list' category_id=category.id %}">
+                    <!-- Карточка занимает всю высоту родителя -->
+                    <div class="card h-100 cases__card">
+                        <!-- Изображение сверху карточки -->
+                        {# Картинок пока не будет #}
+                        {# {% comment %} <img src="{% static 'homeapp/img/cases/1.jpg' %}" class="card-img-top" alt="..."> {% endcomment %} #}
+                        <div class="card-body cases__card-body">
+                            <!-- Текст выравнивается по верхнему краю -->
+                            <p class="card-text cases__item-text text-center h4">{{ category.title }}</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<div class="form-wrapper">
+    {% include "homeapp/forms/forms/amo-form.html" %}
+</div>
+</div>
+
+
+{% endblock %}
