@@ -10,7 +10,7 @@
 1. **Склонируй проект**:
 
    ```bash
-   git clone git@github.com:your-org/mkapartner.ru.git
+   git clone git@github.com:codarsssss/mkapartner.ru.git
    cd mkapartner.ru
    ```
 
