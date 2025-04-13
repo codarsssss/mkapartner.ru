@@ -160,4 +160,39 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
-homeapp/notification_bot.py
+# Python
+*.pyo
+*.pyd
+*.pyc
+
+# Virtualenv / poetry
+.venv/
+.env.*
+
+*.sqlite3
+
+# Docker
+*.pid
+*.db
+*.sock
+
+# VS Code / PyCharm
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Игнорировать все файлы в media/ кроме .gitkeep
+media/cache/*
+!media/cache/.gitkeep
+
+app/media/partner_photos/*
+!app/media/partner_photos/.gitkeep
+
+app/media/partners/*
+!app/media/partners/.gitkeep
+
+app/media/practice_instance_images/*
+!app/media/practice_instance_images/.gitkeep
+
+*/db_dump.json
