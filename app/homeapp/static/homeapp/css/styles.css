@@ -319,41 +319,12 @@ body {
 
 p {
   color: rgb(42, 53, 84);
-  font-size: 14px;
 }
 
 .about-inner {
   display: flex;
   align-items: center;
-
   gap: 32px;
-}
-
-.about-area p {
-  line-height: 16px;
-}
-
-.adventage .h3 {
-  color: rgb(42, 53, 84);
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-.adventage {
-  background: rgb(246, 249, 255);
-  padding: 24px;
-  max-width: 364px;
-}
-
-.adventage p {
-  margin-bottom: 0px;
-}
-
-.adventages {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
 }
 
 .steps {
@@ -369,80 +340,8 @@ p {
   padding: 0px;
 }
 
-.accordion-collapse {
-  color: rgb(255, 255, 255);
-
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16px;
-}
-
-.accordion-collapse.show {
-  background: rgb(42, 53, 84);
-  color: white;
-}
-
-.accordion h4 {
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 19px;
-  color: white;
-  font-family: "Gilroy";
-}
-
 .collapsed h4 {
   color: rgb(42, 53, 84);
-}
-
-.accordion-button:not(.collapsed) {
-  background: rgb(42, 53, 84);
-  border-radius: 0px;
-  box-shadow: none;
-  padding-bottom: 0px;
-}
-
-.accordion-button:not(.collapsed) span {
-  background: white;
-  color: rgb(42, 53, 84);
-}
-
-.accordion-item:last-of-type .accordion-collapse,
-.accordion-item:first-of-type .accordion-button,
-.accordion-button,
-.accordion-header,
-.accordion-item {
-  border-radius: 0px !important;
-  border-top-left-radius: 0px !important;
-  box-shadow: none !important;
-}
-
-.accordion-item {
-  border: 1.5px solid rgb(42, 53, 84);
-  border-top: 1.5px solid rgb(42, 53, 84) !important;
-  margin-bottom: 8px;
-}
-
-.accordion-collapse {
-  animation: none !important;
-  transition: none !important;
-}
-
-.accordion-button {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  background: #f7f9ff;
-}
-
-.accordion-button span {
-  background: rgb(42, 53, 84);
-  color: white;
-  width: 43px;
-  height: 43px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
 }
 
 .aboniment {
@@ -487,6 +386,7 @@ p {
 }
 
 .aboniment__item img {
+  margin-bottom: 20px;
   max-height: 346px;
   object-fit: cover;
   width: 100%;
@@ -495,18 +395,11 @@ p {
 .aboniment__item h3 {
   color: rgb(42, 53, 84);
   font-family: "Gilroy";
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 19px;
-  margin-top: 24px;
 }
 
 .aboniment__item p {
   color: rgb(42, 53, 84);
-
-  font-size: 14px;
   font-weight: 400;
-  line-height: 16px;
 }
 
 .aboniment__item .btn2 {
@@ -532,16 +425,14 @@ body {}
   background: rgb(42, 53, 84);
   color: white;
   border: none;
+  font-size: 16px;
   text-align: left;
-
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 16px;
   margin-bottom: 12px;
   padding: 0px;
 }
 
 .partner img {
+  margin-bottom: 20px;
   max-height: 346px;
   object-fit: cover;
   object-position: top;
@@ -551,8 +442,6 @@ body {}
   color: rgb(255, 255, 255);
   font-family: "Gilroy";
   text-align: left;
-  font-size: 18px;
-  font-weight: 500;
   padding: 0px;
 }
 
@@ -651,25 +540,6 @@ body {}
   border-radius: 0px !important;
 }
 
-.adventages-mob {
-  display: none;
-}
-
-.accordion-button span {
-  min-width: 43px;
-}
-
-.adventages-wrap {
-  display: flex;
-
-  justify-content: space-between;
-  width: 100%;
-}
-
-.adventages-mob {
-  justify-content: flex-end;
-}
-
 .footer .container {
   display: flex;
   flex-direction: column;
@@ -735,14 +605,6 @@ body {}
     max-width: 100% !important;
   }
 
-  .adventages {
-    display: none;
-  }
-
-  .adventages-mob {
-    display: flex;
-  }
-
   .about-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -800,16 +662,6 @@ body {}
 }
 
 @media only screen and (max-width: 900px) {
-  .adventages-wrap {
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-  }
-
-  .adventages-mob {
-    justify-content: center;
-  }
-
   .menu {
     flex-direction: column;
     text-align: center;

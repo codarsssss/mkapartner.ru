@@ -1,0 +1,168 @@
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-Regular.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("../fonts/CormorantGaramond-SemiBold.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../fonts/Gilroy-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../fonts/Gilroy-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../fonts/Gilroy-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Gilroy';
+  src: url('../fonts/Gilroy-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+/* Default */
+.title {
+  margin-top: 0;
+  font-family: "Gilroy";
+  font-weight: 700;
+}
+.title_h3 {
+  font-size: 20px;
+}
+/* Blocks */
+.advantages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.advantages__item {
+  background: #f6f9ff;
+  padding: 24px;
+  max-width: 364px;
+}
+.advantages__item .h3 {
+  color: #2a3554;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.advantages__item p {
+  margin-bottom: 0px;
+}
+.advantages__item-header {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+.advantages__item-icon {
+  margin-right: 10px;
+  background: #2a3554;
+  width: 43px;
+  height: 43px;
+  padding: 10px;
+}
+.advantages__item-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.cta-area {
+  background: url(../img/cta-bg.jpg) center no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+}
+.cta-area a {
+  display: block;
+  width: -webkit-max-content;
+  width: max-content;
+  text-align: left;
+}
+.cta-area__title {
+  margin: 0 0 30px;
+  padding: 0;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: left;
+  color: white;
+}
+.cta-area__text {
+  margin: 0 0 30px;
+  color: white;
+  text-align: left;
+}
+.accordion-collapse {
+  color: white;
+}
+.accordion-collapse.show {
+  background: #2a3554;
+  color: white;
+}
+.accordion-button:not(.collapsed) {
+  background: #2a3554;
+  border-radius: 0px;
+  box-shadow: none;
+  padding-bottom: 0px;
+}
+.accordion-button:not(.collapsed) .accordion-item__title {
+  color: white;
+}
+.accordion-button:not(.collapsed) span {
+  background: white;
+  color: #2a3554;
+}
+.accordion-item:last-of-type .accordion-collapse,
+.accordion-item:first-of-type .accordion-button,
+.accordion-button,
+.accordion-header,
+.accordion-item {
+  border-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+  box-shadow: none !important;
+}
+.accordion-item {
+  border: 1.5px solid #2a3554;
+  border-top: 1.5px solid #2a3554 !important;
+  margin-bottom: 8px;
+}
+.accordion-collapse {
+  animation: none !important;
+  transition: none !important;
+}
+.accordion-button {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f7f9ff;
+}
+.accordion-button span {
+  background: #2a3554;
+  color: white;
+  width: 43px;
+  height: 43px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.accordion-button span {
+  min-width: 43px;
+}
+/* Pages */
+/*# sourceMappingURL=./main.css.map */
