@@ -66,6 +66,7 @@
                             <div class="news_item_content">
                                 <p>{{ news.text|safe }}</p>
                             </div>
+                            <div>{{ news.video_link }}</div>
                         </div>
                         <div class="news_item_fakelink">Подробнее</div>
                     </div>
@@ -75,7 +76,7 @@
         </div>
     </div>
 <div class="form-wrapper">
-    {% include "homeapp/forms/forms/amo-form.html" %}
+    {% include "homeapp/forms/amo-form.html" %}
 </div>
 </section>
 {% endif %}
