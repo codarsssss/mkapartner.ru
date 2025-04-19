@@ -1,0 +1,19 @@
+.advantages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.advantages__item {
+  background: #f6f9ff;
+  padding: 24px;
+  max-width: 364px;
+}
+.advantages__item .h3 {
+  color: #2a3554;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.advantages__item p {
+  margin-bottom: 0px;
+}
