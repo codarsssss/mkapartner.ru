@@ -66,7 +66,7 @@
                             <div class="news_item_content">
                                 <p>{{ news.text|safe }}</p>
                             </div>
-                            <div>{{ news.video_link }}</div>
+                            <div>{{ news.video_link.striptags }}</div>
                         </div>
                         <div class="news_item_fakelink">Подробнее</div>
                     </div>

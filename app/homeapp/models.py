@@ -1,8 +1,7 @@
 from django.db import models
 from django.db.models.query import QuerySet
 from transliterate import slugify
-from django.utils.safestring import mark_safe
-from django.urls import reverse
+from ckeditor.fields import RichTextField
 
 
 def translit_filename(instance, filename):
@@ -24,7 +23,7 @@ class News(models.Model):
 
     title = models.CharField(max_length=255, verbose_name="Заголовок")
     slug = models.SlugField(verbose_name="Слаг поста")
-    text = models.TextField(verbose_name="Текст новости")
+    text = RichTextField(verbose_name="Текст новости")
     video_link = models.URLField(blank=True, verbose_name="Видео")
     status = models.CharField(
         verbose_name="Статус",
