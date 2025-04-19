@@ -1,13 +1,16 @@
 from django import forms
+from ckeditor.widgets import CKEditorWidget
 
 from .models import News, Partner
 
 
 class NewsForm(forms.ModelForm):
-    text = forms.Textarea
     class Meta:
         model = News
         fields = '__all__'
+        widgets = {
+            'text': CKEditorWidget(),
+        }
 
 
 class PartnerForm(forms.ModelForm):
