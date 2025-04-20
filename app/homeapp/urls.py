@@ -18,6 +18,7 @@ from homeapp.views import (
     cases_filter_view,
     service_list_view,
     service_detail_view,
+    client_list_view,
 )
 
 
@@ -41,4 +42,6 @@ urlpatterns = [
     path('practices/<int:pk>/', PracticeDetailView.as_view(), name='practice_detail'),
     path('reviews/', ReviewListView.as_view(), name='reviews'),
     path('cases/filter/', cases_filter_view, name='cases_filter'),
+    path("clients/", client_list_view, name="client_list"),
+
 ]

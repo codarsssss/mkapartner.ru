@@ -10,7 +10,7 @@ from .models import (
     Review,
     PracticeCategory,
     PracticeInstance,
-    PracticeInstanceImage, Service, ServiceBlock, ServiceCategory
+    PracticeInstanceImage, Service, ServiceBlock, ServiceCategory, Client
 )
 
 
@@ -126,6 +126,12 @@ class ServiceAdmin(SortableAdminBase, admin.ModelAdmin):
     inlines = [ServiceBlockInline]
 
 
+class ClientAdmin(admin.ModelAdmin):
+    list_display = ['name', 'service']
+    search_fields = ['name']
+    list_filter = ['service']
+
+
 custom_admin_site.register(PracticeCategory, PracticeCategoryAdmin)
 custom_admin_site.register(PracticeInstance, PracticeInstanceAdmin)
 custom_admin_site.register(News, NewsAdmin)
@@ -133,3 +139,4 @@ custom_admin_site.register(Partner, PartnerAdmin)
 custom_admin_site.register(Review, ReviewAdmin)
 custom_admin_site.register(Service, ServiceAdmin)
 custom_admin_site.register(ServiceCategory, ServiceCategoryAdmin)
+custom_admin_site.register(Client, ClientAdmin)

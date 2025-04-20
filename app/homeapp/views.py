@@ -9,7 +9,7 @@ from django.views import View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-from .models import News, Partner, PracticeCategory, PracticeInstance, Review, ServiceCategory, Service
+from .models import News, Partner, PracticeCategory, PracticeInstance, Review, ServiceCategory, Service, Client
 from django.conf import settings
 
 
@@ -189,3 +189,8 @@ class ReviewListView(ListView):
     template_name = 'homeapp/reviews.html'
     context_object_name = 'reviews'
     queryset = Review.objects.filter(is_active=True)
+
+
+def client_list_view(request):
+    clients = Client.objects.all()
+    return render(request, 'homeapp/client_list.html', {'clients': clients})

@@ -258,3 +258,16 @@ class ServiceBlock(models.Model):
 
     def __str__(self):
         return f"{self.get_type_display()} — {self.service.title}"
+
+
+class Client(models.Model):
+    name = models.CharField("Название клиента", max_length=255)
+    logo = models.ImageField("Логотип", upload_to="clients/", blank=True, null=True)
+    service = models.ForeignKey(Service, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Тип услуги")
+
+    class Meta:
+        verbose_name = "Клиент"
+        verbose_name_plural = "Клиенты"
+
+    def __str__(self):
+        return self.name
