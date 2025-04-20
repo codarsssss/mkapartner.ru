@@ -32,8 +32,10 @@
             </ul>
         </div>
         {% endif %}
-
-        {% comment %} <a href="{% url 'practice_list' %}">Назад к списку практик</a> {% endcomment %}
+        {% if practice.videos.exists %}
+          <h3 class="mt-4">Видеоотзыв</h3>
+          {% include "homeapp/includes/video_block.html" with videos=practice.videos.all %}
+        {% endif %}
     </div>
 </div>
 

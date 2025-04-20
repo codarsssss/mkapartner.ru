@@ -282,6 +282,14 @@ class Video(models.Model):
     published_at = models.DateField("Дата публикации")
     thumbnail = models.ImageField("Превью", upload_to="videos/", blank=True, null=True)
     is_active = models.BooleanField("Активно", default=True)
+    practice = models.ForeignKey(
+        "PracticeInstance",
+        on_delete=models.SET_NULL,
+        related_name="videos",
+        verbose_name="Случай практики",
+        null=True,
+        blank=True,
+    )
 
     class Meta:
         ordering = ["-published_at"]

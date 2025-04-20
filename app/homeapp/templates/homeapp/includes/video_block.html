@@ -1,0 +1,65 @@
+{% comment %} Видео с превью и модальным воспроизведением {% endcomment %}
+<div class="row">
+  {% for video in videos %}
+  <div class="col-md-6 mb-4">
+    <div class="card h-100 video-card"
+         data-bs-toggle="modal"
+         data-bs-target="#videoModal"
+         data-video-url="{% if 'youtube.com' in video.url or 'youtu.be' in video.url %}
+                           https://www.youtube.com/embed/{{ video.youtube_id }}
+                         {% elif 'rutube.ru' in video.url %}
+                           {{ video.rutube_embed_url }}
+                         {% endif %}"
+         data-video-title="{{ video.title }}">
+      <div class="ratio ratio-16x9">
+        <img src="{% if video.thumbnail %}{{ video.thumbnail.url }}{% else %}{{ video.youtube_thumbnail }}{% endif %}"
+             alt="{{ video.title }}"
+             class="img-fluid rounded" style="object-fit: cover;">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ video.title }}</h5>
+        <p class="card-text text-muted">{{ video.published_at|date:"d.m.Y" }}</p>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+    <p>Нет доступных видео.</p>
+  {% endfor %}
+</div>
+
+<!-- Модалка -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-header border-0">
+        <h5 class="modal-title text-white" id="videoModalLabel"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body p-0">
+        <div class="ratio ratio-16x9">
+          <iframe id="modalVideo" src="" title="Видео" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const videoModal = document.getElementById('videoModal');
+  const iframe = document.getElementById('modalVideo');
+  const title = document.getElementById('videoModalLabel');
+
+  videoModal?.addEventListener('show.bs.modal', function (event) {
+    const card = event.relatedTarget;
+    const url = card.getAttribute('data-video-url');
+    const videoTitle = card.getAttribute('data-video-title');
+
+    iframe.src = url;
+    title.innerText = videoTitle;
+  });
+
+  videoModal?.addEventListener('hidden.bs.modal', function () {
+    iframe.src = "";
+  });
+</script>
