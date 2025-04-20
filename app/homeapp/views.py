@@ -47,113 +47,114 @@ def team_view(request: HttpRequest):
     return render(request, 'homeapp/team.html', context=context)
 
 
-def zashchita_view(request: HttpRequest):
-    context = {
-        'title': 'Защита при уголовном преследовании',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/practices/zashchita.html', context=context)
-
-
-def business_view(request: HttpRequest):
-    context = {
-        'title': 'Уголовно-правовая защита бизнеса',
-        'user': request.session.get('username')
-
-    }
-
-    return render(request, 'homeapp/practices/business.html', context=context)
+# def zashchita_view(request: HttpRequest):
+#     context = {
+#         'title': 'Защита при уголовном преследовании',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/zashchita.html', context=context)
 
 
-def antikorruptsionnoe_view(request: HttpRequest):
-    context = {
-        'title': 'Антикоррупционный комплайнс',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/practices/korporativnaya.html', context=context)
-
-
-def semeynaya_view(request: HttpRequest):
-    context = {
-        'title': 'Семейная практика',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/practices/semeynaya.html', context=context)
+# def business_view(request: HttpRequest):
+#     context = {
+#         'title': 'Уголовно-правовая защита бизнеса',
+#         'user': request.session.get('username')
+#
+#     }
+#
+#     return render(request, 'homeapp/practices/business.html', context=context)
 
 
-def zemelnaya_view(request: HttpRequest):
-    context = {
-        'title': 'Земельная практика',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/practices/zemelnaya.html', context=context)
-
-
-def nalogovaya_view(request: HttpRequest):
-    context = {
-        'title': 'Налоговая практика',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/practices/nalogovaya.html', context=context)
+# def antikorruptsionnoe_view(request: HttpRequest):
+#     context = {
+#         'title': 'Антикоррупционный комплайнс',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/korporativnaya.html', context=context)
 
 
-def mediatsiya_view(request: HttpRequest):
-    context = {
-        'title': 'Медиация',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/practices/mediatsiya.html', context=context)
-
-
-def it_ip_praktika_view(request: HttpRequest):
-    context = {
-        'title': ' IT/ IP практика',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/practices/it_ip_praktika.html', context=context)
+# def semeynaya_view(request: HttpRequest):
+#     context = {
+#         'title': 'Семейная практика',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/semeynaya.html', context=context)
 
 
-def korporativnaya_view(request: HttpRequest):
-    context = {
-        'title': 'Корпоративная практика',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/practices/korporativnaya.html', context=context)
-
-
-def meditsinskoe_view(request: HttpRequest):
-    context = {
-        'title': 'Медицинское право',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/practices/meditsinskoe.html', context=context)
+# def zemelnaya_view(request: HttpRequest):
+#     context = {
+#         'title': 'Земельная практика',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/zemelnaya.html', context=context)
 
 
-def arbitrazhnaya_view(request: HttpRequest):
-    context = {
-        'title': 'Арбитражная практика',
-        'user': request.session.get('username')
-    }
+# def nalogovaya_view(request: HttpRequest):
+#     context = {
+#         'title': 'Налоговая практика',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/nalogovaya.html', context=context)
 
-    return render(request, 'homeapp/practices/arbitrazhnaya.html', context=context)
+
+# def mediatsiya_view(request: HttpRequest):
+#     context = {
+#         'title': 'Медиация',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/mediatsiya.html', context=context)
 
 
-def sanktsionnaya_view(request: HttpRequest):
-    context = {
-        'title': 'Санкционная практика',
-        'user': request.session.get('username')
-    }
+# def it_ip_praktika_view(request: HttpRequest):
+#     context = {
+#         'title': ' IT/ IP практика',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/it_ip_praktika.html', context=context)
 
-    return render(request, 'homeapp/practices/sanktsionnaya.html', context=context)
+
+# def korporativnaya_view(request: HttpRequest):
+#     context = {
+#         'title': 'Корпоративная практика',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/korporativnaya.html', context=context)
+
+
+# def meditsinskoe_view(request: HttpRequest):
+#     context = {
+#         'title': 'Медицинское право',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/meditsinskoe.html', context=context)
+
+
+# def arbitrazhnaya_view(request: HttpRequest):
+#     context = {
+#         'title': 'Арбитражная практика',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/arbitrazhnaya.html', context=context)
+
+
+# def sanktsionnaya_view(request: HttpRequest):
+#     context = {
+#         'title': 'Санкционная практика',
+#         'user': request.session.get('username')
+#     }
+#
+#     return render(request, 'homeapp/practices/sanktsionnaya.html', context=context)
+
 
 
 def rabotaem_view(request: HttpRequest):
@@ -199,141 +200,6 @@ def varianty_view(request: HttpRequest):
     }
 
     return render(request, 'homeapp/procedure/varianty.html', context=context)
-
-
-def case_1(request: HttpRequest):
-    context = {
-        'title': 'Оправдательный приговор',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/1.html', context=context)
-
-def case_2(request: HttpRequest):
-    context = {
-        'title': 'Особо тяжкое преступление',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/2.html', context=context)
-
-
-def case_3(request: HttpRequest):
-    context = {
-        'title': 'Оправдательный приговор мошенничество, легализация',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/3.html', context=context)
-
-
-def case_4(request: HttpRequest):
-    context = {
-        'title': 'Получение взятки',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/4.html', context=context)
-
-
-
-def case_5(request: HttpRequest):
-    context = {
-        'title': 'Вердикт присяжных заседателей не виновен в убийстве',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/5.html', context=context)
-
-
-def case_6(request: HttpRequest):
-    context = {
-        'title': 'ч. 4 ст. 159 УК РФ',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/6.html', context=context)
-
-
-def case_7(request: HttpRequest):
-    context = {
-        'title': 'Хищение сотрудником на рабочем месте',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/7.html', context=context)
-
-
-def case_8(request: HttpRequest):
-    context = {
-        'title': 'Банкротство физических лиц',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/8.html', context=context)
-
-
-def case_9(request: HttpRequest):
-    context = {
-        'title': 'Потерпевшие ч. 4 ст. 159 УК РФ',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/9.html', context=context)
-
-
-def case_10(request: HttpRequest):
-    context = {
-        'title': 'Особо тяжкое преступление',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/10.html', context=context)
-
-
-def case_11(request: HttpRequest):
-    context = {
-        'title': 'Деловая репутация',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/11.html', context=context)
-
-
-def case_12(request: HttpRequest):
-    context = {
-        'title': 'Злоупотребление должностными полномочиями',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/12.html', context=context)
-
-
-def case_13(request: HttpRequest):
-    context = {
-        'title': 'Превышение должностных полномочий-компромисс',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/13.html', context=context)
-
-
-def case_14(request: HttpRequest):
-    context = {
-        'title': 'Застройщик',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/14.html', context=context)
-
-
-def case_15(request: HttpRequest):
-    context = {
-        'title': 'Суд отклонил незаконные требования прокуратуры',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/cases/15.html', context=context)
 
 
 def privicy_view(request: HttpRequest):
@@ -542,7 +408,7 @@ def tariffs_view(request: HttpRequest):
     return render(request, 'homeapp/tariffs.html', context=context)
 
 
-def cases_view(request: HttpRequest):
+def practices_view(request: HttpRequest):
     context = {
         'title': 'Практика адвокатов',
         'practice_categories': PracticeCategory.objects.all(),
@@ -550,7 +416,7 @@ def cases_view(request: HttpRequest):
         'practice_instances': PracticeInstance.objects.all(),
         'user': request.session.get('username')
     }
-    return render(request, 'homeapp/cases_auto.html', context)
+    return render(request, 'homeapp/practices.html', context)
 
 def cases_filter_view(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
@@ -574,39 +440,6 @@ class PracticeDetailView(DetailView, View):
 
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
-
-
-class PracticeCategoryListView(View):
-    model = PracticeInstance
-    template_name = 'homeapp/practice_category_list.html'
-    context_object_name = 'practices'
-    paginate_by = 10  # Количество элементов на страницу
-
-    def get(self, request, *args, **kwargs):
-        category_id = self.kwargs.get('category_id')
-        queryset = PracticeInstance.objects.filter(category_id=category_id).order_by('title')
-        category = PracticeCategory.objects.get(id=category_id)
-        
-        # Пагинация
-        paginator = Paginator(queryset, self.paginate_by)
-        page = request.GET.get('page')
-        
-        try:
-            practices = paginator.page(page)
-        except PageNotAnInteger:
-            practices = paginator.page(1)
-        except EmptyPage:
-            practices = paginator.page(paginator.num_pages)
-        
-        context = {
-            'category': category,
-            'practices': practices,
-            'is_paginated': practices.has_other_pages(),
-            'page_obj': practices,
-            'paginator': paginator,
-        }
-        
-        return render(request, self.template_name, context)
 
 
 class ReviewListView(ListView):
