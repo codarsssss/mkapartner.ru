@@ -197,6 +197,13 @@ app/media/practice_instance_images/*
 
 app/media/services/*
 !app/media/services/.gitkeep
+!app/media/services/blocks
+app/media/services/blocks/*
+!app/media/services/blocks/.gitkeep
+!app/media/serves/blocks/.gitkeep
+
+app/media/clients/*
+!app/media/clients/.gitkeep
 
 app/staticfiles/*
 

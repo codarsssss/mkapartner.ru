@@ -177,6 +177,11 @@
               Отзывы
             </a>
           </li>
+          </li><li class="nav-item">
+            <a class="nav-link" aria-current="page" href="{% url 'homeapp:client_list' %}">
+              Клиенты
+            </a>
+          </li>
           <li class="nav-item dropdown">
             <ul class="dropdown-menu dropdown-menu-search" aria-labelledby="navbarDropdown">
               <li class="dropdown-search">
@@ -306,6 +311,11 @@
                 <li class="nav-item nav_footer">
                   <a class="nav-link" aria-current="page" href="{% url 'homeapp:reviews' %}">
                     Отзывы
+                  </a>
+                </li>
+                <li class="nav-item nav_footer">
+                  <a class="nav-link" aria-current="page" href="{% url 'homeapp:client_list' %}">
+                    Клиенты
                   </a>
                 </li>
               </ul>
