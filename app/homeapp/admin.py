@@ -10,7 +10,13 @@ from .models import (
     Review,
     PracticeCategory,
     PracticeInstance,
-    PracticeInstanceImage, Service, ServiceBlock, ServiceCategory, Client
+    PracticeInstanceImage,
+    Service,
+    ServiceBlock,
+    ServiceCategory,
+    Client,
+    Video,
+    Article,
 )
 
 
@@ -132,6 +138,24 @@ class ClientAdmin(admin.ModelAdmin):
     list_filter = ['service']
 
 
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ("title", "published_at", "is_active", "preview")
+    readonly_fields = ("preview",)
+    list_filter = ("is_active",)
+    search_fields = ("title",)
+    ordering = ("-published_at",)
+    fields = ("title", "url", "thumbnail", "preview", "published_at", "is_active")
+
+
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ("title", "published_at", "is_active")
+    list_filter = ("is_active", "published_at")
+    search_fields = ("title", "content")
+    prepopulated_fields = {"slug": ("title",)}
+    fields = ("title", "slug", "content", "published_at", "is_active")
+
+
+
 custom_admin_site.register(PracticeCategory, PracticeCategoryAdmin)
 custom_admin_site.register(PracticeInstance, PracticeInstanceAdmin)
 custom_admin_site.register(News, NewsAdmin)
@@ -140,3 +164,5 @@ custom_admin_site.register(Review, ReviewAdmin)
 custom_admin_site.register(Service, ServiceAdmin)
 custom_admin_site.register(ServiceCategory, ServiceCategoryAdmin)
 custom_admin_site.register(Client, ClientAdmin)
+custom_admin_site.register(Video, VideoAdmin)
+custom_admin_site.register(Article, ArticleAdmin)
