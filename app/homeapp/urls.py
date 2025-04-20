@@ -61,7 +61,8 @@ from homeapp.views import (
     case_12,
     case_13,
     case_14,
-    case_15
+    case_15,
+    ReviewListView
 )
 
 
@@ -129,4 +130,5 @@ urlpatterns = [
     path('cases/13/', case_13, name='case_13'),
     path('cases/14/', case_14, name='case_14'),
     path('cases/15/', case_15, name='case_15'),
+    path('reviews/', ReviewListView.as_view(), name='reviews')
 ]

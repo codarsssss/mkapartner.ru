@@ -5,8 +5,9 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest, FileResponse, Http404
 from django.views import View
 from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
 
-from .models import News, Partner, PracticeCategory, PracticeInstance
+from .models import News, Partner, PracticeCategory, PracticeInstance, Review
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.conf import settings
 
@@ -21,11 +22,13 @@ def download_resume(request, file_path):
 def home_index(request: HttpRequest):
     news = News.published.all()  # Все новости, у которых status = Published
     partners = Partner.objects.all()
+    reviews = Review.objects.filter(is_active=True)
     context = {
         'title': 'Главная страница',
         'user': request.session.get('username'),
         'News': news,
         'partners': partners,
+        'reviews': reviews,
     }
 
     return render(request, 'homeapp/index.html', context=context)
@@ -588,3 +591,10 @@ class PracticeCategoryListView(View):
         }
         
         return render(request, self.template_name, context)
+
+
+class ReviewListView(ListView):
+    model = Review
+    template_name = 'homeapp/reviews.html'
+    context_object_name = 'reviews'
+    queryset = Review.objects.filter(is_active=True)

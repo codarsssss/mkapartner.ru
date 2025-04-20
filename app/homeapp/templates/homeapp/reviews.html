@@ -1,0 +1,16 @@
+{% extends 'homeapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    <h1>Отзывы клиентов</h1>
+    {% for review in reviews %}
+      <div class="review">
+        <h3>{{ review.author_name }}</h3>
+        <p>{{ review.content }}</p>
+        <small>{{ review.created_at|date:"d.m.Y" }}</small>
+      </div>
+    {% empty %}
+      <p>Пока нет отзывов.</p>
+    {% endfor %}
+{% endblock %}

@@ -167,3 +167,18 @@ class PracticeInstanceImage(models.Model):
 
     def __str__(self):
         return f"Image for {self.practice_instance}"
+
+
+class Review(models.Model):
+    author_name = models.CharField(max_length=100, verbose_name="Имя клиента")
+    content = models.TextField(verbose_name="Текст отзыва")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
+    is_active = models.BooleanField(default=True, verbose_name="Показывать на сайте")
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = "Отзыв"
+        verbose_name_plural = "Отзывы"
+
+    def __str__(self):
+        return f"{self.author_name}: {self.content[:30]}..."
