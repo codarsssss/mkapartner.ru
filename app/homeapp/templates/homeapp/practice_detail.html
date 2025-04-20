@@ -11,6 +11,8 @@
         <p><strong>Обстоятельства:</strong> {{ practice.circumstances }}</p>
         <p><strong>Позиция адвоката:</strong> {{ practice.lawyer_position }}</p>
         <p><strong>Итог:</strong> {{ practice.outcome }}</p>
+        <p>{{ practice.partner.photo.url }}</p>
+        <p>{{ practice.partner.name }}</p>
         {% if practice.verdict_url %}
         <p><strong>Вердикт:</strong> <a href="{{ practice.verdict_url }}">ссылка</a></p>
         {% endif %}

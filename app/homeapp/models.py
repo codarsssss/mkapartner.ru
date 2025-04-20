@@ -127,11 +127,18 @@ class PracticeInstance(models.Model):
     outcome = models.TextField(
         verbose_name="Итог"
     )
-
     verdict_url = models.URLField(
         verbose_name="Ссылка на приговор",
         blank=True,
         null=True
+    )
+    partner = models.ForeignKey(
+        'Partner',
+        default=None,
+        null=True,
+        related_name='practice',
+        on_delete=models.CASCADE,
+        verbose_name='Адвокат'
     )
 
     class Meta:
