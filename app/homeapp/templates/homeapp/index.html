@@ -521,4 +521,29 @@
 </section>
 
 {#slider#}
+
+<!--================ Отзывы =================-->
+{% if reviews %}
+<section class="reviews-section container">
+  <div class="page-section">
+    <div class="reviews-header">
+      <h1 class="page-section__title">Отзывы клиентов</h1>
+    </div>
+    <div class="reviews-section__content swiper mySlider">
+      <div class="reviews-content-wrapper swiper-wrapper">
+        {% for review in reviews %}
+        <div class="review-slide swiper-slide">
+          <div class="review-item">
+            <p class="review-content">"{{ review.content }}"</p>
+            <p class="review-author">— {{ review.author_name }}</p>
+            <p class="review-date">{{ review.created_at|date:"d.m.Y" }}</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
 {% endblock %}

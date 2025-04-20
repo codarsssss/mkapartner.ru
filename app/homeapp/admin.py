@@ -1,11 +1,17 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite
-from .forms import NewsForm, PartnerForm
-from .models import News, Partner, PartnerPhoto
-from django.urls import reverse
-from django.utils.html import format_html
-from .models import PracticeCategory, PracticeInstance, PracticeInstanceImage
 from adminsortable2.admin import SortableAdminMixin
+
+from .forms import NewsForm, PartnerForm
+from .models import (
+    News,
+    Partner,
+    PartnerPhoto,
+    Review,
+    PracticeCategory,
+    PracticeInstance,
+    PracticeInstanceImage
+)
 
 
 class CustomAdminSite(AdminSite):
@@ -93,7 +99,14 @@ class PracticeInstanceAdmin(admin.ModelAdmin):
     get_category_title.admin_order_field = 'category__title'
 
 
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['author_name', 'created_at', 'is_active']
+    list_filter = ['is_active', 'created_at']
+    search_fields = ['author_name', 'content']
+
+
 custom_admin_site.register(PracticeCategory, PracticeCategoryAdmin)
 custom_admin_site.register(PracticeInstance, PracticeInstanceAdmin)
 custom_admin_site.register(News, NewsAdmin)
 custom_admin_site.register(Partner, PartnerAdmin)
+custom_admin_site.register(Review, ReviewAdmin)
