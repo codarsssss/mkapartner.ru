@@ -130,17 +130,16 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Услуги
-              <img style="width: 16px; height: 16px; object-fit: scale-down" src="{% static 'homeapp/img/arrow.png' %}"
-                alt="" />
+              <img style="width: 16px; height: 16px; object-fit: scale-down" src="{% static 'homeapp/img/arrow.png' %}" alt="" />
             </a>
             <ul class="dropdown-menu">
               <li class="dropdown-submenu dropdown">
-                <a class="dropdown-item" href="{% url 'homeapp:individual_service_list' %}">
+                <a class="dropdown-item" href="{% url 'homeapp:service_list' 'individual' %}">
                   Для физических лиц
                 </a>
               </li>
               <li class="dropdown-submenu dropdown">
-                <a class="dropdown-item" href="{% url 'homeapp:legal_service_list' %}">
+                <a class="dropdown-item" href="{% url 'homeapp:service_list' 'legal' %}">
                   Для юридических лиц
                 </a>
               </li>
@@ -257,18 +256,17 @@
                 </li>
 
                 <li class="nav-item dropdown" style="padding: 0 0 10px">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Услуги
                   </a>
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="dropdown-item" href="{% url 'homeapp:individual_service_list' %}">
+                      <a class="dropdown-item" href="{% url 'homeapp:service_list' 'individual' %}">
                         Для физических лиц
                       </a>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="{% url 'homeapp:legal_service_list' %}">
+                      <a class="dropdown-item" href="{% url 'homeapp:service_list' 'legal' %}">
                         Для юридических лиц
                       </a>
                     </li>

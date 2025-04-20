@@ -182,3 +182,79 @@ class Review(models.Model):
 
     def __str__(self):
         return f"{self.author_name}: {self.content[:30]}..."
+
+
+class ServiceCategory(models.Model):
+    class Audience(models.TextChoices):
+        LEGAL = "legal", "Юридические лица"
+        INDIVIDUAL = "individual", "Физические лица"
+
+    title = models.CharField("Название категории", max_length=255)
+    description = models.TextField("Описание", blank=True)
+    audience = models.CharField(
+        "Тип клиента",
+        max_length=20,
+        choices=Audience.choices,
+        default=Audience.INDIVIDUAL
+    )
+    order = models.PositiveIntegerField("Порядок", default=0)
+
+    class Meta:
+        verbose_name = "Категория услуги"
+        verbose_name_plural = "Категории услуг"
+        ordering = ['order']
+
+    def __str__(self):
+        return self.title
+
+
+class Service(models.Model):
+    category = models.ForeignKey(ServiceCategory, on_delete=models.CASCADE, related_name="services", verbose_name="Категория")
+    title = models.CharField("Название услуги", max_length=255)
+    slug = models.SlugField("Слаг", unique=True)
+    short_description = models.TextField("Краткое описание", blank=True)
+    image = models.ImageField("Обложка", upload_to="services/", blank=True, null=True)
+    is_active = models.BooleanField("Активна", default=True)
+
+    class Meta:
+        verbose_name = "Услуга"
+        verbose_name_plural = "Услуги"
+
+    def __str__(self):
+        return self.title
+
+
+class ServiceBlock(models.Model):
+    class BlockType(models.TextChoices):
+        TITLE = "title", "Заголовок"
+        TEXT = "text", "Текст"
+        IMAGE = "image", "Изображение"
+        LIST = "list", "Список"
+        QUOTE = "quote", "Цитата"
+        HTML = "html", "HTML (сырой код)"
+
+    service = models.ForeignKey(
+        Service,
+        on_delete=models.CASCADE,
+        related_name="blocks",
+        verbose_name="Услуга"
+    )
+    type = models.CharField(
+        "Тип блока",
+        max_length=20,
+        choices=BlockType.choices,
+        default=BlockType.TEXT
+    )
+    order = models.PositiveIntegerField("Порядок", default=0)
+
+    # Контент
+    text = models.TextField("Текст", blank=True)
+    image = models.ImageField("Изображение", upload_to="services/blocks/", blank=True, null=True)
+
+    class Meta:
+        ordering = ["order"]
+        verbose_name = "Блок услуги"
+        verbose_name_plural = "Блоки услуги"
+
+    def __str__(self):
+        return f"{self.get_type_display()} — {self.service.title}"

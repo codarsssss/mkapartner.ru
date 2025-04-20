@@ -9,8 +9,7 @@ from django.views import View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 
-from .models import News, Partner, PracticeCategory, PracticeInstance, Review
-from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from .models import News, Partner, PracticeCategory, PracticeInstance, Review, ServiceCategory, Service
 from django.conf import settings
 
 
@@ -45,116 +44,6 @@ def team_view(request: HttpRequest):
     }
 
     return render(request, 'homeapp/team.html', context=context)
-
-
-# def zashchita_view(request: HttpRequest):
-#     context = {
-#         'title': 'Защита при уголовном преследовании',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/zashchita.html', context=context)
-
-
-# def business_view(request: HttpRequest):
-#     context = {
-#         'title': 'Уголовно-правовая защита бизнеса',
-#         'user': request.session.get('username')
-#
-#     }
-#
-#     return render(request, 'homeapp/practices/business.html', context=context)
-
-
-# def antikorruptsionnoe_view(request: HttpRequest):
-#     context = {
-#         'title': 'Антикоррупционный комплайнс',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/korporativnaya.html', context=context)
-
-
-# def semeynaya_view(request: HttpRequest):
-#     context = {
-#         'title': 'Семейная практика',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/semeynaya.html', context=context)
-
-
-# def zemelnaya_view(request: HttpRequest):
-#     context = {
-#         'title': 'Земельная практика',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/zemelnaya.html', context=context)
-
-
-# def nalogovaya_view(request: HttpRequest):
-#     context = {
-#         'title': 'Налоговая практика',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/nalogovaya.html', context=context)
-
-
-# def mediatsiya_view(request: HttpRequest):
-#     context = {
-#         'title': 'Медиация',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/mediatsiya.html', context=context)
-
-
-# def it_ip_praktika_view(request: HttpRequest):
-#     context = {
-#         'title': ' IT/ IP практика',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/it_ip_praktika.html', context=context)
-
-
-# def korporativnaya_view(request: HttpRequest):
-#     context = {
-#         'title': 'Корпоративная практика',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/korporativnaya.html', context=context)
-
-
-# def meditsinskoe_view(request: HttpRequest):
-#     context = {
-#         'title': 'Медицинское право',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/meditsinskoe.html', context=context)
-
-
-# def arbitrazhnaya_view(request: HttpRequest):
-#     context = {
-#         'title': 'Арбитражная практика',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/arbitrazhnaya.html', context=context)
-
-
-# def sanktsionnaya_view(request: HttpRequest):
-#     context = {
-#         'title': 'Санкционная практика',
-#         'user': request.session.get('username')
-#     }
-#
-#     return render(request, 'homeapp/practices/sanktsionnaya.html', context=context)
-
 
 
 def rabotaem_view(request: HttpRequest):
@@ -211,22 +100,6 @@ def privicy_view(request: HttpRequest):
     return render(request, 'homeapp/privicy.html', context=context)
 
 
-def get_individual_service_list(request: HttpRequest):
-    context = {
-        'title': 'Услуги для физических лиц',
-        'user': request.session.get('username')
-    }
-    return render(request,
-                  'homeapp/services/individuals/individual_service_list.html', context=context)
-
-def get_legal_service_list(request: HttpRequest):
-    context = {
-        'title': 'Услуги для юридических лиц',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/services/legals/legal_service_list.html', context=context)
-
 def get_news_list(request: HttpRequest):
     news = News.published.all()
     context = {
@@ -245,158 +118,6 @@ def news_detail(request, slug):
     }
 
     return render(request, 'homeapp/news_detail.html', context=context)
-
-def get_insolvecy_support_detail(request: HttpRequest):
-    context = {
-        'title': 'Сопровождение банкротства',
-        'user': request.session.get('username'),
-    }
-    return render(request, 'homeapp/services/legals/insolvency_support.html', context=context)
-
-def get_complex_support_detail(request: HttpRequest):
-    context = {
-        'title': 'Комплексное сопровождение',
-        'user': request.session.get('username'),
-    }
-    return render(request, 'homeapp/services/legals/complex_support.html', context=context)
-
-def get_criminal_defense_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Уголовные дела)',
-        'user': request.session.get('username'),
-    }
-    return render(request, 'homeapp/services/individuals/criminal_defense.html', context=context)
-
-def get_civil_defense_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Гражданские дела)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request, 'homeapp/services/individuals/civil_defense.html', context=context)
-
-def get_inheritance_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Дела по наследованию)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/inheritance_service.html', context=context)
-
-def get_migration_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокаты (Миграционным дела)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request, 'homeapp/services/individuals/migration_service.html', context=context)
-
-def get_traffic_accident_detail(request: HttpRequest):
-    context = {
-        'title': 'Автоюрист (ДТП)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/traffic_accident_service.html', context=context)
-
-def get_license_revocation_detail(request: HttpRequest):
-    context = {
-        'title': 'Автоюрист (Лишение водительского удостоверения)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/license_revocation_service.html', context=context)
-
-def get_family_matters_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Семейные дела)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/family_matters_service.html', context=context)
-
-def get_individual_bankruptcy_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Банкротство физичеких лиц)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/individual_bankruptcy_service.html', context=context)
-    
-def get_consumer_protection_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Защита прав потребителя)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/consumer_protection_service.html', context=context)
-
-def get_land_disputes_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Земельные споры)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/land_disputes_service.html', context=context)
-
-def get_debt_recovery_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Взыскание долгов)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/debt_recovery_service.html', context=context)
-
-def get_medical_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Возмещение вреда здоровью)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request, 'homeapp/services/individuals/medical_service.html', context=context)
-
-def get_enforcement_lawyer_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Исполнительного производство)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/enforcement_lawyer_service.html', context=context)
-
-def get_appeals_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Обжалование решений)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request, 'homeapp/services/individuals/appeals_service.html', context=context)
-
-def get_administrative_penalties_detail(request: HttpRequest):
-    context = {
-        'title': 'Адвокат (Административные наказания)',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/administrative_pinalties_service.html', context=context)
-
-def get_online_consultation_detail(request: HttpRequest):
-    context = {
-        'title': 'Онлайн консультации',
-        'user': request.session.get('username'),
-    }
-
-    return render(request,
-                  'homeapp/services/individuals/online_consultation_service.html', context=context)
 
 
 def tariffs_view(request: HttpRequest):
@@ -440,6 +161,27 @@ class PracticeDetailView(DetailView, View):
 
     def get(self, request, *args, **kwargs):
         return super().get(request, *args, **kwargs)
+
+
+def service_list_view(request, audience):
+    if audience not in ['individual', 'legal']:
+        raise Http404("Тип аудитории не найден")
+
+    categories = ServiceCategory.objects.filter(audience=audience).order_by("order")
+
+    return render(request, "homeapp/services/service_list.html", {
+        "categories": categories,
+        "audience": audience,
+        "title": "Услуги для физических лиц" if audience == "individual" else "Услуги для юридических лиц",
+    })
+
+
+def service_detail_view(request, slug):
+    service = get_object_or_404(Service, slug=slug, is_active=True)
+    return render(request, "homeapp/services/service_detail.html", {
+        "service": service,
+        "title": service.title
+    })
 
 
 class ReviewListView(ListView):
