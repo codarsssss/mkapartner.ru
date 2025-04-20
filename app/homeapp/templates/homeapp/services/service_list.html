@@ -1,0 +1,47 @@
+{% extends 'homeapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4">
+  <h1 class="page-section__title">{{ title }}</h1>
+
+  {% if categories %}
+    {% for category in categories %}
+      <div class="mb-5">
+        <h3 class="h4 mb-3">{{ category.title }}</h3>
+
+        {% if category.description %}
+          <p class="text-muted">{{ category.description }}</p>
+        {% endif %}
+
+        {% if category.services.all %}
+          <div class="row">
+            {% for service in category.services.all %}
+              <div class="col-md-6 mb-3">
+                <div class="card h-100">
+                  {% if service.image %}
+                    <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
+                  {% endif %}
+                  <div class="card-body">
+                    <h5 class="card-title">{{ service.title }}</h5>
+                    {% if service.short_description %}
+                      <p class="card-text">{{ service.short_description|truncatechars:200 }}</p>
+                    {% endif %}
+                    <a href="{% url 'homeapp:service_detail' service.slug %}" class="btn btn-primary btn-sm mt-2">
+                      Подробнее
+                    </a>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>Нет доступных услуг в этой категории.</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>Категории не найдены.</p>
+  {% endif %}
+</div>
+{% endblock %}

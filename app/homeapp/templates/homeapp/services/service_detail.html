@@ -1,0 +1,24 @@
+{% extends 'homeapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-4">
+  <h1 class="page-section__title mb-4">{{ service.title }}</h1>
+
+  {% if service.image %}
+    <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-fluid mb-4">
+  {% endif %}
+
+  {% if service.short_description %}
+    <p class="lead">{{ service.short_description }}</p>
+  {% endif %}
+
+  {% if service.blocks.exists %}
+    <div class="service-blocks">
+      {% for block in service.blocks.all %}
+        {% include "homeapp/service_blocks/"|add:block.type|add:".html" with block=block %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

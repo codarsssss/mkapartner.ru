@@ -195,6 +195,9 @@ app/media/partners/*
 app/media/practice_instance_images/*
 !app/media/practice_instance_images/.gitkeep
 
+app/media/services/*
+!app/media/services/.gitkeep
+
 app/staticfiles/*
 
 */db_dump.json

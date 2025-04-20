@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import AdminSite
-from adminsortable2.admin import SortableAdminMixin
+from adminsortable2.admin import SortableAdminMixin, SortableTabularInline, SortableAdminBase
 
 from .forms import NewsForm, PartnerForm
 from .models import (
@@ -10,7 +10,7 @@ from .models import (
     Review,
     PracticeCategory,
     PracticeInstance,
-    PracticeInstanceImage
+    PracticeInstanceImage, Service, ServiceBlock, ServiceCategory
 )
 
 
@@ -105,8 +105,31 @@ class ReviewAdmin(admin.ModelAdmin):
     search_fields = ['author_name', 'content']
 
 
+class ServiceBlockInline(SortableTabularInline):
+    model = ServiceBlock
+    extra = 1
+    fields = ["type", "text", "image", "order"]
+    ordering = ["order"]
+
+
+class ServiceCategoryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'audience')
+    list_filter = ('audience',)
+    search_fields = ('title',)
+
+
+class ServiceAdmin(SortableAdminBase, admin.ModelAdmin):
+    list_display = ["title", "category", "is_active"]
+    list_filter = ["category__audience", "category"]
+    search_fields = ["title", "short_description"]
+    prepopulated_fields = {"slug": ("title",)}
+    inlines = [ServiceBlockInline]
+
+
 custom_admin_site.register(PracticeCategory, PracticeCategoryAdmin)
 custom_admin_site.register(PracticeInstance, PracticeInstanceAdmin)
 custom_admin_site.register(News, NewsAdmin)
 custom_admin_site.register(Partner, PartnerAdmin)
 custom_admin_site.register(Review, ReviewAdmin)
+custom_admin_site.register(Service, ServiceAdmin)
+custom_admin_site.register(ServiceCategory, ServiceCategoryAdmin)
