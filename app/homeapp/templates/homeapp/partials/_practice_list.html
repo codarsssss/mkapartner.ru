@@ -1,10 +1,10 @@
 {% for item in items %}
-  <div class="case-card mb-3 p-3 border rounded">
+  <a href="{% url 'homeapp:practice_detail' pk=item.id %}" class="case-card mb-3 p-3 border rounded d-block text-decoration-none text-dark">
     <h3>{{ item.title }}</h3>
     <p><strong>Категория:</strong> {{ item.category.title }}</p>
     <p>{{ item.circumstances|truncatechars:160 }}</p>
     <p><strong>Адвокат:</strong> {{ item.partner.name }}</p>
-  </div>
+  </a>
 {% empty %}
   <p>Нет подходящих дел.</p>
 {% endfor %}
