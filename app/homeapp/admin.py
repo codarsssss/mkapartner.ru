@@ -74,12 +74,12 @@ class PracticeInstanceImageInline(admin.TabularInline):
     extra = 1  # Количество пустых форм для новых изображений
 
 class PracticeInstanceAdmin(admin.ModelAdmin):
-    list_display = ('title', 'get_category_title')
+    list_display = ('title', 'get_category_title', 'partner')
     search_fields = ('title', 'circumstances', 'lawyer_position', 'outcome')
-    list_filter = ('category__title',)
+    list_filter = ('category__title', 'partner')
     fieldsets = (
         (None, {
-            'fields': ('title', 'category')
+            'fields': ('title', 'category', 'partner')
         }),
         ('Details', {
             'fields': ('circumstances', 'lawyer_position', 'outcome', 'verdict_url')
