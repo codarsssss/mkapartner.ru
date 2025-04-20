@@ -205,6 +205,9 @@ app/media/services/blocks/*
 app/media/clients/*
 !app/media/clients/.gitkeep
 
+app/media/videos/*
+!app/media/videos/.gitkeep
+
 app/staticfiles/*
 
 */db_dump.json

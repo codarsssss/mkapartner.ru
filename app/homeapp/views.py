@@ -1,5 +1,4 @@
 import os
-import asyncio
 
 from django.http.response import JsonResponse
 from django.shortcuts import render, get_object_or_404
@@ -8,9 +7,20 @@ from django.template.loader import render_to_string
 from django.views import View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
-
-from .models import News, Partner, PracticeCategory, PracticeInstance, Review, ServiceCategory, Service, Client
 from django.conf import settings
+
+from .models import (
+    News,
+    Partner,
+    PracticeCategory,
+    PracticeInstance,
+    Review,
+    ServiceCategory,
+    Service,
+    Client,
+    Article,
+    Video
+)
 
 
 def download_resume(request, file_path):
@@ -194,3 +204,21 @@ class ReviewListView(ListView):
 def client_list_view(request):
     clients = Client.objects.all()
     return render(request, 'homeapp/client_list.html', {'clients': clients})
+
+
+class ArticleListView(ListView):
+    model = Article
+    queryset = Article.objects.filter(is_active=True)
+    template_name = "homeapp/press/article_list.html"
+    context_object_name = "articles"
+
+def article_detail(request, slug):
+    article = get_object_or_404(Article, slug=slug)
+    return render(request, "homeapp/article_detail.html", {"article": article})
+
+class VideoListView(ListView):
+    model = Video
+    queryset = Video.objects.filter(is_active=True)
+    template_name = "homeapp/press/video_list.html"
+    context_object_name = "videos"
+

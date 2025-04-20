@@ -168,11 +168,18 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Пресс-центр
+            <img style="width: 16px; height: 16px; object-fit: scale-down" src="{% static 'homeapp/img/arrow.png' %}" alt="" />
+          </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{% url 'homeapp:news_list' %}">Новости</a></li>
+              <li><a class="dropdown-item" href="{% url 'homeapp:article_list' %}">Статьи</a></li>
+              <li><a class="dropdown-item" href="{% url 'homeapp:video_list' %}">Видео</a></li>
+            </ul>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{% url 'homeapp:news_list' %}">
-              Новости
-            </a>
-          </li><li class="nav-item">
             <a class="nav-link" aria-current="page" href="{% url 'homeapp:reviews' %}">
               Отзывы
             </a>
@@ -302,11 +309,15 @@
                     Практика адвокатов
                   </a>
                 </li>
-
-                <li class="nav-item nav_footer">
-                  <a class="nav-link" aria-current="page" href="{% url 'homeapp:news_list' %}">
-                    Новости
+                <li class="nav-item dropdown" style="padding: 0 0 10px">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Пресс-центр
                   </a>
+                  <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="{% url 'homeapp:news_list' %}">Новости</a></li>
+                    <li><a class="dropdown-item" href="{% url 'homeapp:article_list' %}">Статьи</a></li>
+                    <li><a class="dropdown-item" href="{% url 'homeapp:video_list' %}">Видео</a></li>
+                  </ul>
                 </li>
                 <li class="nav-item nav_footer">
                   <a class="nav-link" aria-current="page" href="{% url 'homeapp:reviews' %}">

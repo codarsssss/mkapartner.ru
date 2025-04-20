@@ -1,5 +1,8 @@
+import re
+
 from django.db import models
 from django.db.models.query import QuerySet
+from django.utils.safestring import mark_safe
 from transliterate import slugify
 from ckeditor.fields import RichTextField
 
@@ -271,3 +274,105 @@ class Client(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Video(models.Model):
+    title = models.CharField("Заголовок", max_length=255)
+    url = models.URLField("Ссылка на видео")
+    published_at = models.DateField("Дата публикации")
+    thumbnail = models.ImageField("Превью", upload_to="videos/", blank=True, null=True)
+    is_active = models.BooleanField("Активно", default=True)
+
+    class Meta:
+        ordering = ["-published_at"]
+        verbose_name = "Видео"
+        verbose_name_plural = "Видео"
+
+    def __str__(self):
+        return self.title
+
+    @property
+    def youtube_id(self):
+        """
+        Возвращает ID видео с YouTube, извлекая его из ссылки.
+
+        Поддерживаются ссылки формата:
+        - https://youtu.be/XYZ
+        - https://www.youtube.com/watch?v=XYZ
+
+        Returns:
+            str: Идентификатор видео на YouTube или пустая строка, если не найден.
+        """
+        if "youtu.be" in self.url:
+            return self.url.split("/")[-1]
+        if "youtube.com/watch?v=" in self.url:
+            return self.url.split("v=")[-1].split("&")[0]
+        return ""
+
+    @property
+    def rutube_embed_url(self):
+        """
+        Возвращает embed-ссылку для RuTube, если ссылка является валидной.
+
+        Пример исходной ссылки:
+        - https://rutube.ru/video/UUID/
+
+        Returns:
+            str: Ссылка для вставки видео с RuTube или пустая строка, если не распознано.
+        """
+        match = re.search(r"rutube\.ru/video/([a-zA-Z0-9]+)/?", self.url)
+        if match:
+            return f"https://rutube.ru/play/embed/{match.group(1)}"
+        return ""
+
+    @property
+    def youtube_thumbnail(self):
+        """
+        Формирует ссылку на превью YouTube (кадр из видео).
+
+        Используется, если вручную не загружено изображение-превью.
+
+        Returns:
+            str: URL на превью изображения с YouTube.
+        """
+        return f"https://img.youtube.com/vi/{self.youtube_id}/hqdefault.jpg"
+
+    def preview(self):
+        """
+        Возвращает HTML-превью для отображения в админке.
+
+        Если загружено кастомное превью — используется оно.
+        Если видео с YouTube — используется превью с YouTube.
+        Если видео с RuTube — отображается заглушка.
+        Иначе — "-".
+
+        Returns:
+            str: HTML-разметка превью.
+        """
+        if self.thumbnail:
+            return mark_safe(f'<img src="{self.thumbnail.url}" style="height: 100px;">')
+        elif "youtube.com" in self.url or "youtu.be" in self.url:
+            return mark_safe(
+                f'<img src="https://img.youtube.com/vi/{self.youtube_id}/hqdefault.jpg" style="height: 100px;">')
+        elif "rutube.ru" in self.url and self.rutube_embed_url:
+            return mark_safe('<span style="color: #999;">Превью не доступно</span>')
+        return "-"
+
+    preview.short_description = "Превью"
+
+
+class Article(models.Model):
+    title = models.CharField("Заголовок", max_length=255)
+    slug = models.SlugField("Слаг", unique=True)
+    content = RichTextField("Текст статьи")
+    published_at = models.DateField("Дата публикации")
+    is_active = models.BooleanField("Активна", default=True)
+
+    class Meta:
+        ordering = ["-published_at"]
+        verbose_name = "Статья"
+        verbose_name_plural = "Статьи"
+
+    def __str__(self):
+        return self.title
+
