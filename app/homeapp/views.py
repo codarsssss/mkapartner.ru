@@ -1,8 +1,10 @@
 import os
 import asyncio
 
+from django.http.response import JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpRequest, FileResponse, Http404
+from django.template.loader import render_to_string
 from django.views import View
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -541,15 +543,29 @@ def tariffs_view(request: HttpRequest):
 
 
 def cases_view(request: HttpRequest):
-    practice_categories = PracticeCategory.objects.all()
     context = {
         'title': 'Практика адвокатов',
-        'practice_categories': practice_categories,
+        'practice_categories': PracticeCategory.objects.all(),
+        'partners': Partner.objects.all(),
+        'practice_instances': PracticeInstance.objects.all(),
         'user': request.session.get('username')
     }
+    return render(request, 'homeapp/cases_auto.html', context)
 
-    return render(request, 'homeapp/cases_auto.html', context=context)
+def cases_filter_view(request):
+    if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+        category_id = request.GET.get('category')
+        partner_id = request.GET.get('partner')
 
+        queryset = PracticeInstance.objects.all()
+
+        if category_id:
+            queryset = queryset.filter(category_id=category_id)
+        if partner_id:
+            queryset = queryset.filter(partner_id=partner_id)
+
+        html = render_to_string('homeapp/partials/_practice_list.html', {'items': queryset})
+        return JsonResponse({'html': html})
 
 class PracticeDetailView(DetailView, View):
     model = PracticeInstance
