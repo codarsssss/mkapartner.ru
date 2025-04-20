@@ -85,6 +85,14 @@ class PracticeInstanceImageInline(admin.TabularInline):
     model = PracticeInstanceImage
     extra = 1  # Количество пустых форм для новых изображений
 
+
+class VideoInline(admin.TabularInline):
+    model = Video
+    fields = ("title", "url", "thumbnail", "preview", "published_at", "is_active")
+    readonly_fields = ("preview",)
+    extra = 1
+
+
 class PracticeInstanceAdmin(admin.ModelAdmin):
     list_display = ('title', 'get_category_title', 'partner')
     search_fields = ('title', 'circumstances', 'lawyer_position', 'outcome')
@@ -97,7 +105,7 @@ class PracticeInstanceAdmin(admin.ModelAdmin):
             'fields': ('circumstances', 'lawyer_position', 'outcome', 'verdict_url')
         }),
     )
-    inlines = [PracticeInstanceImageInline]
+    inlines = [PracticeInstanceImageInline, VideoInline]
 
     def get_category_title(self, obj):
         return obj.category.title

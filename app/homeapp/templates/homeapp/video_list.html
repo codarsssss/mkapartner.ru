@@ -1,49 +1,10 @@
-{% extends "base.html" %}
+{% extends "homeapp/base.html" %}
 {% load static %}
 
 {% block content %}
-<h1>Видео</h1>
-<div class="row">
-  {% for video in videos %}
-  <div class="col-md-4 mb-4">
-    <div class="card video-card" data-url="{{ video.url }}">
-      {% if video.thumbnail %}
-        <img src="{{ video.thumbnail.url }}" class="card-img-top" alt="">
-      {% endif %}
-      <div class="card-body">
-        <h5 class="card-title">{{ video.title }}</h5>
-        <p class="card-text"><small>{{ video.published_at }}</small></p>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
+<div class="container mt-5 mb-5">
+  <h1 class="mb-4">Видео</h1>
 
-<!-- Модальное окно -->
-<div class="modal fade" id="videoModal" tabindex="-1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content bg-dark">
-      <div class="modal-body p-0">
-        <iframe id="videoFrame" width="100%" height="500" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
+  {% include "homeapp/includes/video_block.html" with videos=videos title="" %}
 </div>
-
-<script>
-document.querySelectorAll('.video-card').forEach(card => {
-  card.addEventListener('click', () => {
-    const url = card.getAttribute('data-url');
-    const videoId = url.split("v=")[1] || url.split("/").pop();
-    const embedUrl = url.includes("youtube")
-      ? `https://www.youtube.com/embed/${videoId}`
-      : url.includes("rutube")
-      ? url
-      : url;
-    document.getElementById("videoFrame").src = embedUrl;
-    const modal = new bootstrap.Modal(document.getElementById('videoModal'));
-    modal.show();
-  });
-});
-</script>
 {% endblock %}
