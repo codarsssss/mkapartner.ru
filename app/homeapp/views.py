@@ -1,28 +1,24 @@
 import os
+import re
 
-from django.http.response import JsonResponse
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpRequest, FileResponse, Http404
+from django.http import JsonResponse, FileResponse, Http404
+from django.shortcuts import get_object_or_404
 from django.template.loader import render_to_string
-from django.views import View
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
+from django.views.generic import (
+    TemplateView,
+    DetailView,
+    ListView,
+    View,
+)
 from django.conf import settings
 
 from .models import (
-    News,
-    Partner,
-    PracticeCategory,
-    PracticeInstance,
-    Review,
-    ServiceCategory,
-    Service,
-    Client,
-    Article,
-    Video
+    News, Partner, PracticeCategory, PracticeInstance,
+    Review, ServiceCategory, Service, Client, Article, Video
 )
 
 
+# === ОСТАВЛЯЕМ ТАК ===
 def download_resume(request, file_path):
     file_full_path = os.path.join(settings.MEDIA_ROOT, file_path)
     if os.path.exists(file_full_path):
@@ -30,132 +26,11 @@ def download_resume(request, file_path):
     raise Http404('Такого файла не существует :(')
 
 
-def home_index(request: HttpRequest):
-    news = News.published.all()  # Все новости, у которых status = Published
-    partners = Partner.objects.all()
-    reviews = Review.objects.filter(is_active=True)
-    context = {
-        'title': 'Главная страница',
-        'user': request.session.get('username'),
-        'News': news,
-        'partners': partners,
-        'reviews': reviews,
-    }
-
-    return render(request, 'homeapp/index.html', context=context)
-
-
-def team_view(request: HttpRequest):
-    partners = Partner.objects.all()
-    context = {
-        'title': 'Команда',
-        'user': request.session.get('username'),
-        'partners': partners,
-    }
-
-    return render(request, 'homeapp/team.html', context=context)
-
-
-def rabotaem_view(request: HttpRequest):
-    context = {
-        'title': 'Как мы работаем',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/procedure/rabotaem.html', context=context)
-
-
-def polnomochiya_view(request: HttpRequest):
-    context = {
-        'title': 'Полномочия адвоката',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/procedure/polnomochiya.html', context=context)
-
-
-def tayna_view(request: HttpRequest):
-    context = {
-        'title': 'Адвокатская тайна',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/procedure/tayna.html', context=context)
-
-
-def soglashenie_view(request: HttpRequest):
-    context = {
-        'title': 'Соглашение и ордер',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/procedure/soglashenie.html', context=context)
-
-
-def varianty_view(request: HttpRequest):
-    context = {
-        'title': 'Варианты вознагрождения',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/procedure/varianty.html', context=context)
-
-
-def privicy_view(request: HttpRequest):
-    context = {
-        'title': 'Политика конфиденциальности',
-        'user': request.session.get('username')
-    }
-
-    return render(request, 'homeapp/privicy.html', context=context)
-
-
-def get_news_list(request: HttpRequest):
-    news = News.published.all()
-    context = {
-        'title': 'Новости',
-        'user': request.session.get('username'),
-        'News': news,
-    }
-
-    return render(request, 'homeapp/news_list.html', context=context)
-
-def news_detail(request, slug):
-    news_obj = get_object_or_404(News, slug=slug)
-    context = {
-        'title': 'Новости',
-        'news_obj': news_obj
-    }
-
-    return render(request, 'homeapp/news_detail.html', context=context)
-
-
-def tariffs_view(request: HttpRequest):
-    context = {
-        'title': 'Онлайн консультации',
-        'user': request.session.get('username'),
-    }
-
-    return render(request, 'homeapp/tariffs.html', context=context)
-
-
-def practices_view(request: HttpRequest):
-    context = {
-        'title': 'Практика адвокатов',
-        'practice_categories': PracticeCategory.objects.all(),
-        'partners': Partner.objects.all(),
-        'practice_instances': PracticeInstance.objects.all(),
-        'user': request.session.get('username')
-    }
-    return render(request, 'homeapp/practices.html', context)
-
 def cases_filter_view(request):
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         category_id = request.GET.get('category')
         partner_id = request.GET.get('partner')
-
         queryset = PracticeInstance.objects.all()
-
         if category_id:
             queryset = queryset.filter(category_id=category_id)
         if partner_id:
@@ -164,35 +39,143 @@ def cases_filter_view(request):
         html = render_to_string('homeapp/partials/_practice_list.html', {'items': queryset})
         return JsonResponse({'html': html})
 
-class PracticeDetailView(DetailView, View):
+
+# === КЛАССЫ ДЛЯ ШАБЛОННЫХ СТРАНИЦ ===
+
+class HomePageView(TemplateView):
+    template_name = 'homeapp/index.html'
+
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'Главная страница',
+            'user': self.request.session.get('username'),
+            'News': News.published.all(),
+            'partners': Partner.objects.all(),
+            'reviews': Review.objects.filter(is_active=True),
+        }
+
+
+class TeamView(TemplateView):
+    template_name = 'homeapp/team.html'
+
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'Команда',
+            'user': self.request.session.get('username'),
+            'partners': Partner.objects.all(),
+        }
+
+
+class TariffsView(TemplateView):
+    template_name = 'homeapp/tariffs.html'
+    extra_context = {'title': 'Онлайн консультации'}
+
+
+class ProcedurePageView(TemplateView):
+    def get_context_data(self, **kwargs):
+        return {
+            'title': self.title,
+            'user': self.request.session.get('username')
+        }
+
+
+class RabotaemView(ProcedurePageView):
+    template_name = 'homeapp/procedure/rabotaem.html'
+    title = 'Как мы работаем'
+
+
+class PolnomochiyaView(ProcedurePageView):
+    template_name = 'homeapp/procedure/polnomochiya.html'
+    title = 'Полномочия адвоката'
+
+
+class TaynaView(ProcedurePageView):
+    template_name = 'homeapp/procedure/tayna.html'
+    title = 'Адвокатская тайна'
+
+
+class SoglashenieView(ProcedurePageView):
+    template_name = 'homeapp/procedure/soglashenie.html'
+    title = 'Соглашение и ордер'
+
+
+class VariantyView(ProcedurePageView):
+    template_name = 'homeapp/procedure/varianty.html'
+    title = 'Варианты вознагрождения'
+
+
+class PrivicyView(ProcedurePageView):
+    template_name = 'homeapp/privicy.html'
+    title = 'Политика конфиденциальности'
+
+
+# === ПРАКТИКА ===
+
+class PracticesView(TemplateView):
+    template_name = 'homeapp/practices.html'
+
+    def get_context_data(self, **kwargs):
+        return {
+            'title': 'Практика адвокатов',
+            'practice_categories': PracticeCategory.objects.all(),
+            'partners': Partner.objects.all(),
+            'practice_instances': PracticeInstance.objects.all(),
+            'user': self.request.session.get('username')
+        }
+
+
+class PracticeDetailView(DetailView):
     model = PracticeInstance
     template_name = 'homeapp/practice_detail.html'
     context_object_name = 'practice'
 
-    def get(self, request, *args, **kwargs):
-        return super().get(request, *args, **kwargs)
+
+# === УСЛУГИ ===
+
+class ServiceListView(TemplateView):
+    template_name = "homeapp/services/service_list.html"
+
+    def get(self, request, audience):
+        if audience not in ['individual', 'legal']:
+            raise Http404("Тип аудитории не найден")
+
+        categories = ServiceCategory.objects.filter(audience=audience).order_by("order")
+        return self.render_to_response({
+            "categories": categories,
+            "audience": audience,
+            "title": "Услуги для физических лиц" if audience == "individual" else "Услуги для юридических лиц",
+        })
 
 
-def service_list_view(request, audience):
-    if audience not in ['individual', 'legal']:
-        raise Http404("Тип аудитории не найден")
-
-    categories = ServiceCategory.objects.filter(audience=audience).order_by("order")
-
-    return render(request, "homeapp/services/service_list.html", {
-        "categories": categories,
-        "audience": audience,
-        "title": "Услуги для физических лиц" if audience == "individual" else "Услуги для юридических лиц",
-    })
+class ServiceDetailView(DetailView):
+    model = Service
+    template_name = "homeapp/services/service_detail.html"
+    context_object_name = "service"
+    slug_url_kwarg = "slug"
 
 
-def service_detail_view(request, slug):
-    service = get_object_or_404(Service, slug=slug, is_active=True)
-    return render(request, "homeapp/services/service_detail.html", {
-        "service": service,
-        "title": service.title
-    })
+# === НОВОСТИ ===
 
+class NewsListView(ListView):
+    model = News
+    template_name = 'homeapp/news_list.html'
+    context_object_name = 'News'
+    queryset = News.published.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Новости"
+        return context
+
+
+class NewsDetailView(DetailView):
+    model = News
+    template_name = "homeapp/news_detail.html"
+    context_object_name = "news_obj"
+    slug_field = "slug"
+
+
+# === ПРОЧЕЕ ===
 
 class ReviewListView(ListView):
     model = Review
@@ -201,9 +184,10 @@ class ReviewListView(ListView):
     queryset = Review.objects.filter(is_active=True)
 
 
-def client_list_view(request):
-    clients = Client.objects.all()
-    return render(request, 'homeapp/client_list.html', {'clients': clients})
+class ClientListView(ListView):
+    model = Client
+    template_name = 'homeapp/client_list.html'
+    context_object_name = 'clients'
 
 
 class ArticleListView(ListView):
@@ -212,13 +196,16 @@ class ArticleListView(ListView):
     template_name = "homeapp/press/article_list.html"
     context_object_name = "articles"
 
-def article_detail(request, slug):
-    article = get_object_or_404(Article, slug=slug)
-    return render(request, "homeapp/article_detail.html", {"article": article})
+
+class ArticleDetailView(DetailView):
+    model = Article
+    template_name = "homeapp/article_detail.html"
+    context_object_name = "article"
+    slug_field = "slug"
+
 
 class VideoListView(ListView):
     model = Video
     queryset = Video.objects.filter(is_active=True)
     template_name = "homeapp/press/video_list.html"
     context_object_name = "videos"
-
