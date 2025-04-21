@@ -42,6 +42,15 @@ class NewsAdmin(admin.ModelAdmin):
     search_fields = ['title', 'slug', 'text']
     ordering = ['status', '-create_datetime']
     readonly_fields = ['create_datetime']
+    fieldsets = (
+        (None, {
+            'fields': ('title', 'slug', 'text', 'video_link', 'status', 'create_datetime')
+        }),
+        ('SEO', {
+            'classes': ('collapse',),
+            'fields': ('meta_title', 'meta_description', 'seo_keywords', 'meta_image'),
+        }),
+    )
 
 
 # ---------- Партнеры ----------
@@ -88,6 +97,10 @@ class PracticeInstanceAdmin(admin.ModelAdmin):
         ('Детали', {
             'fields': ('circumstances', 'lawyer_position', 'outcome', 'verdict_url')
         }),
+        ('SEO', {
+            'classes': ('collapse',),
+            'fields': ('meta_title', 'meta_description', 'seo_keywords', 'meta_image'),
+        }),
     )
 
     @admin.display(description='Категория практики', ordering='category__title')
@@ -122,6 +135,15 @@ class ServiceAdmin(SortableAdminBase, admin.ModelAdmin):
     search_fields = ['title', 'short_description']
     prepopulated_fields = {'slug': ('title',)}
     inlines = [ServiceBlockInline]
+    fieldsets = (
+        (None, {
+            'fields': ['title', 'slug', 'category', 'short_description', 'image', 'is_active']
+        }),
+        ('SEO', {
+            'classes': ('collapse',),
+            'fields': ('meta_title', 'meta_description', 'seo_keywords', 'meta_image'),
+        }),
+    )
 
 
 # ---------- Клиенты ----------
@@ -147,7 +169,15 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ['is_active', 'published_at']
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
-    fields = ['title', 'slug', 'content', 'published_at', 'is_active']
+    fieldsets = (
+        (None, {
+            'fields': ['title', 'slug', 'content', 'published_at', 'is_active']
+        }),
+        ('SEO', {
+            'classes': ('collapse',),
+            'fields': ('meta_title', 'meta_description', 'seo_keywords', 'meta_image'),
+        }),
+    )
 
 
 # ---------- Регистрация ----------

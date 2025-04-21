@@ -30,6 +30,12 @@ class News(models.Model):
     status = models.CharField("Статус", max_length=3, choices=Status.choices, default=Status.NOT_PUBLISHED)
     create_datetime = models.DateTimeField("Дата создания", auto_now_add=True)
 
+    # SEO
+    meta_title = models.CharField("Meta Title", max_length=255, blank=True)
+    meta_description = models.TextField("Meta Description", blank=True)
+    meta_image = models.ImageField("Meta Image (OG Image)", upload_to="seo/", blank=True, null=True)
+    seo_keywords = models.CharField("Meta Keywords", max_length=255, blank=True)
+
     objects = models.Manager()
     published = NewsPublishedManager()
 
@@ -43,6 +49,14 @@ class News(models.Model):
 
     def get_absolute_url(self):
         return reverse("homeapp:news_detail", args=[self.slug])
+
+    def get_meta(self):
+        return {
+            "title": self.meta_title or self.title,
+            "description": self.meta_description or self.title,
+            "keywords": self.seo_keywords or "",
+            "image": self.meta_image.url if self.meta_image else "",
+        }
 
 
 class Partner(models.Model):
@@ -103,6 +117,12 @@ class PracticeInstance(models.Model):
     partner = models.ForeignKey(Partner, null=True, blank=True, on_delete=models.CASCADE,
                                 related_name='practice', verbose_name='Адвокат')
 
+    # SEO
+    meta_title = models.CharField("Meta Title", max_length=255, blank=True)
+    meta_description = models.TextField("Meta Description", blank=True)
+    meta_image = models.ImageField("Meta Image (OG Image)", upload_to="seo/", blank=True, null=True)
+    seo_keywords = models.CharField("Meta Keywords", max_length=255, blank=True)
+
     class Meta:
         verbose_name = "Случай практики"
         verbose_name_plural = "Случаи практики"
@@ -112,6 +132,14 @@ class PracticeInstance(models.Model):
 
     def get_absolute_url(self):
         return reverse('homeapp:practice_detail', args=[self.pk])
+
+    def get_meta(self):
+        return {
+            "title": self.meta_title or self.title,
+            "description": self.meta_description or self.title,
+            "keywords": self.seo_keywords or "",
+            "image": self.meta_image.url if self.meta_image else "",
+        }
 
 
 class PracticeInstanceImage(models.Model):
@@ -168,12 +196,26 @@ class Service(models.Model):
     image = models.ImageField("Обложка", upload_to="services/", blank=True, null=True)
     is_active = models.BooleanField("Активна", default=True)
 
+    # SEO
+    meta_title = models.CharField("Meta Title", max_length=255, blank=True)
+    meta_description = models.TextField("Meta Description", blank=True)
+    meta_image = models.ImageField("Meta Image (OG Image)", upload_to="seo/", blank=True, null=True)
+    seo_keywords = models.CharField("Meta Keywords", max_length=255, blank=True)
+
     class Meta:
         verbose_name = "Услуга"
         verbose_name_plural = "Услуги"
 
     def __str__(self):
         return self.title
+
+    def get_meta(self):
+        return {
+            "title": self.meta_title or self.title,
+            "description": self.meta_description or self.title,
+            "keywords": self.seo_keywords or "",
+            "image": self.meta_image.url if self.meta_image else "",
+        }
 
 
 class ServiceBlock(models.Model):
@@ -307,6 +349,12 @@ class Article(models.Model):
     published_at = models.DateField("Дата публикации")
     is_active = models.BooleanField("Активна", default=True)
 
+    # SEO
+    meta_title = models.CharField("Meta Title", max_length=255, blank=True)
+    meta_description = models.TextField("Meta Description", blank=True)
+    meta_image = models.ImageField("Meta Image (OG Image)", upload_to="seo/", blank=True, null=True)
+    seo_keywords = models.CharField("Meta Keywords", max_length=255, blank=True)
+
     class Meta:
         ordering = ["-published_at"]
         verbose_name = "Статья"
@@ -317,3 +365,12 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse("homeapp:article_detail", args=[self.slug])
+
+    def get_meta(self):
+        return {
+            "title": self.meta_title or self.title,
+            "description": self.meta_description or self.title,
+            "keywords": self.seo_keywords or "",
+            "image": self.meta_image.url if self.meta_image else "",
+        }
+
