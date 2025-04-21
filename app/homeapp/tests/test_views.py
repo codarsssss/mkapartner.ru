@@ -153,3 +153,24 @@ def test_cases_filter_view(client):
     }, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
     assert response.status_code == 200
     assert "Случай" in response.json()['html']
+
+
+@pytest.mark.django_db
+def test_robots_txt(client):
+    """
+    проверяется, что он возвращается с кодом 200 и содержит директиву User-agent.
+    """
+    response = client.get("/robots.txt")
+    assert response.status_code == 200
+    assert "User-agent" in response.content.decode()
+
+
+@pytest.mark.django_db
+def test_sitemap_xml(client):
+    """
+    проверяется наличие основных тегов XML-карты сайта (<urlset>, <loc>), что подтверждает корректную генерацию.
+    """
+    response = client.get("/sitemap.xml")
+    assert response.status_code == 200
+    assert b"<urlset" in response.content
+    assert b"<loc>" in response.content
