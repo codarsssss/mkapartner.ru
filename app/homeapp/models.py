@@ -1,8 +1,8 @@
 import re
-
 from django.db import models
 from django.db.models.query import QuerySet
 from django.utils.safestring import mark_safe
+from django.urls import reverse
 from transliterate import slugify
 from ckeditor.fields import RichTextField
 
@@ -10,7 +10,7 @@ from ckeditor.fields import RichTextField
 def translit_filename(instance, filename):
     file_extension = filename.split(".")[-1]
     filename = slugify(instance.fio)
-    return "resume/{}.{}".format(filename, file_extension)
+    return f"resume/{filename}.{file_extension}"
 
 
 class NewsPublishedManager(models.Manager):
@@ -18,60 +18,43 @@ class NewsPublishedManager(models.Manager):
         return super().get_queryset().filter(status=News.Status.PUBLISHED)
 
 
-# Модель новостей
 class News(models.Model):
     class Status(models.TextChoices):
         NOT_PUBLISHED = "Нет", "Не опубликована"
         PUBLISHED = "Да", "Опубликована"
 
-    title = models.CharField(max_length=255, verbose_name="Заголовок")
-    slug = models.SlugField(verbose_name="Слаг поста")
-    text = RichTextField(verbose_name="Текст новости")
-    video_link = models.URLField(blank=True, verbose_name="Видео")
-    status = models.CharField(
-        verbose_name="Статус",
-        max_length=3,
-        choices=Status.choices,
-        default=Status.NOT_PUBLISHED,
-    )
-    create_datetime = models.DateTimeField(
-        auto_now_add=True, verbose_name="Дата создания"
-    )
+    title = models.CharField("Заголовок", max_length=255)
+    slug = models.SlugField("Слаг поста")
+    text = RichTextField("Текст новости")
+    video_link = models.URLField("Видео", blank=True)
+    status = models.CharField("Статус", max_length=3, choices=Status.choices, default=Status.NOT_PUBLISHED)
+    create_datetime = models.DateTimeField("Дата создания", auto_now_add=True)
 
-    objects = models.Manager()  # Менеджер, применяемый по умолчанию
-    published = NewsPublishedManager()  # Конкретно-прикладной менеджер
+    objects = models.Manager()
+    published = NewsPublishedManager()
 
     class Meta:
         ordering = ["-create_datetime"]
-
         verbose_name = "Новость"
         verbose_name_plural = "Новости"
 
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("homeapp:news_detail", args=[self.slug])
+
 
 class Partner(models.Model):
-    name = models.CharField(max_length=50, verbose_name="Фамилия Имя Отчество")
-    min_context1 = models.TextField(verbose_name="Краткое описание для первой страницы")
-    min_context2 = models.TextField(
-        blank=True, verbose_name="Дополнительное поле короткого писания"
-    )
-    min_context3 = models.TextField(
-        blank=True, verbose_name="Дополнительное поле короткого писания"
-    )
-    min_context4 = models.TextField(
-        blank=True, verbose_name="Дополнительное поле короткого писания"
-    )
-    context = models.TextField(verbose_name="Полное описание")
-    photo = models.ImageField(verbose_name="Фото", upload_to="partners/")
+    name = models.CharField("Фамилия Имя Отчество", max_length=50)
+    min_context1 = models.TextField("Краткое описание для первой страницы")
+    min_context2 = models.TextField("Доп. поле 1", blank=True)
+    min_context3 = models.TextField("Доп. поле 2", blank=True)
+    min_context4 = models.TextField("Доп. поле 3", blank=True)
+    context = models.TextField("Полное описание")
+    photo = models.ImageField("Фото", upload_to="partners/")
     time_create = models.DateTimeField(auto_now_add=True)
-    my_order = models.IntegerField(
-        blank=False,
-        null=False,
-        db_index=True,
-        verbose_name="Порядок"
-    )
+    my_order = models.IntegerField("Порядок", db_index=True)
 
     class Meta:
         ordering = ['my_order']
@@ -79,104 +62,75 @@ class Partner(models.Model):
         verbose_name_plural = "Партнеры"
 
     def save(self, *args, **kwargs):
-        if not self.my_order:
-            super().save(*args, **kwargs)
-            self.my_order = self.pk
+        is_new = self.pk is None
         super().save(*args, **kwargs)
+        if is_new and not self.my_order:
+            self.my_order = self.pk
+            super().save(update_fields=["my_order"])
 
     def __str__(self):
-        return f"{self.name}"
+        return self.name
 
 
 class PartnerPhoto(models.Model):
-    partner = models.ForeignKey('Partner', related_name='photos', on_delete=models.CASCADE)
+    partner = models.ForeignKey(Partner, related_name='photos', on_delete=models.CASCADE)
     photo = models.ImageField(upload_to='partner_photos/')
-    caption = models.CharField(max_length=100, blank=True, verbose_name="Подпись к фото")
+    caption = models.CharField("Подпись к фото", max_length=100, blank=True)
 
     def __str__(self):
-        return f"Фото {self.partner.name}"
+        return f"Фото для {self.partner.name}"
 
 
 class PracticeCategory(models.Model):
-    title = models.CharField(
-        max_length=128, verbose_name="Наименование категории практики"
-        )
-    image = models.ImageField(
-        verbose_name="Изображение", upload_to="practice_category/", blank=True, null=True
-        )
-
-    def __str__(self):        
-        return f"{self.title}"
+    title = models.CharField("Наименование категории практики", max_length=128)
+    image = models.ImageField("Изображение", upload_to="practice_category/", blank=True, null=True)
 
     class Meta:
         verbose_name = "категорию практики"
         verbose_name_plural = "Категории практики"
 
+    def __str__(self):
+        return self.title
+
+
 class PracticeInstance(models.Model):
-    category = models.ForeignKey(
-        PracticeCategory,
-        on_delete=models.CASCADE,
-        verbose_name="категория практики"
-    )
-    title = models.CharField(
-        max_length=255, verbose_name="Название случая"
-        )
-    circumstances = models.TextField(
-        verbose_name="Обстоятельства"
-    )
-    lawyer_position = models.TextField(
-        verbose_name="Позиция адвоката"
-    )
-    outcome = models.TextField(
-        verbose_name="Итог"
-    )
-    verdict_url = models.URLField(
-        verbose_name="Ссылка на приговор",
-        blank=True,
-        null=True
-    )
-    partner = models.ForeignKey(
-        'Partner',
-        default=None,
-        null=True,
-        related_name='practice',
-        on_delete=models.CASCADE,
-        verbose_name='Адвокат'
-    )
+    category = models.ForeignKey(PracticeCategory, on_delete=models.CASCADE, verbose_name="Категория практики")
+    title = models.CharField("Название случая", max_length=255)
+    circumstances = models.TextField("Обстоятельства")
+    lawyer_position = models.TextField("Позиция адвоката")
+    outcome = models.TextField("Итог")
+    verdict_url = models.URLField("Ссылка на приговор", blank=True, null=True)
+    partner = models.ForeignKey(Partner, null=True, blank=True, on_delete=models.CASCADE,
+                                related_name='practice', verbose_name='Адвокат')
 
     class Meta:
         verbose_name = "Случай практики"
         verbose_name_plural = "Случаи практики"
 
     def __str__(self):
-        return f"{self.title}"
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('homeapp:practice_detail', args=[self.pk])
 
 
 class PracticeInstanceImage(models.Model):
-    practice_instance = models.ForeignKey(
-        PracticeInstance,
-        on_delete=models.CASCADE,
-        related_name='images',
-        verbose_name="Случай практики"
-    )
-    image = models.ImageField(
-        upload_to='practice_instance_images/',
-        verbose_name="Изображение"
-    )
+    practice_instance = models.ForeignKey(PracticeInstance, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField("Изображение", upload_to='practice_instance_images/')
 
     class Meta:
         verbose_name = "Изображение случая практики"
         verbose_name_plural = "Изображения случаев практики"
 
     def __str__(self):
-        return f"Image for {self.practice_instance}"
+        return f"Изображение: {self.practice_instance.title}"
 
 
 class Review(models.Model):
-    author_name = models.CharField(max_length=100, verbose_name="Имя клиента")
-    content = models.TextField(verbose_name="Текст отзыва")
-    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата добавления")
-    is_active = models.BooleanField(default=True, verbose_name="Показывать на сайте")
+    author_name = models.CharField("Имя клиента", max_length=100)
+    content = models.TextField("Текст отзыва")
+    created_at = models.DateTimeField("Дата добавления", auto_now_add=True)
+    is_active = models.BooleanField("Показывать на сайте", default=True)
 
     class Meta:
         ordering = ['-created_at']
@@ -194,12 +148,7 @@ class ServiceCategory(models.Model):
 
     title = models.CharField("Название категории", max_length=255)
     description = models.TextField("Описание", blank=True)
-    audience = models.CharField(
-        "Тип клиента",
-        max_length=20,
-        choices=Audience.choices,
-        default=Audience.INDIVIDUAL
-    )
+    audience = models.CharField("Тип клиента", max_length=20, choices=Audience.choices, default=Audience.INDIVIDUAL)
     order = models.PositiveIntegerField("Порядок", default=0)
 
     class Meta:
@@ -236,21 +185,9 @@ class ServiceBlock(models.Model):
         QUOTE = "quote", "Цитата"
         HTML = "html", "HTML (сырой код)"
 
-    service = models.ForeignKey(
-        Service,
-        on_delete=models.CASCADE,
-        related_name="blocks",
-        verbose_name="Услуга"
-    )
-    type = models.CharField(
-        "Тип блока",
-        max_length=20,
-        choices=BlockType.choices,
-        default=BlockType.TEXT
-    )
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name="blocks", verbose_name="Услуга")
+    type = models.CharField("Тип блока", max_length=20, choices=BlockType.choices, default=BlockType.TEXT)
     order = models.PositiveIntegerField("Порядок", default=0)
-
-    # Контент
     text = models.TextField("Текст", blank=True)
     image = models.ImageField("Изображение", upload_to="services/blocks/", blank=True, null=True)
 
@@ -282,14 +219,8 @@ class Video(models.Model):
     published_at = models.DateField("Дата публикации")
     thumbnail = models.ImageField("Превью", upload_to="videos/", blank=True, null=True)
     is_active = models.BooleanField("Активно", default=True)
-    practice = models.ForeignKey(
-        "PracticeInstance",
-        on_delete=models.SET_NULL,
-        related_name="videos",
-        verbose_name="Случай практики",
-        null=True,
-        blank=True,
-    )
+    practice = models.ForeignKey("PracticeInstance", on_delete=models.SET_NULL, related_name="videos",
+                                 verbose_name="Случай практики", null=True, blank=True)
 
     class Meta:
         ordering = ["-published_at"]
@@ -384,3 +315,5 @@ class Article(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url(self):
+        return reverse("homeapp:article_detail", args=[self.slug])

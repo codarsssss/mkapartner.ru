@@ -1,52 +1,69 @@
 from django.urls import path
+
 from homeapp.views import (
-    home_index,
-    tariffs_view,
-    team_view,
-    practices_view,
-    rabotaem_view,
-    polnomochiya_view,
-    tayna_view,
-    soglashenie_view,
-    varianty_view,
-    privicy_view,
+    HomePageView,
+    TeamView,
+    TariffsView,
+    RabotaemView,
+    PolnomochiyaView,
+    TaynaView,
+    SoglashenieView,
+    VariantyView,
+    PrivicyView,
     download_resume,
-    get_news_list,
-    news_detail,
-    PracticeDetailView,
-    ReviewListView,
     cases_filter_view,
-    service_list_view,
-    service_detail_view,
-    client_list_view,
+    PracticesView,
+    PracticeDetailView,
+    ServiceListView,
+    ServiceDetailView,
+    NewsListView,
+    NewsDetailView,
+    ReviewListView,
+    ClientListView,
     ArticleListView,
+    ArticleDetailView,
     VideoListView,
-    article_detail,
 )
 
-
 app_name = 'homeapp'
+
 urlpatterns = [
-    path('', home_index, name='index'),
-    path('tariffs/', tariffs_view, name='tariffs'),
-    path('team/', team_view, name='team'),
-    path('cases/', practices_view, name='cases'),
-    path('kak-my-rabotaem/', rabotaem_view, name='rabotaem'),
-    path('polnomochiya-advokata/', polnomochiya_view, name='polnomochiya'),
-    path('advokatskaya-tayna/', tayna_view, name='tayna'),
-    path('soglashenie-i-order/', soglashenie_view, name='soglashenie'),
-    path('varianty-voznagrozhdeniya/', varianty_view, name='varianty'),
-    path('privicy/', privicy_view, name='privicy'),
+    path('', HomePageView.as_view(), name='index'),
+    path('team/', TeamView.as_view(), name='team'),
+    path('tariffs/', TariffsView.as_view(), name='tariffs'),
+    path('cases/', PracticesView.as_view(), name='cases'),
+
+    # Procedure Pages
+    path('kak-my-rabotaem/', RabotaemView.as_view(), name='rabotaem'),
+    path('polnomochiya-advokata/', PolnomochiyaView.as_view(), name='polnomochiya'),
+    path('advokatskaya-tayna/', TaynaView.as_view(), name='tayna'),
+    path('soglashenie-i-order/', SoglashenieView.as_view(), name='soglashenie'),
+    path('varianty-voznagrozhdeniya/', VariantyView.as_view(), name='varianty'),
+    path('privicy/', PrivicyView.as_view(), name='privicy'),
+
+    # Files
     path('download/<path:file_path>', download_resume, name='download'),
-    path("services/<str:audience>/", service_list_view, name="service_list"),
-    path("services/detail/<slug:slug>/", service_detail_view, name="service_detail"),
-    path('news-list/', get_news_list, name='news_list'),
-    path('news_<slug:slug>/', news_detail, name='news_detail'),
+
+    # Services
+    path("services/<str:audience>/", ServiceListView.as_view(), name="service_list"),
+    path("services/detail/<slug:slug>/", ServiceDetailView.as_view(), name="service_detail"),
+
+    # Practice
     path('practices/<int:pk>/', PracticeDetailView.as_view(), name='practice_detail'),
-    path('reviews/', ReviewListView.as_view(), name='reviews'),
     path('cases/filter/', cases_filter_view, name='cases_filter'),
-    path("clients/", client_list_view, name="client_list"),
+
+    # News
+    path('news-list/', NewsListView.as_view(), name='news_list'),
+    path('news_<slug:slug>/', NewsDetailView.as_view(), name='news_detail'),
+
+    # Reviews
+    path('reviews/', ReviewListView.as_view(), name='reviews'),
+
+    # Clients
+    path("clients/", ClientListView.as_view(), name="client_list"),
+
+    # Press Center
     path("press/articles/", ArticleListView.as_view(), name="article_list"),
+    path("press/articles/<slug:slug>/", ArticleDetailView.as_view(), name="article_detail"),
     path("press/videos/", VideoListView.as_view(), name="video_list"),
-    path("press/articles/<slug:slug>/", article_detail, name="article_detail"),
 ]

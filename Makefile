@@ -50,6 +50,10 @@ createsuperuser:
 	User.objects.filter(username='root').exists() or \
 	User.objects.create_superuser('root', 'root@example.com', 'root')\" | python manage.py shell"
 
+test:
+	docker-compose exec app pytest homeapp/tests
+
+
 # Dev: старт проекта с dev-настройками
 start-dev:
 	docker-compose -f docker-compose.yaml -f docker-compose.dev.yaml up -d --build
