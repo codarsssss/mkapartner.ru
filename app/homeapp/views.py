@@ -147,10 +147,16 @@ class ServiceListView(TemplateView):
             raise Http404("Тип аудитории не найден")
 
         categories = ServiceCategory.objects.filter(audience=audience).order_by("order")
+        title = "Услуги для физических лиц" if audience == "individual" else "Услуги для юридических лиц"
         return self.render_to_response({
             "categories": categories,
             "audience": audience,
-            "title": "Услуги для физических лиц" if audience == "individual" else "Услуги для юридических лиц",
+            "title": title,
+            "meta": {
+                "title": title,
+                "description": "Список юридических услуг, предоставляемых нашей командой.",
+                "keywords": "услуги, юридические услуги, консультации",
+            }
         })
 
 
@@ -178,6 +184,11 @@ class NewsListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = "Новости"
+        context["meta"] = {
+            "title": "Новости",
+            "description": "Последние новости и обновления нашей компании",
+            "keywords": "новости, публикации, события",
+        }
         return context
 
 
@@ -202,11 +213,31 @@ class ReviewListView(ListView):
     context_object_name = 'reviews'
     queryset = Review.objects.filter(is_active=True)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Отзывы"
+        context["meta"] = {
+            "title": "Отзывы клиентов",
+            "description": "Отзывы клиентов о нашей работе и результатах",
+            "keywords": "отзывы, доверие, клиенты",
+        }
+        return context
+
 
 class ClientListView(ListView):
     model = Client
     template_name = 'homeapp/client_list.html'
     context_object_name = 'clients'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Клиенты"
+        context["meta"] = {
+            "title": "Наши клиенты",
+            "description": "Компании и организации, с которыми мы работаем",
+            "keywords": "клиенты, бизнес, кейсы",
+        }
+        return context
 
 
 class ArticleListView(ListView):
@@ -214,6 +245,16 @@ class ArticleListView(ListView):
     queryset = Article.objects.filter(is_active=True)
     template_name = "homeapp/press/article_list.html"
     context_object_name = "articles"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Статьи"
+        context["meta"] = {
+            "title": "Полезные статьи",
+            "description": "Публикации и статьи наших адвокатов",
+            "keywords": "статьи, публикации, юридические советы",
+        }
+        return context
 
 
 class ArticleDetailView(DetailView):
@@ -234,3 +275,13 @@ class VideoListView(ListView):
     queryset = Video.objects.filter(is_active=True)
     template_name = "homeapp/press/video_list.html"
     context_object_name = "videos"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = "Видео"
+        context["meta"] = {
+            "title": "Юридические видео",
+            "description": "Видео с юридическими советами и примерами практики",
+            "keywords": "видео, адвокат, практика",
+        }
+        return context
