@@ -129,6 +129,13 @@ class PracticeDetailView(DetailView):
     template_name = 'homeapp/practice_detail.html'
     context_object_name = 'practice'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.object.title
+        context["meta"] = self.object.get_meta()
+        return context
+
+
 
 # === УСЛУГИ ===
 
@@ -153,6 +160,12 @@ class ServiceDetailView(DetailView):
     context_object_name = "service"
     slug_url_kwarg = "slug"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.object.title
+        context["meta"] = self.object.get_meta()
+        return context
+
 
 # === НОВОСТИ ===
 
@@ -173,6 +186,12 @@ class NewsDetailView(DetailView):
     template_name = "homeapp/news_detail.html"
     context_object_name = "news_obj"
     slug_field = "slug"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.object.title
+        context["meta"] = self.object.get_meta()
+        return context
 
 
 # === ПРОЧЕЕ ===
@@ -202,6 +221,12 @@ class ArticleDetailView(DetailView):
     template_name = "homeapp/article_detail.html"
     context_object_name = "article"
     slug_field = "slug"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.object.title
+        context["meta"] = self.object.get_meta()
+        return context
 
 
 class VideoListView(ListView):
