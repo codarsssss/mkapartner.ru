@@ -9,23 +9,25 @@
             <img class="w-100" src="{{ partner.photo.url }}" alt="{{ partner.name }}">
         </div>
         <div class="col-lg-8 mt-4">
-            <h2 class="partner__card-title">{{ partner.name }}</h2>
+            <h3 class="title title_h2 title_white">{{ partner.name }}</h3>
             <p>{{ partner.context|linebreaksbr }}</p>
 
             <!-- Карусель для фотографий дипломов партнёра -->
-            <div class="diploms slider">
-                {% for photo in partner.photos.all %}
-                <div class="slide team__slide">
-                    <!-- Клик на изображение вызывает модальное окно -->
-                    <img class="d-block w-100 diploma-img" src="{{ photo.photo.url }}" alt="{{ photo.caption }}"
-                        data-bs-toggle="modal" data-bs-target="#diplomaModal">
-                    {% if photo.caption %}
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>{{ photo.caption }}</p>
+            <div class="diploms swiper mySlider">
+                <div class="swiper-wrapper">
+                    {% for photo in partner.photos.all %}
+                    <div class="swiper-slide team__slide">
+                        <!-- Клик на изображение вызывает модальное окно -->
+                        <img class="d-block w-100 diploma-img" src="{{ photo.photo.url }}" alt="{{ photo.caption }}"
+                            data-bs-toggle="modal" data-bs-target="#diplomaModal">
+                        {% if photo.caption %}
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>{{ photo.caption }}</p>
+                        </div>
+                        {% endif %}
                     </div>
-                    {% endif %}
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>

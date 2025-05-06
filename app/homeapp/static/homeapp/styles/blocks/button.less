@@ -1,0 +1,94 @@
+//main: ../main.less
+.btn {
+  background-color: #2b3455;
+  color: white;
+  font-size: calc((100vw - 320px) / (768 - 320) * (20 - 18) + 18px);
+  text-align: center;
+  justify-content: center;
+}
+
+.btn1 {
+  text-align: center;
+  justify-content: center;
+}
+
+.button-white {
+  outline: 1px solid #2A3554;
+}
+
+.button-blue {
+  outline: 1px solid white;
+  background-color: #2A3554;
+  color: #fff;
+}
+
+.btn1,
+.menu :nth-child(1) {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgb(42, 53, 84);
+  text-decoration: none;
+  padding: 12px 20px;
+  border: 1px solid rgb(42, 53, 84);
+  font-weight: 500;
+  background: white;
+  text-align: center;
+}
+
+.btn2,
+.menu :nth-child(2) {
+  font-size: 14px;
+  font-weight: 700;
+  color: rgb(42, 53, 84);
+  text-decoration: none;
+  padding: 12px 20px;
+  color: white;
+  font-weight: 600;
+  background: rgb(42, 53, 84);
+  border: none;
+  text-align: center;
+}
+
+@media (hover: hover) {
+  .button-white:hover {
+    background-color: #2A3554;
+    color: white;
+    outline: 1px solid white;
+  }
+
+  .button-blue:hover {
+    background-color: transparent;
+    color: #2A3554;
+    outline: 1px solid #2A3554;
+    background-color: white;
+  }
+
+  .btn:hover {
+    background: white;
+    color: #2b3455;
+    border-color: #2b3455;
+    font-size: calc((100vw - 320px) / (768 - 320) * (20 - 18) + 18px);
+  }
+}
+
+@media (hover: none) {
+  .button-white:active {
+    background-color: #2A3554;
+    color: white;
+    outline: 1px solid white;
+  }
+
+  .button-blue:active {
+    background-color: transparent;
+    color: #2A3554;
+    outline: 1px solid #2A3554;
+    background-color: white;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .btn1 {
+    text-align: center;
+    display: flex;
+  }
+}

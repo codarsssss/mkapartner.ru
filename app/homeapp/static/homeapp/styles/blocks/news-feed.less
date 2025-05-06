@@ -1,0 +1,41 @@
+//main: ../main.less
+.news-feed {
+  padding: 32px;
+  background: #fff;
+}
+
+.news-feed__slide {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  color: #2a3554;
+  text-align: start;
+  background: #F6F9FF;
+}
+
+.news-feed__content {
+  margin-bottom: 20px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  
+  * {
+    all: unset!important;
+  }
+}
+
+.news-feed__date {
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.news-feed__title {
+  margin-bottom: 20px;
+}
+
+.news-feed__fakelink {
+  margin-top: auto;
+  margin-right: auto;
+}

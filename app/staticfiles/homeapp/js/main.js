@@ -1,85 +1,11 @@
 $(document).ready(function () {
-    $('.customer-logos').slick({
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        arrows: false,
-        dots: false,
-        pauseOnHover: false,
-        responsive: [{
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 3
-            }
-        }, {
-            breakpoint: 520,
-            settings: {
-                slidesToShow: 2
-            }
-        }]
-    });
+    // Прелоадер
+    const preloader = document.querySelector('.preloader')
 
-    $(".team-slider").slick({
-        dots: true,
-        infinite: true,
-        speed: 300,
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 1,
-              infinite: true,
-              dots: true,
-            },
-          },
-          {
-            breakpoint: 767,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-            },
-          },
-          {
-            breakpoint: 520,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1,
-              dots: false,
-            },
-          }
-        ],
-    });
+    setTimeout(() => {
+        preloader?.classList.add('is-hidden')
+    }, 1000)
 
-    $('.diploms').slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 1500,
-        arrows: false,
-        dots: false,
-        draggable: false,
-        pauseOnHover: true,
-        responsive: [{
-            breakpoint: 1200,
-            settings: {
-                slidesToShow: 4
-            }
-        }, {
-            breakpoint: 767,
-            settings: {
-                slidesToShow: 3
-            }
-        }, {
-            breakpoint: 520,
-            settings: {
-                slidesToShow: 3
-            }
-        }],
-    });
 
     // Находим все изображения дипломов
     const diplomaImages = document.querySelectorAll('.diploma-img');
@@ -87,12 +13,41 @@ $(document).ready(function () {
     const modalLabel = document.getElementById('diplomaModalLabel');
 
     diplomaImages.forEach(function (image) {
-        // Обработчик клика для каждого изображения
         image.addEventListener('click', function (image) {
-            // Подставляем URL изображения в модальное окно
             modalImage.src = event.target.src;
             modalImage.alt = event.target.alt;
             modalLabel.innerHTML = event.target.alt;
         });
     });
+
+
+    //Burger-menu
+    const burger = document.querySelector('.js-headerBurger')
+    const navigation = document.querySelector('.js-headerNav')
+
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('is-active')
+        navigation.classList.toggle('is-show')
+    })
+
+
+    //Сортировка новостей
+    const newsItems = document.querySelectorAll('.js-newsItem')
+
+    if (newsItems.length > 0) {
+        const filterButtons = document.querySelectorAll('.js-newsSortButton')
+
+        filterButtons?.forEach((button) => {
+            button.addEventListener('click', function () {
+                filterButtons.forEach((el) => el.classList.remove('is-active'))
+                this.classList.add('is-active')
+                const buttonCategory = this.dataset.category
+                newsItems.forEach((el) => {
+                    el.style.display = 'none'
+                    if (el.dataset.category.toLowerCase() === buttonCategory.toLowerCase()) el.style.display = 'block'
+                    if (buttonCategory === 'all') el.style.display = 'block'
+                })
+            })
+        })
+    }
 });

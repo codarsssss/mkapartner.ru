@@ -1,0 +1,60 @@
+//main: ../main.less
+.aboniment {
+  background: #f7f9ff;
+}
+
+.aboniment__text {
+  background: white;
+  padding: 32px;
+  margin-bottom: 8px;
+}
+
+.aboniment__text p {
+  margin-bottom: 0px;
+}
+
+.aboniment__row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.aboniment__item {
+  width: calc((100% / 3) - 6px);
+  padding: 24px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.aboniment__item img {
+  margin-bottom: 20px;
+  object-fit: cover;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.aboniment__item .btn2 {
+  margin-top: auto;
+}
+
+/*Media*/
+@media only screen and (max-width: 1100px) {
+  .aboniment__item {
+    width: calc((100% / 2) - 4px);
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .aboniment__item {
+    width: 100%;
+  }
+
+  .aboniment__text {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

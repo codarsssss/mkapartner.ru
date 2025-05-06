@@ -1,220 +1,187 @@
 {% extends 'homeapp/base.html' %} {% load static %} {% block content %}
 
-<!--================ Start Home Banner Area =================-->
-<style></style>
 <div class="hero">
   <div class="container">
-    <img class="hero-1" src="{% static 'homeapp/img/fm.png' %}" alt="" />
-    <div class="hero-mobile">
-      <div class="image-wrapper">
-        <img src="{% static 'homeapp/img/fm.png' %}" alt="" />
-      </div>
-      <div class="image-wrapper">
-        <img src="{% static 'homeapp/img/ml.png' %}" alt="" />
-      </div>
-    </div>
+    <img class="hero-1" src="{% static 'homeapp/img/fm.webp' %}" alt="" />
     <div class="hero__text hero-2">
       <h1>Партнер групп</h1>
       <span>Московская коллегия адвокатов</span>
-      <img src="{% static 'homeapp/img/Vector.png' %}" alt="" />
+      <img src="{% static 'homeapp/img/Vector.webp' %}" alt="" />
       <p class="hero__subtitle">
-        Сила в знании, справедливость в действии: ваша защита – наша миссия!
+        Сила в знании, справедливость в действии:<br> ваша защита – наша миссия!
       </p>
       <button type="button" class="button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Получить консультацию
       </button>
     </div>
-    <img class="hero-3" src="{% static 'homeapp/img/ml.png' %}" alt="" />
+    <img class="hero-3" src="{% static 'homeapp/img/ml.webp' %}" alt="" />
+
+    <div class="hero-mobile">
+      <div class="image-wrapper">
+        <img src="{% static 'homeapp/img/fm.webp' %}" alt="" />
+      </div>
+      <div class="image-wrapper">
+        <img src="{% static 'homeapp/img/ml.webp' %}" alt="" />
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="features__container" style="background: #f7f9ff" id="bg">
+<div class="features" id="bg">
   <div class="container">
-    <div class="features">
-      <div class="col feature">
-        <div class="feature-icon">
-          <img style="width: 24px; height: 24px" src="{% static 'homeapp/img/Mortarboard_alt.png' %}" alt="" />
+    <div class="features__row">
+      <div class="features__item">
+        <div class="features__icon">
+          <img src="{% static 'homeapp/img/Mortarboard_alt.webp' %}" alt="" />
         </div>
-
-        <p style="color: #2b3455">Экспертное правовое сопровождение</p>
+        <p class="title title_h3">Экспертное правовое сопровождение</p>
         <span>Мы знаем законы и имеем большой опыт работы.</span>
       </div>
-      <div class="col feature">
-        <div class="feature-icon">
-          <img style="width: 24px; height: 24px" src="{% static 'homeapp/img/User_scan.png' %}" alt="" />
+
+      <div class="features__item">
+        <div class="features__icon">
+          <img src="{% static 'homeapp/img/User_scan.webp' %}" alt="" />
         </div>
-        <p style="color: #2b3455">Индивидуальный подход к клиенту</p>
+        <p class="title title_h3">Индивидуальный подход<br> к&nbsp;клиенту</p>
         <span>Учитываем все особенности вашей ситуации.</span>
       </div>
-      <div class="col feature">
-        <div class="feature-icon">
-          <img style="width: 24px; height: 24px" src="{% static 'homeapp/img/Group.png' %}" alt="" />
+
+      <div class="features__item">
+        <div class="features__icon">
+          <img src="{% static 'homeapp/img/Group.webp' %}" alt="" />
         </div>
-        <p style="color: #2b3455">Строим отношения на репутации и доверии</p>
+        <p class="title title_h3">Строим отношения на&nbsp;репутации и&nbsp;доверии</p>
         <span>Наша цель — долгосрочное сотрудничество.</span>
       </div>
     </div>
 
     <div class="mission">
-      <span style="font-style: italic; font-weight: 700; display: inline;">"</span>
-      <p style="display: inline;">
-        <b style="display: inline;">Миссия</b>
-        МКА Партнер Групп заключается в предоставлении
-        <b style="display: inline;">высококачественных юридических услуг</b>
-        , основанных на глубоком понимании потребностей и целей клиентов,
-        <b style="display: inline;">с использованием инновационных подходов</b>
-        и экспертизы для достижения
-        <b style="display: inline;">оптимальных результатов</b>
-        и установления долгосрочных партнерских отношений.<span style="
-        margin-left: auto;
-        display: inline;
-        font-style: italic;
-        font-weight: 700;
-      ">"</span>
-      </p>
-      <img src="{% static 'homeapp/img/logo.png' %}" alt="" />
+      <p>&laquo;Миссия МКА Партнер Групп заключается в&nbsp;предоставлении высококачественных юридических услуг , основанных на&nbsp;глубоком понимании потребностей и&nbsp;целей клиентов, с&nbsp;использованием инновационных подходов и&nbsp;экспертизы для достижения оптимальных результатов и&nbsp;установления долгосрочных партнерских отношений.&raquo;</p>
+      <img src="{% static 'homeapp/img/logo.webp' %}" alt="" />
     </div>
   </div>
-
-
 </div>
-<section class="vid container">
-  <div class="video" style="box-sizing: border-box; width: 100%; background: white">
-    <div class="container">
-      <div class="video-inner ">
-        <div style="width: 100%">
-          <div style="height: 100%" class="justify-content-center align-items-center d-flex rl-pos">
-            <iframe src="https://vk.com/video_ext.php?oid=4309729&id=456239062&hd=2&autoplay=1&muted=1" width="325" height="646" allow="autoplay; muted; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+
+<section class="video">
+  <div class="container">
+    <div class="video__row">
+      <div class="video__col">
+        <div style="height: 100%" class="justify-content-center align-items-center d-flex rl-pos">
+          <iframe src="https://vk.com/video_ext.php?oid=4309729&id=456239062&hd=2&autoplay=1&muted=1" width="325" height="646" allow="autoplay; muted; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="video__col">
+        <h2 class="video__title title title_h2">
+          Хотите быть уверенным в успехе своего бизнеса или нуждаетесь в помощи
+          в решении сложных личных вопросов?
+        </h2>
+        <p>
+          МКА «Партнер Групп» не только решит Ваши проблемы, но и предотвратит
+          новые.
+        </p>
+
+        <div class="right-bottom-area">
+          <div class="author-lacture">
+            <p>
+              Наша команда состоит из высококвалифицированных юристов и
+              адвокатов, которые непрерывно повышают свою квалификацию, навыки и
+              знания для сохранения Ваших интересов. Мы готовы предложить Вам
+              уникальные юридические решения, адаптированные для каждого
+              клиента, опираясь на Ваши специфические требования и запросы. В
+              борьбе со сложностями на пути к успеху, каждая секунда на вес
+              золота. Наши специалисты гарантируют Вам быструю и результативную
+              работу, сокращая время от проблемы до решения. Мы обеспечиваем
+              полную конфиденциальность и этичность во всех вопросах, связанных
+              с Вашим делом.
+            </p>
           </div>
         </div>
-        <div style="max-width: 825px">
-          <h2>
-            Хотите быть уверенным в успехе своего бизнеса или нуждаетесь в помощи
-            в решении сложных личных вопросов?
-          </h2>
-          <p>
-            МКА «Партнер Групп» не только решит Ваши проблемы, но и предотвратит
-            новые.
-          </p>
 
-          <div class="right-bottom-area">
-            <div class="author-lacture">
-              <p>
-                Наша команда состоит из высококвалифицированных юристов и
-                адвокатов, которые непрерывно повышают свою квалификацию, навыки и
-                знания для сохранения Ваших интересов. Мы готовы предложить Вам
-                уникальные юридические решения, адаптированные для каждого
-                клиента, опираясь на Ваши специфические требования и запросы. В
-                борьбе со сложностями на пути к успеху, каждая секунда на вес
-                золота. Наши специалисты гарантируют Вам быструю и результативную
-                работу, сокращая время от проблемы до решения. Мы обеспечиваем
-                полную конфиденциальность и этичность во всех вопросах, связанных
-                с Вашим делом.
-              </p>
-            </div>
-          </div>
-
-          <div style="display: flex; gap: 16px">
-            <a class="btn2 button-blue" href="{% url 'homeapp:tariffs' %}">Тарифы</a>
-            <button type="button" class="btn1 button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              Заказать звонок
-            </button>
-          </div>
+        <div class="video__buttons">
+          <a class="btn2 button-blue" href="{% url 'homeapp:tariffs' %}">Тарифы</a>
+          <button type="button" class="btn1 button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Заказать звонок
+          </button>
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- about -->
 <section class="about-area">
   <div class="container">
     <div class="about">
       <div class="about-inner">
         <div class="about-wrapper">
-          <div>
-            <h2>Абонентское обслуживание</h2>
-            <div class="about-subtitle">
-              <p>
-                Абонентское обслуживание адвокатом подразумевает постоянное
-                юридическое сопровождение клиента на протяжении определенного
-                периода времени, обычно в течение года. Оно предоставляет клиентам
-                возможность получить профессиональные юридические услуги и
-                консультации от адвоката по различным вопросам без необходимости
-                оплачивать каждую отдельную консультацию.
-              </p>
-              <p>
-                Основные преимущества абонентского обслуживания адвокатом:
-              </p>
-            </div>
+          <h2 class="title title_h2">Абонентское обслуживание</h2>
+          <div class="about-subtitle">
+            <p>
+              Абонентское обслуживание адвокатом подразумевает постоянное юридическое сопровождение клиента на&nbsp;протяжении определенного периода времени, обычно в&nbsp;течение года. Оно предоставляет клиентам возможность получить профессиональные юридические услуги и консультации от&nbsp;адвоката по&nbsp;различным вопросам без необходимости оплачивать каждую отдельную консультацию.
+            </p>
+            <p>
+              Основные преимущества абонентского обслуживания адвокатом:
+            </p>
           </div>
 
           <div class="advantages">
-            <div class="advantages__item">
-              <div class="advantages__item-header">
-                <div class="advantages__item-icon">
-                  <img src="{% static 'homeapp/img/Wallet_alt.png' %}" alt="" />
+            <ul class="advantages__row">
+              <li class="advantages__item">
+                <div class="advantages__item-header">
+                  <div class="advantages__item-icon">
+                    <img src="{% static 'homeapp/img/Wallet_alt.webp' %}" alt="Иконка кошелек"/>
+                  </div>
+                  <span class="title title_h3">Экономия</span>
                 </div>
-                <p class="h3">Экономия</p>
-              </div>
-              <p class="">
-                Клиент платит фиксированную сумму за годовое обслуживание и
-                может обращаться за помощью адвоката без дополнительной
-                оплаты..
-              </p>
-            </div>
-            <div class="advantages__item">
-              <div class="advantages__item-header">
-                <div class="advantages__item-icon">
-                  <img src="{% static 'homeapp/img/Fire.png' %}" alt="" />
+                <p>
+                  Клиент платит фиксированную сумму за&nbsp;годовое обслуживание и может обращаться за&nbsp;помощью адвоката без дополнительной оплаты.
+                </p>
+              </li>
+              <li class="advantages__item">
+                <div class="advantages__item-header">
+                  <div class="advantages__item-icon">
+                    <img src="{% static 'homeapp/img/Fire.webp' %}" alt="Иконка огонь"/>
+                  </div>
+                  <span class="title title_h3">Уверенность</span>
                 </div>
-                <p class="h3">Уверенность</p>
-              </div>
+                <p>
+                  Клиент знает, что он&nbsp;всегда может обратиться к&nbsp;опытному специалисту по&nbsp;вопросам права и&nbsp;получить нужную помощь.
+                </p>
+              </li>
+              <li class="advantages__item">
+                <div class="advantages__item-header">
+                  <div class="advantages__item-icon">
+                    <img src="{% static 'homeapp/img/Speed_alt.webp' %}" alt="Иконка скорость"/>
+                  </div>
+                  <span class="title title_h3">Оперативность</span>
+                </div>
+                <p>
+                  Постоянный доступ к&nbsp;юридическим услугам. Клиент может получить консультации и&nbsp;сопровождение адвоката по&nbsp;любым вопросам в течение установленного периода.
+                </p>
+              </li>
+              <li class="advantages__item">
+                <div class="advantages__item-header">
+                  <div class="advantages__item-icon">
+                    <img src="{% static 'homeapp/img/Lamp.webp' %}" alt="Иконка лампочка"/>
+                  </div>
+                  <span class="title title_h3">Осведомленность</span>
+                </div>
+                <p>
+                  Повышение уровня защиты интересов. Адвокат знаком с&nbsp;историей клиента и&nbsp;его юридическими потребностями, что позволяет эффективно защищать его права и&nbsp;интересы.
+                </p>
+              </li>
+            </ul>
 
-              <p class="">
-                Клиент знает, что он всегда может обратиться к опытному
-                специалисту по вопросам права и получить нужную помощь.
-              </p>
-            </div>
-            <div class="advantages__item">
-              <div class="advantages__item-header">
-                <div class="advantages__item-icon">
-                  <img src="{% static 'homeapp/img/Speed_alt.png' %}" alt="" />
-                </div>
-                <p class="h3">Оперативность</p>
-              </div>
-              <p class="">
-                Постоянный доступ к юридическим услугам. Клиент может получить
-                консультации и сопровождение адвоката по любым вопросам в
-                течение установленного периода.
-              </p>
-            </div>
-            <div class="advantages__item">
-              <div class="advantages__item-header">
-                <div class="advantages__item-icon">
-                  <img src="{% static 'homeapp/img/Lamp.png' %}" alt="" />
-                </div>
-                <p class="h3">Осведомленность</p>
-              </div>
-              <p class="">
-                Повышение уровня защиты интересов. Адвокат знаком с историей
-                клиента и его юридическими потребностями, что позволяет более
-                эффективно защищать его права и интересы.
-              </p>
-            </div>
+            <img class="advantages__img" src="{% static 'homeapp/img/work_day.webp' %}" alt="Рабочий процесс"/>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- end about -->
-<!--================ End video Area =================-->
 
 <section class="steps">
   <div class="container">
-    <h2>Этапы работы</h2>
+    <h2 class="title title_h2">Этапы работы</h2>
     <div class="accordion mt-4" id="accordionExample">
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -335,18 +302,16 @@
 <section class="aboniment">
   <div class="container mt-3">
     <div class="aboniment__text">
-      <div class=" ">
-        <h2>Абонентское обслуживание</h2>
-        <p>
-          Оплата за абонентское обслуживание может быть осуществлена ежемесячно
-          или ежегодно. Стоимость обслуживания может варьироваться в зависимости
-          от объема услуг, которые будут предоставлены адвокатом.
-        </p>
-      </div>
+      <h2 class="title title_h2">Абонентское обслуживание</h2>
+      <p>
+        Оплата за абонентское обслуживание может быть осуществлена ежемесячно
+        или ежегодно. Стоимость обслуживания может варьироваться в зависимости
+        от объема услуг, которые будут предоставлены адвокатом.
+      </p>
     </div>
-    <div class="aboniments">
+    <div class="aboniment__row">
       <div class="aboniment__item">
-        <img class="m-0-auto" src="{% static 'homeapp/img/personal.jpg' %}" />
+        <img class="m-0-auto" src="{% static 'homeapp/img/personal.webp' %}" />
         <h3 class="title title_h3">Личный адвокат</h3>
         <p>
           Заключив соглашение, доверитель получает квалифицированную юридическую
@@ -355,7 +320,7 @@
         </p>
       </div>
       <div class="aboniment__item">
-        <img class="m-0-auto" src="{% static 'homeapp/img/family.jpg' %}" />
+        <img class="m-0-auto" src="{% static 'homeapp/img/family.webp' %}" />
         <h3 class="title title_h3">Семейный адвокат</h3>
         <p>
           Абонентское обслуживание адвокатом для всей семьи - это услуга,
@@ -365,7 +330,7 @@
         </p>
       </div>
       <div class="aboniment__item">
-        <img class="m-0-auto" src="{% static 'homeapp/img/business.jpg' %}" />
+        <img class="m-0-auto" src="{% static 'homeapp/img/business.webp' %}" />
         <h3 class="title title_h3">Сопровождение бизнеса</h3>
         <p>
           В своей деятельности МКА «Партнер групп» оказывает услуги компаниям на
@@ -378,147 +343,121 @@
   </div>
 </section>
 
+<section class="container">
+  <div class="cta-area">
+    <h2 class="title title_h2 title_white">
+      Партнеры коллегии
+    </h2>
+    <p class="cta-area__text">
+      Наша команда - адвокаты и юристы с высоким уровнем экспертизы:
+      выпускники лучших вузов и специалисты с опытом работы в
+      правоохранительных органах, готовы оказать помощь в самых сложных
+      ситуациях.
+    </p>
+  </div>
 
-<section>
-  <div class="container">
-    <div>
-      <div style="background: rgb(42, 53, 84); padding: 32px; margin-bottom: 20px" class="col justify-content-center">
-        <h2 style="
-            color: rgb(255, 255, 255);
-            font-family: Russo One;
-            font-size: 32px;
-            font-weight: 400;
-            text-align: left;
-            padding: 0px;
-          " class="mb-3">
-          Партнеры коллегии
-        </h2>
-        <p style="color: white">
-          Наша команда - адвокаты и юристы с высоким уровнем экспертизы:
-          выпускники лучших вузов и специалисты с опытом работы в
-          правоохранительных органах, готовы оказать помощь в самых сложных
-          ситуациях.
-        </p>
-      </div>
-    </div>
-
-    <div class="team-slider mt-5">
+  <div class="team-slider mySlider swiper">
+    <div class="swiper-wrapper">
       {% for partner in partners %}
-      <div class="partner">
-        <div class="details">
-          <img class="rounded" src="{{ partner.photo.url }}" alt="{{ partner.name }}" />
-          <h3 class="title title_h3">{{ partner.name }}</h3>
-          <ul class="list-unstyled list-group list-group-flush text-muted text-center mb-4">
-            <li class="list-group-item">{{ partner.min_context1 }}</li>
-            <li class="list-group-item">{{ partner.min_context2 }}</li>
-            <li class="list-group-item">{{ partner.min_context3 }}</li>
-            <li class="list-group-item">{{ partner.min_context4 }}</li>
+      <div class="team-slider__item swiper-slide">
+        <div class="team-slider__item-details">
+          <img class="team-slider__item-image" src="{{ partner.photo.url }}" alt="{{ partner.name }}" />
+          <h3 class="title title_h3 title_white">{{ partner.name }}</h3>
+          <ul class="team-slider__item-text">
+            <li>{{ partner.min_context1 }}</li>
+            <li>{{ partner.min_context2 }}</li>
+            <li>{{ partner.min_context3 }}</li>
+            <li>{{ partner.min_context4 }}</li>
           </ul>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
+</section>
 
-  <!-- Модальное окно для увеличенного изображения диплома -->
-  <div class="modal fade" id="diplomaModal" tabindex="-1" aria-labelledby="diplomaModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="diplomaModalLabel">Увеличенное изображение</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body text-center">
-          <img id="diplomaModalImage" class="img-fluid" src="" alt="Diploma">
-        </div>
+<div class="modal fade" id="diplomaModal" tabindex="-1" aria-labelledby="diplomaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="diplomaModalLabel">Увеличенное изображение</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img id="diplomaModalImage" class="img-fluid" src="" alt="Diploma">
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!--================ Новости =================-->
 {% if News %}
-<section class="news-section container">
-  <div class="page-section">
-    <div class="news_feed_header">
-      <h1 class="page-section__title">Новости и публикации</h1>
-    </div>
-    <div class="news-section__content news_feed_content swiper mySlider">
-      <div class="news_content_wrapper swiper-wrapper">
-        {% for news in News %}
-        <a class="news-section__slide swiper-slide" href="/news_{{ news.slug }}">
-          <div class="news_item">
-            <div class="news_content-group">
-              <h1 class="news__title">{{ news.title }}</h1>
-              <p class="news__date">{{ news.create_datetime }}</p>
-              <div class="news_item_content">
-                <p>{{ news.text|safe }}</p>
-              </div>
-            </div>
-            <div class="news_item_fakelink">Подробнее</div>
+<section class="news-feed container">
+  <div class="news-feed__header">
+    <h2 class="title title_h2">Новости и публикации</h2>
+  </div>
+  <div class="swiper mySlider">
+    <div class="swiper-wrapper">
+      {% for news in News %}
+      <a class="news-feed__slide swiper-slide" href="/news_{{ news.slug }}">
+        <div class="news-feed__group">
+          <time class="news-feed__date" datetime="{{ news.create_datetime }}">{{ news.create_datetime }}</time>
+          <h3 class="news-feed__title title title_h3">{{ news.title }}</h3>
+          <div class="news-feed__content">
+            {{ news.text|safe }}
           </div>
-        </a>
-        {% endfor %}
-      </div>
+        </div>
+        <span class="news-feed__fakelink btn2 button-blue">Подробнее</span>
+      </a>
+      {% endfor %}
     </div>
   </div>
 </section>
 {% endif %}
 
-<!--================ презентация =================-->
-<section class="cta-area section_gap overlay mt">
-  <div class="container">
-    <div>
-      <div style="background: rgb(42, 53, 84); color: white;    padding: 32px;">
-        <h2 class="cta-area__title">
-          Ознакомиться с презентацией
-          <br />
-          МКА «Партнер Групп»
-        </h2>
-        <p class="cta-area__text">
-          Приглашаем вас ознакомиться с презентацией компании МКА «Партнер
-          Групп» и узнать о нас в краткой удобной форме.
-        </p>
-        <a href="{% static 'homeapp/docs/Партнер групп.pdf' %}" class="btn1 button-white" target="_blank">
-          Скачать презентацию PDF
-        </a>
-      </div>
+<section class="container">
+  <div class="cta-area">
+    <h2 class="cta-area__title title title_h2 title_white">
+      Ознакомиться с презентацией <br /> МКА «Партнер Групп»
+    </h2>
+    <p class="cta-area__text">
+      Приглашаем вас ознакомиться с презентацией компании МКА «Партнер
+      Групп» и узнать о нас в краткой удобной форме.
+    </p>
+    <div class="cta-area__button">
+      <a href="{% static 'homeapp/docs/Партнер групп.pdf' %}" class="btn1 button-white" target="_blank">
+        Скачать презентацию PDF
+      </a>
     </div>
   </div>
 </section>
-<!--================ презентация =================-->
 
-{# slider#}
-<section>
-  <div class="container">
-    <div class="clients">
-      <h2>Нам доверяют</h2>
-      <div class="customer-logos slider">
-        <div class="slide">
-          <img src="{% static 'homeapp/img/partners/1.png' %}" />
-        </div>
-        <div class="slide">
-          <img src="{% static 'homeapp/img/partners/2.png' %}" />
-        </div>
-        <div class="slide">
-          <img src="{% static 'homeapp/img/partners/3.jpg' %}" />
-        </div>
-        <div class="slide">
-          <img src="{% static 'homeapp/img/partners/4.png' %}" />
-        </div>
-        <div class="slide">
-          <img src="{% static 'homeapp/img/partners/5.png' %}" />
-        </div>
-        <div class="slide">
-          <img src="{% static 'homeapp/img/partners/6.png' %}" />
-        </div>
-        <div class="slide">
-          <img src="{% static 'homeapp/img/partners/7.jpg' %}" />
-        </div>
+<section class="container">
+  <h2 class="title title_h2">Нам доверяют</h2>
+  <div class="clients mySlider swiper" data-slides-count="5" data-slides-count-tablet="4" data-slides-count-mob="3" data-autoplay>
+    <div class="swiper-wrapper">
+      <div class="clients__item swiper-slide">
+        <img src="{% static 'homeapp/img/partners/1.webp' %}" />
+      </div>
+      <div class="clients__item swiper-slide">
+        <img src="{% static 'homeapp/img/partners/2.webp' %}" />
+      </div>
+      <div class="clients__item swiper-slide">
+        <img src="{% static 'homeapp/img/partners/3.webp' %}" />
+      </div>
+      <div class="clients__item swiper-slide">
+        <img src="{% static 'homeapp/img/partners/4.webp' %}" />
+      </div>
+      <div class="clients__item swiper-slide">
+        <img src="{% static 'homeapp/img/partners/5.webp' %}" />
+      </div>
+      <div class="clients__item swiper-slide">
+        <img src="{% static 'homeapp/img/partners/6.webp' %}" />
+      </div>
+      <div class="clients__item swiper-slide">
+        <img src="{% static 'homeapp/img/partners/7.webp' %}" />
       </div>
     </div>
   </div>
 </section>
 
-{#slider#}
 {% endblock %}

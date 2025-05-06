@@ -1,0 +1,125 @@
+//main: ../main.less
+.hero {
+  background: #2a3554;
+  color: white;
+}
+
+.hero .container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.hero__text {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  align-self: flex-end;
+  font-family: "Gilroy";
+
+  padding-bottom: 32px;
+}
+
+.hero__text p {
+  max-width: 470px;
+}
+
+.hero__text h1 {
+  font-family: "Russo One", sans-serif;
+  font-size: 64px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+}
+
+.hero img {
+  object-fit: cover;
+  height: auto;
+}
+
+.hero__subtitle {
+  color: #fff;
+}
+
+.hero__text img,
+.hero__text span,
+.hero__text p {
+  margin-bottom: 30px;
+}
+
+.hero__text button {
+  color: #2a3554;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 16px 24px;
+  border: none;
+}
+
+.hero__text span {
+  text-transform: uppercase;
+}
+
+.hero-mobile {
+  display: none;
+  height: fit-content;
+  margin-top: 20px;
+}
+
+.hero-mobile img {
+  height: fit-content;
+}
+
+
+@media only screen and (max-width: 1200px) {
+  .hero-1,
+  .hero-3 {
+    display: none;
+  }
+
+  .hero-mobile {
+    display: flex !important;
+    align-items: flex-end;
+  }
+
+  .hero .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__text {
+    align-self: center;
+  }
+
+  .hero-mobile {
+    display: flex !important;
+    align-items: flex-end;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-mobile img {
+    max-width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .hero__text h1 {
+    font-size: 36px;
+  }
+
+  .hero__text {
+    padding-top: 60px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .hero-mobile img {
+    height: auto;
+  }
+}

@@ -1,134 +1,12 @@
 @import url(veriables.css);
 @import url(fonts.css);
 
-/** {*/
-/*    outline: 1px red solid;*/
-/*}*/
-
-body,
-html {
-  height: 100%;
-}
-
-body {
-  margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-weight: 400;
-  font-size: 18px;
-  color: #000;
-  line-height: 1.3;
-  background-color: rgba(235, 239, 234, 0.3);
-  min-width: 320px;
-  display: flex;
-  flex-direction: column;
-}
-
 .filling {
   flex: 1;
 }
 
-.btn {
-  background-color: #2b3455;
-  color: white;
-  font-size: calc((100vw - 320px) / (768 - 320) * (20 - 18) + 18px);
-}
-
-.btn:hover {
-  background: white;
-  color: #2b3455;
-  border-color: #2b3455;
-  font-size: calc((100vw - 320px) / (768 - 320) * (20 - 18) + 18px);
-}
-
-section {
-  /* padding: 50px 0; */
-  margin-bottom: 60px;
-}
-
-nav img {
-  height: 130px;
-  margin: 1px;
-}
-
-.nav-link:hover {
-  color: #2b3455;
-  text-decoration: underline;
-}
-
-.footer {
-  padding: 32px 0;
-  background-color: #2b3455;
-}
-
-/* for modal window in footer*/
-.footer__modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  align-items: center;
-  display: flex;
-}
-
-.modal-footer {
-  border-top: none;
-}
-
-footer img {
-  max-height: 100px;
-}
-
-footer .nav-link {
-  color: white;
-  word-break: break-all;
-  font-size: calc((100vw - 320px) / (1280 - 320) * (24 - 14) + 14px);
-}
-
 .requisites a {
   font-size: calc((100vw - 320px) / (1280 - 320) * (18 - 14) + 14px);
-}
-
-footer .nav-link:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-footer p {
-  margin: 0;
-  color: grey;
-  font-size: 16px;
-}
-
-.last-chld-footer-icon {
-  text-align: right;
-}
-
-.btn__footer {
-  background: #bbc4fc;
-  background: -moz-radial-gradient(center,
-      ellipse cover,
-      #fceabb 0%,
-      #fccd4d 50%,
-      #f8b500 91%,
-      #fbdf93 100%);
-  background: -webkit-radial-gradient(center,
-      ellipse cover,
-      #fceabb 0%,
-      #fccd4d 50%,
-      #f800df 91%,
-      #fbdf93 100%);
-  background: radial-gradient(ellipse at center,
-      #fceabb 0%,
-      #fccd4d 50%,
-      #f8b500 91%,
-      #fbdf93 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fceabb', endColorstr='#fbdf93', GradientType=1);
-  color: #2b3455;
-  margin: 30px 0;
-  /*font-size: calc( (100vw - 320px)/(1280 - 320) * (24 - 12) + 12px);*/
-  font-style: normal;
-  font-weight: 600;
 }
 
 .btn__carousel {
@@ -153,35 +31,8 @@ footer p {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fceabb', endColorstr='#fbdf93', GradientType=1);
   color: #2b3455;
   margin: 10px 0;
-  /*font-size: calc( (100vw - 320px)/(1280 - 320) * (24 - 12) + 12px);*/
   font-style: normal;
   font-weight: 600;
-}
-
-/* .btn__footer {
-    background: #fceabb;
-    background: -moz-radial-gradient(center, ellipse cover, #fceabb 0%, #fccd4d 50%, #f8b500 91%, #fbdf93 100%);
-    background: -webkit-radial-gradient(center, ellipse cover, #fceabb 0%, #fccd4d 50%, #f8b500 91%, #fbdf93 100%);
-    background: radial-gradient(ellipse at center, #fceabb 0%, #fccd4d 50%, #f8b500 91%, #fbdf93 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fceabb', endColorstr='#fbdf93', GradientType=1);
-    color: #2b3455;
-    margin: 30px 0;
-    /*font-size: calc( (100vw - 320px)/(1280 - 320) * (24 - 12) + 12px);
-    font-style: normal;
-    font-weight: 600;
-}  */
-
-.footer__text {
-  font-size: 18px;
-}
-
-.footer__nav-link {
-  font-size: 30px;
-}
-
-.nav_footer {
-  padding-bottom: 10px;
-  font-size: 24px;
 }
 
 .my_carousel {
@@ -212,12 +63,6 @@ footer p {
   background-repeat: no-repeat;
 }
 
-.container-ch-bg {
-  /*max-width: 500px;*/
-  /*margin-left: auto;*/
-  /*margin-right: auto;*/
-}
-
 @keyframes bg-сhange {
   from {
     background-image: url("/static/homeapp/img/bg-logo.png");
@@ -240,17 +85,7 @@ footer p {
   }
 }
 
-#bg {
-  /*position: relative;*/
-  /*padding-top: 75%;*/
-  /*background-size: cover;*/
-}
-
 .service {
-  margin-top: 60px;
-}
-
-body > .container > .page-section {
   margin-top: 60px;
 }
 
@@ -260,8 +95,6 @@ body > .container > .page-section {
 
 .container-ch-bg p:nth-child(2) {
   hyphens: auto;
-  /*word-break: break-all;*/
-
   font-size: calc((100vw - 320px) / (1280 - 320) * (20 - 16) + 16px);
 }
 
@@ -269,131 +102,10 @@ body > .container > .page-section {
   border: 2px solid gray;
 }
 
-h2 {
-  text-align: center;
-  padding: 20px;
-}
-
-/* Slider */
-
-.slick-slide {
-  margin: 0px 20px;
-}
-
-.slick-slide img {
-  width: 100%;
-}
-
-.slick-slider {
-  position: relative;
-  display: block;
-  box-sizing: border-box;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -khtml-user-select: none;
-  -ms-touch-action: pan-y;
-  touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-  padding: 0 2rem;
-}
-
-.slick-list {
-  position: relative;
-  display: block;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-}
-
-.slick-list:focus {
-  outline: none;
-}
-
-.slick-list.dragging {
-  cursor: pointer;
-  cursor: hand;
-}
-
-.slick-slider .slick-track,
-.slick-slider .slick-list {
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-}
-
-.slick-track {
-  position: relative;
-  top: 0;
-  left: 0;
-  display: block;
-}
-
-.slick-track:before,
-.slick-track:after {
-  display: table;
-  content: "";
-}
-
-.slick-track:after {
-  clear: both;
-}
-
-.slick-loading .slick-track {
-  visibility: hidden;
-}
-
-.slick-slide {
-  display: none;
-  float: left;
-  height: 100%;
-  min-height: 1px;
-}
-
-[dir="rtl"] .slick-slide {
-  float: right;
-}
-
-.slick-slide img {
-  display: block;
-}
-
-.slick-slide.slick-loading img {
-  display: none;
-}
-
-.slick-slide.dragging img {
-  pointer-events: none;
-}
-
-.slick-initialized .slick-slide {
-  display: flex;
-  align-self: stretch;
-  height: auto;
-}
-
 .details {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.slick-loading .slick-slide {
-  visibility: hidden;
-}
-
-.slick-vertical .slick-slide {
-  display: block;
-  height: auto;
-  border: 1px solid transparent;
-}
-
-.slick-arrow.slick-hidden {
-  display: none;
 }
 
 .partner__card:last-child {
@@ -412,14 +124,8 @@ h2 {
   }
 }
 
-
-
 .video-play-button img {
   width: 100%;
-}
-
-.navbar .nav-link {
-  white-space: nowrap;
 }
 
 .rl-pos {
@@ -438,65 +144,11 @@ h2 {
   height: 100%;
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  /*background: #fff;*/
-
-  /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-}
-
-.swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .m-0-auto {
   display: block;
   margin: 0 auto;
   width: 100%;
 }
-
-.slick-prev,
-.slick-next {
-  width: var(--stick_size) !important;
-}
-
-.slick-prev {
-  left: -15px !important;
-}
-
-.slick-next {
-  right: 1px !important;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  color: #2b3455 !important;
-  font-size: 3rem !important;
-}
-
-/*.work_e {*/
-/*    border: solid;*/
-/*    border-radius: 10px;*/
-/*    border-bottom-color: #2b3455;*/
-/*    color: #2b3455;*/
-/*}*/
-
 
 .icon-nav i {
   font-size: 33px !important;
@@ -539,15 +191,10 @@ h2 {
       90,
       255,
       0.05);
-  /* Цвет фона - светло-серый, вы можете выбрать любой цвет */
   margin-bottom: 10px;
-  /* Добавляет небольшой отступ снизу для каждой строки */
   padding: 10px;
-  /* Добавляет внутренние отступы для некоторого пространства вокруг текста */
   border-radius: 5px;
-  /* Слегка закругляет углы для более современного вида */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  /* Небольшая тень для лучшего визуального разделения */
 }
 
 .list_of_news {
@@ -557,89 +204,63 @@ h2 {
 
 .list_of_news li {
   padding: 5px 0;
-  /* Добавляет небольшое пространство между строками */
 }
 
 .icon-nav {
   position: relative;
-  /* Определяет, что позиционирование дочерних элементов будет относительно этого блока */
   display: inline-block;
-  /* Это делает контейнер только таким большим, как его содержимое */
 }
 
 .hidden-menu {
   display: none;
-  /* Скрывает меню по умолчанию */
   position: absolute;
-  /* Позиционирует меню относительно ближайшего родительского элемента с position: relative */
   background-color: #fff;
-  /* Фоновый цвет меню */
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  /* Добавляет тень для визуального эффекта */
   min-width: 160px;
-  /* Минимальная ширина меню */
   z-index: 1;
-  /* Устанавливает меню поверх других элементов */
 }
 
 #menu-trigger:hover .hidden-menu,
 .hidden-menu:hover {
   display: block;
-  /* Показывает меню при наведении */
 }
 
 .hidden-menu ul {
   list-style-type: none;
-  /* Убирает стандартные маркеры списка */
   margin: 0;
   padding: 0;
 }
 
 .hidden-menu li a {
   color: black;
-  /* Цвет текста ссылок */
   padding: 12px 16px;
-  /* Паддинги для каждой ссылки */
   text-decoration: none;
-  /* Убирает подчеркивание текста */
   display: block;
-  /* Заставляет ссылки заполнять весь доступный горизонтальный пространство */
   text-align: left;
-  /* Выравнивание текста по левому краю */
 }
 
 .hidden-menu li a:hover {
   background-color: #ddd;
-  /* Цвет фона для ссылок при наведении */
 }
 
 .navbar-nav {
   display: flex;
-  /* Удостоверьтесь, что это flex контейнер, если list-group-horizontal не управляет этим */
   gap: 10px;
-  /* Управляет расстоянием между элементами списка */
 }
 
 .nav-item {
   margin-right: 5px;
-  /* Уменьшает правый маржин каждого элемента списка */
   margin-left: 5px;
-  /* Уменьшает левый маржин каждого элемента списка */
 }
 
-/* Увеличение ширины выпадающего списка */
 .dropdown-menu-search {
   min-width: 400px;
-  /* Или вы можете задать конкретную ширину, например 300px */
 }
 
-/* Стилизация элемента с классом .dropdown-search, чтобы он занимал всю ширину выпадающего списка */
 .dropdown-search .form-search {
   width: 100%;
-  /* Форма поиска будет занимать всю ширину .dropdown-menu */
 }
 
-/* Дополнительные стили для поля ввода, если необходимо увеличить размер текста или высоту поля ввода */
 .dropdown-search .form-control {
   font-size: 1rem;
   height: auto;
@@ -659,93 +280,6 @@ h2 {
   border: 1px solid #ccc;
   padding: 5px;
   background: #fff;
-}
-
-.service-list {
-  background-color: #fff;
-  margin: 60px 0;
-  padding: 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.service-list__title {
-  margin-bottom: 0;
-  font-family: 'Russo One';
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 38.56px;
-  text-align: left;
-  color: var(--blue);
-}
-
-.service-list__items {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  gap: 8px;
-}
-
-.service-list__item {
-  width: calc(100% / 2 - 4px);
-  background-color: #F6F9FF;
-  min-height: 72px;
-  padding: 0;
-}
-
-.service-list__item span {
-  width: calc(100% - 24px);
-}
-
-.service-list__item img {
-  transition: all .3s;
-}
-
-.news__title {
-  font-weight: 700;
-  font-size: 18px;
-  color: var(--blue);
-  text-transform: uppercase;
-  text-align: left;
-}
-
-.news__date {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16.24px;
-  text-align: left;
-  color: var(--blue);
-  opacity: .7;
-}
-
-@media (hover: hover) {
-  .service-list__item:hover img {
-    transform: translateX(20%);
-  }
-}
-
-@media (hover: none) {
-  .service-list__item:active img {
-    transform: translateX(20%);
-  }
-}
-
-.list-group-flush>.service-list__item {
-  border-width: 0;
-}
-
-.service-list__item a {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--blue);
-  text-decoration: none;
-  justify-content: space-between;
 }
 
 .send-request {
@@ -852,75 +386,11 @@ h2 {
   gap: 12px;
 }
 
-.service__texts .list-group-item {
-  background-color: #F6F9FF;
-  padding: 24px;
-  font-weight: 600;
-  font-size: 16px;
-}
-
-.service__texts .list-group-item:last-of-type {
-  margin-bottom: 1rem;
-}
-
 .service__texts ul {
   list-style-type: disc;
 }
 
 .service__texts li {
-  color: var(--blue);
-}
-
-.page-section {
-  background-color: white;
-  padding: 32px;
-  /* margin-top: 60px; */
-}
-
-.page-section p {
-  text-align: left;
-}
-
-.page-section__title {
-  font-family: 'Russo One';
-  font-weight: 400;
-  font-size: 32px;
-  line-height: 38.56px;
-  text-align: left;
-  color: var(--blue);
-  margin-bottom: 24px;
-  width: 100%;
-}
-
-.cases__item {
-  min-height: 124px;
-  width: calc(100% / 4 - 6px);
-}
-
-.cases__card {
-  background-color: #F6F9FF;
-  border: none;
-  padding: 24px 43px;
-}
-
-.cases__card-body {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cases__row {
-  gap: 8px;
-}
-
-.cases__row>* {
-  padding: 0;
-}
-
-.cases__item-text {
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 19.09px;
   color: var(--blue);
 }
 
@@ -958,17 +428,6 @@ h2 {
   width: max-content;
 }
 
-.news-section.container {
-  padding: 0;
-}
-
-.news-section__slide {
-  height: auto;
-  background: #F6F9FF;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
 .news_item_content p,
 .news_item_content span {
   text-align: left;
@@ -1000,10 +459,6 @@ h2 {
   color: var(--blue);
 }
 
-/* Костыль, чтоб правильно оформить текст в карточке новости. 
-.news_item_content - селектор div'а с текстом новости, который передает бэк
-p:not(:empty) - первый не пустой параграф. Нужно, потому что попадаются пустые теги параграфов
-~ * - все элементы, после первого непустого параграфа скрываются, ибо нужно чтобы выводилось только первые три строки текста, остальное не нужно.*/
 .news_item_content p:not(:empty)~* {
   display: none;
 }
@@ -1033,19 +488,6 @@ p:not(:empty) - первый не пустой параграф. Нужно, п�
   padding: 0;
 }
 
-.diploms .slick-dots li button:before {
-  color: black;
-}
-
-.diploms img {
-  height: 100%;
-  object-fit: cover;
-}
-
-.diploms .slick-dots li.slick-active button:before {
-  color: white;
-}
-
 .amo-form iframe {
   height: auto !important;
   margin-bottom: 0 !important;
@@ -1059,61 +501,6 @@ p:not(:empty) - первый не пустой параграф. Нужно, п�
 .amo-form #amofroms_main_wrapper {
   box-shadow: none !important;
   border: none !important;
-}
-
-.hero__subtitle {
-  color: white;
-}
-
-button,
-a {
-  transition: all .3s;
-  cursor: pointer;
-  border: none !important;
-}
-
-button:focus {
-  outline: none;
-}
-
-.button-white {
-  outline: 1px solid var(--blue) !important;
-}
-
-.button-blue {
-  outline: 1px solid white !important;
-  background-color: var(--blue) !important;
-  color: #fff !important;
-}
-
-@media (hover: hover) {
-  .button-white:hover {
-    background-color: var(--blue) !important;
-    color: white !important;
-    outline: 1px solid white !important;
-  }
-
-  .button-blue:hover {
-    background-color: transparent !important;
-    color: var(--blue) !important;
-    outline: 1px solid var(--blue) !important;
-    background-color: white !important;
-  }
-}
-
-@media (hover: none) {
-  .button-white:active {
-    background-color: var(--blue) !important;
-    color: white !important;
-    outline: 1px solid white !important;
-  }
-
-  .button-blue:active {
-    background-color: transparent !important;
-    color: var(--blue) !important;
-    outline: 1px solid var(--blue) !important;
-    background-color: white !important;
-  }
 }
 
 .diploma-img {
@@ -1252,12 +639,6 @@ button:focus {
   stroke: var(--blue);
 }
 
-@media screen and (max-width: 1200px) {
-  .cases__item {
-    width: calc(100% / 3 - 6px);
-  }
-}
-
 @media screen and (max-width: 1080px) {
   .banner__content  {
     flex-direction: column;
@@ -1274,32 +655,7 @@ button:focus {
   }
 }
 
-@media only screen and (max-width: 1024px) {
-  body {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-
-  html {
-    height: 100%;
-  }
-
-  .page-section {
-    margin-top: 0;
-  }
-}
-
 @media screen and (max-width: 900px) {
-  .service-list__item {
-    width: 100%;
-  }
-
-  .cases__item {
-    width: calc(100% / 2 - 4px);
-  }
-
   .half {
     width: 100%;
   }
@@ -1318,26 +674,6 @@ button:focus {
     --stick_size: calc((100vw - 320px)/(1280 - 320) * (36 - 28) + 56px);
   }
 
-  .team-slider {
-    margin-top: 128px !important;
-  }
-
-  .team-slider .slick-arrow {
-    display: none!important;
-  }
-
-  .slick-next {
-    right: -15px !important;
-  }
-
-  .slick-prev:before, .slick-next:before {
-    font-size: 2rem !important;
-  }
-
-  .slick-slider {
-    padding: 0 1rem !important;
-  }
-
   .page-section {
     padding: 16px;
   }
@@ -1349,16 +685,10 @@ button:focus {
   }
 }
 
-@media screen and (max-width: 600px) {
-  .cases__item {
-    width: 100%;
-  }
-}
-
 .form-wrapper {
   display: flex;
-  justify-content: center; /* Горизонтальное выравнивание */
-  align-items: center; /* Вертикальное выравнивание */
+  justify-content: center;
+  align-items: center;
   padding-top: 24px;
 }
 
@@ -1367,15 +697,14 @@ button:focus {
 }
 
 form {
-    /* Можно добавить ширину формы для контроля */
-    width: 100%; /* Или укажите фиксированную ширину, если необходимо */
+  width: 100%;
 }
 
 .send-request__img {
-    width: 100%; /* Изображение будет занимать всю ширину доступного блока */
-    max-width: 600px; /* Ограничьте максимальную ширину, чтобы изображение не растягивалось слишком сильно */
-    object-fit: contain; /* Сохранение пропорций */
-    margin-left: auto; /* Центрируем изображение */
-    margin-right: auto; /* Центрируем изображение */
-    display: block; /* Устанавливаем изображение как блочный элемент */
+  width: 100%;
+  max-width: 600px;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }

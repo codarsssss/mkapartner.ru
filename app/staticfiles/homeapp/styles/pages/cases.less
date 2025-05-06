@@ -1,0 +1,50 @@
+//main: ../main.less
+.cases__row {
+  gap: 8px;
+}
+
+.cases__row>* {
+  padding: 0;
+}
+
+.cases__item {
+  min-height: 124px;
+  width: calc(100% / 4 - 6px);
+}
+
+.cases__card {
+  background-color: #F6F9FF;
+  border: none;
+  padding: 24px 43px;
+}
+
+.cases__card-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cases__item-text {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19.09px;
+  color: var(--blue);
+}
+
+@media screen and (max-width: 1200px) {
+  .cases__item {
+    width: calc(100% / 3 - 6px);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cases__item {
+    width: calc(100% / 2 - 4px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cases__item {
+    width: 100%;
+  }
+}

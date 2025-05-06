@@ -1,0 +1,70 @@
+//main: ../main.less
+.service-list {
+  background-color: #fff;
+  margin: 30px 0 60px;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.service-list__title {
+  margin-bottom: 0;
+}
+
+.service-list__items {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.service-list__item {
+  width: calc(100% / 2 - 4px);
+  background-color: #F6F9FF;
+  min-height: 72px;
+  padding: 0;
+}
+
+.service-list__item span {
+  width: calc(100% - 24px);
+}
+
+.service-list__item img {
+  transition: all .3s;
+}
+
+@media (hover: hover) {
+  .service-list__item:hover img {
+    transform: translateX(20%);
+  }
+}
+
+@media (hover: none) {
+  .service-list__item:active img {
+    transform: translateX(20%);
+  }
+}
+
+.list-group-flush>.service-list__item {
+  border-width: 0;
+}
+
+.service-list__item a {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: var(--bs-list-group-item-padding-y) var(--bs-list-group-item-padding-x);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--blue);
+  text-decoration: none;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 900px) {
+  .service-list__item {
+    width: 100%;
+  }
+}
