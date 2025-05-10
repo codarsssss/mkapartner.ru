@@ -177,18 +177,22 @@ class ServiceDetailView(DetailView):
 
 class NewsListView(ListView):
     model = News
-    template_name = 'homeapp/news_list.html'
-    context_object_name = 'News'
     queryset = News.published.all()
+    template_name = "homeapp/press/article_news_list.html"
+    context_object_name = "items"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Новости"
-        context["meta"] = {
+        context.update({
             "title": "Новости",
-            "description": "Последние новости и обновления нашей компании",
-            "keywords": "новости, публикации, события",
-        }
+            "section_title": "Новости и публикации",
+            "detail_url_name": "homeapp:news_detail",
+            "meta": {
+                "title": "Новости",
+                "description": "Последние новости и обновления нашей компании",
+                "keywords": "новости, публикации, события",
+            },
+        })
         return context
 
 
@@ -243,17 +247,21 @@ class ClientListView(ListView):
 class ArticleListView(ListView):
     model = Article
     queryset = Article.objects.filter(is_active=True)
-    template_name = "homeapp/press/article_list.html"
-    context_object_name = "articles"
+    template_name = "homeapp/press/article_news_list.html"
+    context_object_name = "items"  # <- важно!
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Статьи"
-        context["meta"] = {
-            "title": "Полезные статьи",
-            "description": "Публикации и статьи наших адвокатов",
-            "keywords": "статьи, публикации, юридические советы",
-        }
+        context.update({
+            "title": "Статьи",
+            "section_title": "Статьи",
+            "detail_url_name": "homeapp:article_detail",
+            "meta": {
+                "title": "Полезные статьи",
+                "description": "Публикации и статьи наших адвокатов",
+                "keywords": "статьи, публикации, юридические советы",
+            },
+        })
         return context
 
 
