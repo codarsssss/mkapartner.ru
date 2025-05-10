@@ -12,6 +12,9 @@
                 <div class="body-header">
                     <h1 class="page-section__title">{{ news_obj.title }}</h1>
                     <div class="photo-grid">
+                        {% if news_obj.preview_image %}
+                            <img src="{{ news_obj.preview_image.url }}" class="img-fluid mb-4" alt="{{ news_obj.title }}">
+                        {% endif %}
                     </div>
                     <div class="bode-text">
                         {{ news_obj.text|safe }}

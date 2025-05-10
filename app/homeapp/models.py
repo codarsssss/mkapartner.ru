@@ -29,6 +29,12 @@ class News(models.Model):
     video_link = models.URLField("Видео", blank=True)
     status = models.CharField("Статус", max_length=3, choices=Status.choices, default=Status.NOT_PUBLISHED)
     create_datetime = models.DateTimeField("Дата создания", auto_now_add=True)
+    preview_image = models.ImageField(
+        "Изображение новости",
+        upload_to="news/previews/",
+        blank=True,
+        null=True
+    )
 
     # SEO
     meta_title = models.CharField("Meta Title", max_length=255, blank=True)
@@ -49,6 +55,10 @@ class News(models.Model):
 
     def get_absolute_url(self):
         return reverse("homeapp:news_detail", args=[self.slug])
+
+    @property
+    def display_date(self):
+        return self.create_datetime
 
     def get_meta(self):
         return {
@@ -351,6 +361,12 @@ class Article(models.Model):
     content = RichTextField("Текст статьи")
     published_at = models.DateField("Дата публикации")
     is_active = models.BooleanField("Активна", default=True)
+    preview_image = models.ImageField(
+        "Изображение статьи",
+        upload_to="articles/previews/",
+        blank=True,
+        null=True
+    )
 
     # SEO
     meta_title = models.CharField("Meta Title", max_length=255, blank=True)
@@ -368,6 +384,10 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse("homeapp:article_detail", args=[self.slug])
+
+    @property
+    def display_date(self):
+        return self.published_at
 
     def get_meta(self):
         return {

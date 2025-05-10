@@ -44,13 +44,14 @@ class NewsAdmin(admin.ModelAdmin):
     readonly_fields = ['create_datetime']
     fieldsets = (
         (None, {
-            'fields': ('title', 'slug', 'text', 'video_link', 'status', 'create_datetime')
+            'fields': ('title', 'slug', 'text', 'video_link', 'status', 'create_datetime', 'preview_image')
         }),
         ('SEO', {
             'classes': ('collapse',),
             'fields': ('meta_title', 'meta_description', 'seo_keywords', 'meta_image'),
         }),
     )
+
 
 
 # ---------- Партнеры ----------
@@ -171,13 +172,14 @@ class ArticleAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     fieldsets = (
         (None, {
-            'fields': ['title', 'slug', 'content', 'published_at', 'is_active']
+            'fields': ['title', 'slug', 'content', 'published_at', 'is_active', 'preview_image']
         }),
         ('SEO', {
             'classes': ('collapse',),
             'fields': ('meta_title', 'meta_description', 'seo_keywords', 'meta_image'),
         }),
     )
+
 
 
 # ---------- Регистрация ----------
