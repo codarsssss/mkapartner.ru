@@ -52,10 +52,6 @@ urlpatterns = [
     path('practices/<int:pk>/', PracticeDetailView.as_view(), name='practice_detail'),
     path('cases/filter/', cases_filter_view, name='cases_filter'),
 
-    # News
-    path('news-list/', NewsListView.as_view(), name='news_list'),
-    path('news_<slug:slug>/', NewsDetailView.as_view(), name='news_detail'),
-
     # Reviews
     path('reviews/', ReviewListView.as_view(), name='reviews'),
 
@@ -63,7 +59,9 @@ urlpatterns = [
     path("clients/", ClientListView.as_view(), name="client_list"),
 
     # Press Center
-    path("press/articles/", ArticleListView.as_view(), name="article_list"),
-    path("press/articles/<slug:slug>/", ArticleDetailView.as_view(), name="article_detail"),
-    path("press/videos/", VideoListView.as_view(), name="video_list"),
+    path("articles/", ArticleListView.as_view(), name="article_list"),
+    path("articles/<slug:slug>/", ArticleDetailView.as_view(), name="article_detail"),
+    path("videos/", VideoListView.as_view(), name="video_list"),
+    path('news-list/', NewsListView.as_view(), name='news_list'),
+    path('news_<slug:slug>/', NewsDetailView.as_view(), name='news_detail'),
 ]
