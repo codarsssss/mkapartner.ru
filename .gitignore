@@ -208,6 +208,12 @@ app/media/clients/*
 app/media/videos/*
 !app/media/videos/.gitkeep
 
+app/media/articles/previews/*
+!app/media/articles/previews/.gitkeep
+
+app/media/news/previews/*
+!app/media/news/previews/.gitkeep
+
 app/staticfiles/*
 
 */db_dump.json
