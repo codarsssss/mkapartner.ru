@@ -2,40 +2,34 @@
 {% load static %}
 
 {% block content %}
-<section class="container py-5">
-  <h1 class="mb-4">{{ section_title }}</h1>
+<section class="news-section container">
+  <div class="page-section">
+    <div class="news_feed_header">
+      <h1 class="title title_h2">{{ section_title }}</h1>
+    </div>
 
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    {% for item in items %}
-      <div class="col">
-        <a href="{% url detail_url_name item.slug %}" class="text-decoration-none text-dark">
-          <div class="card h-100 shadow-sm">
-
-            {# Картинка превью (из модели) или заглушка #}
-            {% if item.preview_image %}
-              <img src="{{ item.preview_image.url }}" class="card-img-top" alt="{{ item.title }}">
-            {% else %}
-              <img src="{% static 'homeapp/img/main_img_1.jpg' %}" class="card-img-top" alt="{{ item.title }}">
-            {% endif %}
-
-            <div class="card-body">
-              <h5 class="card-title">{{ item.title }}</h5>
-              <p class="card-text text-muted">
-                {{ item.display_date|date:"d.m.Y" }}
-              </p>
-            </div>
-
-          </div>
-        </a>
-      </div>
-    {% empty %}
-      <p>Пока нет доступных записей.</p>
-    {% endfor %}
+    <ul class="news__list">
+      {% for item in items %}
+        <li class="news__item">
+          <a class="news__item-link" href="{% url detail_url_name item.slug %}">
+            <img class="news__item-image"
+                 src="{% if item.preview_image %}{{ item.preview_image.url }}{% else %}{% static 'homeapp/img/main_img_1.jpg' %}{% endif %}"
+                 alt="{{ item.title }}">
+            <h3 class="news__item-title">{{ item.title }}</h3>
+            <time class="news__item-date"
+                  datetime="{{ item.display_date }}">{{ item.display_date|date:"d.m.Y" }}</time>
+          </a>
+        </li>
+      {% empty %}
+        <p>Пока нет доступных записей.</p>
+      {% endfor %}
+    </ul>
   </div>
 
-  <div class="form-wrapper mt-5">
-      {% include "homeapp/forms/amo-form.html" %}
+  {% if show_form %}
+  <div class="form-wrapper">
+    {% include "homeapp/forms/amo-form.html" %}
   </div>
-
+  {% endif %}
 </section>
 {% endblock %}
