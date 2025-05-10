@@ -3,26 +3,11 @@
   color: white;
 }
 
-.accordion-collapse.show {
-  background: rgb(42, 53, 84);
-  color: white;
-}
+.accordion-collapse {
+  transition: .3s ease-out!important;
 
-.accordion-button {
-  &:not(.collapsed) {
-    background: rgb(42, 53, 84);
-    border-radius: 0px;
-    box-shadow: none;
-    padding-bottom: 0px;
-
-    .accordion-item__title {
-      color: white;
-    }
-
-    span {
-      background: white;
-      color: rgb(42, 53, 84);
-    }
+  &.show {
+    background: #2a3554;
   }
 }
 
@@ -42,9 +27,9 @@
   margin-bottom: 8px;
 }
 
-.accordion-collapse {
-  animation: none !important;
-  transition: none !important;
+.accordion-item__title {
+  margin-bottom: 0;
+  padding-right: 20px;
 }
 
 .accordion-button {
@@ -52,19 +37,48 @@
   align-items: center;
   gap: 16px;
   background: #f7f9ff;
+
+  &::after {
+    position: absolute;
+    right: 20px;
+  }
+
+  span {
+    background: #2a3554;
+    color: white;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  &:not(.collapsed) {
+    background: #2a3554;
+    border-radius: 0px;
+    box-shadow: none;
+    padding-bottom: 0px;
+
+    span {
+      background: #fff;
+      color: #2a3554;
+    }
+
+    .accordion-item__title {
+      color: white;
+    }
+  }
 }
 
-.accordion-button span {
-  background: rgb(42, 53, 84);
-  color: white;
-  width: 43px;
-  height: 43px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
+.accordion-body {
+  background: #2a3554;
 }
 
-.accordion-button span {
-  min-width: 43px;
+
+@media screen and (max-width: 767px) {
+  .accordion-button {
+    flex-direction: column;
+    align-items: initial;
+  }
 }

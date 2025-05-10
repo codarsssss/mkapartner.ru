@@ -1,0 +1,47 @@
+//main: ../main.less
+.video {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  background: #fff;
+}
+
+.video__row {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.video__title {
+  margin-bottom: 30px;
+}
+
+.video p {
+  color: rgb(42, 53, 84);
+  line-height: 19px;
+}
+
+.video__buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.video__buttons {
+  margin-top: 30px;
+}
+
+/* Media */
+@media only screen and (max-width: 1200px) {
+  .video__row {
+    flex-direction: column;
+  }
+
+  .video__col {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .video iframe {
+    width: 100%;
+  }
+}
