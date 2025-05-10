@@ -2,35 +2,39 @@
 {% load static %}
 
 {% block content %}
-<div class="container">
+<section class="page-section page-section_transparent container">
+    <h1 class="title title_h2">Наша команда</h1>
+
     {% for partner in partners %}
-    <div class="row mt-5 partner__card">
+    <div class="row partner__card">
         <div class="col-lg-4">
             <img class="w-100" src="{{ partner.photo.url }}" alt="{{ partner.name }}">
         </div>
         <div class="col-lg-8 mt-4">
-            <h2 class="partner__card-title">{{ partner.name }}</h2>
+            <h2 class="title title_h2 title_white">{{ partner.name }}</h2>
             <p>{{ partner.context|linebreaksbr }}</p>
 
             <!-- Карусель для фотографий дипломов партнёра -->
-            <div class="diploms slider">
-                {% for photo in partner.photos.all %}
-                <div class="slide team__slide">
-                    <!-- Клик на изображение вызывает модальное окно -->
-                    <img class="d-block w-100 diploma-img" src="{{ photo.photo.url }}" alt="{{ photo.caption }}"
-                        data-bs-toggle="modal" data-bs-target="#diplomaModal">
-                    {% if photo.caption %}
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>{{ photo.caption }}</p>
+            <div class="diploms mySlider swiper" data-slides-count="5" data-slides-count-tablet="4" data-slides-count-mob="3">
+                <div class="swiper-wrapper">
+                    {% for photo in partner.photos.all %}
+                    <div class="swiper-slide team__slide">
+                        <!-- Клик на изображение вызывает модальное окно -->
+                        <img class="d-block w-100 diploma-img" src="{{ photo.photo.url }}" alt="{{ photo.caption }}"
+                            data-bs-toggle="modal" data-bs-target="#diplomaModal">
+                        {% if photo.caption %}
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>{{ photo.caption }}</p>
+                        </div>
+                        {% endif %}
                     </div>
-                    {% endif %}
+                    {% endfor %}
                 </div>
-                {% endfor %}
             </div>
         </div>
     </div>
     {% endfor %}
-</div>
+</section>
 
 <!-- Модальное окно для увеличенного изображения диплома -->
 <div class="modal fade" id="diplomaModal" tabindex="-1" aria-labelledby="diplomaModalLabel" aria-hidden="true">

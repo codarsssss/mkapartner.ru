@@ -1,10 +1,34 @@
 //main: main.less
 .title {
   margin-top: 0;
-  font-family: "Gilroy";
+  margin-bottom: 30px;
   font-weight: 700;
+  color: #2a3554;
+  line-height: 1;
+}
+
+.title_h2 {
+  font-family: "Russo One";
+  font-size: 32px;
+  font-weight: 400;
 }
 
 .title_h3 {
   font-size: 20px;
+  font-family: "Gilroy";
+}
+
+.title_white {
+  color: #fff;
+}
+
+//Media
+@media only screen and (max-width: 767px) {
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .title_h2 {
+    font-size: 24px;
+  }
 }
