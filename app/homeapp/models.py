@@ -169,6 +169,7 @@ class Review(models.Model):
     content = models.TextField("Текст отзыва")
     created_at = models.DateTimeField("Дата добавления", auto_now_add=True)
     is_active = models.BooleanField("Показывать на сайте", default=True)
+    image = models.ImageField("Изображение", upload_to='reviews/')
 
     class Meta:
         ordering = ['-created_at']

@@ -214,6 +214,9 @@ app/media/articles/previews/*
 app/media/news/previews/*
 !app/media/news/previews/.gitkeep
 
+app/media/reviews/*
+!app/media/reviews/.gitkeep
+
 app/staticfiles/*
 
 */db_dump.json

@@ -111,7 +111,7 @@ class PracticeInstanceAdmin(admin.ModelAdmin):
 
 # ---------- Отзывы ----------
 class ReviewAdmin(admin.ModelAdmin):
-    list_display = ['author_name', 'created_at', 'is_active']
+    list_display = ['author_name', 'created_at', 'is_active', 'image']
     list_filter = ['is_active', 'created_at']
     search_fields = ['author_name', 'content']
 

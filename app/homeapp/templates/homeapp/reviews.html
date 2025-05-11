@@ -9,6 +9,9 @@
         <h3>{{ review.author_name }}</h3>
         <p>{{ review.content }}</p>
         <small>{{ review.created_at|date:"d.m.Y" }}</small>
+        {% if review.image %}
+            {{ review.image.url }}
+        {% endif %}
       </div>
     {% empty %}
       <p>Пока нет отзывов.</p>
