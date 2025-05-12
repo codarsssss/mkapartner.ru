@@ -1,9 +1,10 @@
 {% for item in items %}
-  <a href="{% url 'homeapp:practice_detail' pk=item.id %}" class="case-card mb-3 p-3 border rounded d-block text-decoration-none text-dark">
-    <h3>{{ item.title }}</h3>
-    <p><strong>Категория:</strong> {{ item.category.title }}</p>
-    <p>{{ item.circumstances|truncatechars:160 }}</p>
-    <p><strong>Адвокат:</strong> {{ item.partner.name }}</p>
+  <a class="practices__item" href="{% url 'homeapp:practice_detail' pk=item.id %}">
+    <h3 class="title title_h3">{{ item.title }}</h3>
+    <span class="practices__subtitle"><strong>Категория:</strong> {{ item.category.title }}</span>
+    <span class="practices__subtitle"><strong>Адвокат:</strong> {{ item.partner.name }}</span>
+    <p class="practices__descr">{{ item.circumstances|truncatechars:160 }}</p>
+    <span class="practices__btn btn2 button-blue">Смотреть подробнее</span>
   </a>
 {% empty %}
   <p>Нет подходящих дел.</p>

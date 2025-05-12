@@ -57,7 +57,21 @@
 
     <div class="mission">
       <p>&laquo;Миссия МКА Партнер Групп заключается в&nbsp;предоставлении высококачественных юридических услуг , основанных на&nbsp;глубоком понимании потребностей и&nbsp;целей клиентов, с&nbsp;использованием инновационных подходов и&nbsp;экспертизы для достижения оптимальных результатов и&nbsp;установления долгосрочных партнерских отношений.&raquo;</p>
-      <img src="{% static 'homeapp/img/logo.webp' %}" alt="" />
+      
+      <div class="good-place">
+        <div class="good-place__row">
+          <div class="good-place__col">
+            <img class="good-place__image" src="{% static 'homeapp/img/good-place.svg' %}" alt="Лучшее место Яндекс">
+          </div>
+          <div class="good-place__col">
+            <span class="good-place__title title title_h2">Хорошее место 2025</span>
+            <span class="good-place__text">Награда Яндекса для мест, которые<br> пользователи карт особенно любят</span>
+          </div>
+        </div>
+        <div class="good-place__button">
+          <a class="btn2 button-blue" href="https://yandex.ru/navi/org/mka_partner_grupp/23350636644/reviews/?ll=37.537434%2C55.749633&z=16" target="_blank">Смотреть отзывы</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -392,10 +406,9 @@
 
 {% if News %}
 <section class="news-feed container">
-  <div class="news-feed__header">
-    <h2 class="title title_h2">Новости и публикации</h2>
-  </div>
   <div class="swiper mySlider">
+    <h2 class="title title_h2">Новости и публикации</h2>
+
     <div class="swiper-wrapper">
       {% for news in News %}
       <a class="news-feed__slide swiper-slide" href="/news_{{ news.slug }}">
@@ -410,6 +423,21 @@
       </a>
       {% endfor %}
     </div>
+
+    <div class="slider-nav">
+        <button class="slider-nav__button slider-nav-prev" type="button">
+          <span>Назад</span>
+          <svg width="46" height="46" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+        <button class="slider-nav__button slider-nav-next" type="button">
+          <span>Вперед</span>
+          <svg width="46" height="46" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
+      </div>
   </div>
 </section>
 {% endif %}
@@ -461,22 +489,39 @@
 </section>
 
 {% if reviews %}
-<section class="reviews-section container">
-  <div class="page-section">
-    <div class="reviews-header">
-      <h3 class="title title_h2">Отзывы клиентов</h3>
-    </div>
-    <div class="reviews-section__content swiper mySlider">
-      <div class="reviews-content-wrapper swiper-wrapper">
+<section class="container">
+  <div class="reviews-feed">
+    <div class="reviews-feed__slider swiper mySlider">
+      <h3 class="title title_h2 title_white">Отзывы клиентов</h3>
+
+      <div class="reviews-feed__wrapper swiper-wrapper">
         {% for review in reviews %}
-        <div class="review-slide swiper-slide">
-          <div class="review-item">
-            <p class="review-content">{{ review.content }}</p>
-            <p class="review-author">— {{ review.author_name }}</p>
-            <p class="review-date">{{ review.created_at|date:"d.m.Y" }}</p>
+        <div class="reviews-feed__slide swiper-slide">
+          <svg class="reviews-feed__icon" width="46" height="46" fill="#EAF1FF" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.135 9h3L10 14.607H7L9.135 9Z"></path>
+            <path d="M14.135 9h3L15 14.607h-3L14.135 9Z"></path>
+          </svg>
+          <div class="reviews-feed__item">
+            <span class="reviews-feed__name title title_h3">— {{ review.author_name }}</span>
+            <p class="reviews-feed__content">{{ review.content }}</p>
+            <time class="reviews-feed__date" datetime="{{ review.created_at|date:"d.m.Y" }}">{{ review.created_at|date:"d.m.Y" }}</time>
           </div>
         </div>
         {% endfor %}
+      </div>
+      <div class="slider-nav">
+        <button class="slider-nav__button slider-nav-prev" type="button">
+          <span>Назад</span>
+          <svg width="46" height="46" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        </button>
+        <button class="slider-nav__button slider-nav-next" type="button">
+          <span>Вперед</span>
+          <svg width="46" height="46" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m9 18 6-6-6-6"></path>
+          </svg>
+        </button>
       </div>
     </div>
   </div>
