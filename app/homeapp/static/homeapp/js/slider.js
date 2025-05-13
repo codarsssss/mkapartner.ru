@@ -20,11 +20,18 @@ if (sliders.length > 0) {
       }
     } : {};
 
+    const nextEl = slider.querySelector('.slider-nav-next');
+    const prevEl = slider.querySelector('.slider-nav-prev');
+
     const swiper = new Swiper(slider, {
       slidesPerView: slidesCount,
       spaceBetween: 8,
       loop: true,
       ...autoplaySettings,
+      navigation: {
+        nextEl: nextEl,
+        prevEl: prevEl,
+      },
       breakpoints: {
         320: {
           slidesPerView: slidesCountMob,

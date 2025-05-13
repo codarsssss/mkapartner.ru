@@ -3,17 +3,56 @@
 
 
 {% block content %}
-    <h1>Отзывы клиентов</h1>
-    {% for review in reviews %}
-      <div class="review">
-        <h3>{{ review.author_name }}</h3>
-        <p>{{ review.content }}</p>
-        <small>{{ review.created_at|date:"d.m.Y" }}</small>
-        {% if review.image %}
-            {{ review.image.url }}
-        {% endif %}
+  <section class="container">
+    <div class="page-section">
+      <h1 class="title title_h2">Отзывы клиентов</h1>
+
+      <ul class="reviews">
+        {% for review in reviews %}
+          <li class="reviews__item">
+            <a class="reviews__link" 
+              href="#" 
+              data-bs-toggle="modal"
+              data-bs-target="#reviewModal"
+              data-image-url="{% if review.image %}{{ review.image.url }}{% endif %}">
+              <h3 class="title title_h3">{{ review.author_name }}</h3>
+              <p class="reviews__text">{{ review.content }}</p>
+              <span class="reviews__more btn2 button-blue">Смотреть оригинал</span>
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Модальное окно -->
+  <div class="modal fade" id="reviewModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content bg-dark">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-0">
+          <div class="ratio ratio-16x9">
+            <img id="reviewModalImage" src="" alt="Фото отзыва" />
+          </div>
+        </div>
       </div>
-    {% empty %}
-      <p>Пока нет отзывов.</p>
-    {% endfor %}
+    </div>
+  </div>
+
+  <script>
+    const reviewModal = document.getElementById('reviewModal');
+    const image = document.getElementById('reviewModalImage');
+
+    reviewModal.addEventListener('show.bs.modal', function (event) {
+      const card = event.relatedTarget;
+      const url = card.getAttribute('data-image-url');
+      image.src = url;
+    });
+
+    reviewModal.addEventListener('hidden.bs.modal', function () {
+      image.src = "";
+    });
+  </script>
 {% endblock %}

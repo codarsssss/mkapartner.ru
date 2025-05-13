@@ -22,11 +22,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <!-- <link rel="stylesheet" href="{% static 'homeapp/css/style.css' %}" />
-  <link rel="stylesheet" href="{% static 'homeapp/css/styles.css' %}" />
-  <link rel="stylesheet" href="{% static 'homeapp/css/news_slider.css' %}" />
-  <link rel="stylesheet" href="{% static 'homeapp/css/preloader.css' %}" /> -->
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="{% static 'homeapp/styles/main.css' %}" />
   <link rel="shortcut icon" type="image/png" href="{% static 'homeapp/img/bg-logo.ico' %}" />
@@ -76,12 +71,12 @@
 </head>
 
 <body>
-  <!-- <div class="preloader">
+  <div class="preloader">
     <div class="preloader__row">
       <div class="preloader__item"></div>
       <div class="preloader__item"></div>
     </div>
-  </div> -->
+  </div>
   {% for message in messages %} {% if message.tags == 'success' %}
   <div class="alert alert-success alert-dismissible fade show text-center h3 {{ message.tags }}" role="alert">
     <strong>{{ message }}</strong>
@@ -179,11 +174,6 @@
                 Отзывы
               </a>
             </li>
-            <li class="nav-item">
-              <a class="header__nav-link" aria-current="page" href="{% url 'homeapp:client_list' %}">
-                Клиенты
-              </a>
-            </li>
             <li class="header__nav-item dropdown">
               <ul class="dropdown-menu dropdown-menu-search" aria-labelledby="navbarDropdown">
                 <li class="dropdown-search">
@@ -254,6 +244,12 @@
 
   <div class="content">
     {% block content %} {% endblock %}
+
+    <div class="form-wrapper">
+      <div class="container">
+        {% include "homeapp/forms/amo-form.html" %}
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container">
@@ -496,123 +492,6 @@
     crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/f8895a3494.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Находим все изображения дипломов
-      const diplomaImages = document.querySelectorAll('.diploma-img');
-      const modalImage = document.getElementById('diplomaModalImage');
-      const modalLabel = document.getElementById('diplomaModalLabel');
-
-      diplomaImages.forEach(function (image) {
-        // Обработчик клика для каждого изображения
-        image.addEventListener('click', function (image) {
-          modalImage.src = event.target.src;
-          modalImage.alt = event.target.alt;
-          modalLabel.innerHTML = event.target.alt;
-        });
-      });
-
-
-      const input = document.body.querySelector(".telmask");
-      input?.addEventListener("keypress", (evt) => {
-        if (evt.keyCode < 47 || evt.keyCode > 57) {
-          evt.preventDefault();
-        }
-      });
-
-      input?.addEventListener("focus", () => {
-        if (input.value.length === 0) {
-          input.value = "+7";
-          input.selectionStart = input.value.length;
-        }
-      });
-
-      input?.addEventListener("click", (evt) => {
-        if (input.selectionStart < 2) {
-          input.selectionStart = input.value.length;
-        }
-        if (evt.key === "Backspace" && input.value.length <= 2) {
-          evt.preventDefault();
-        }
-      });
-
-      input?.addEventListener("blur", () => {
-        if (input.value === "+7") {
-          input.value = "";
-        }
-      });
-
-      input?.addEventListener("keydown", (evt) => {
-        if (evt.key === "Backspace" && input.value.length <= 2) {
-          evt.preventDefault();
-        }
-      });
-
-      const input_1 = document.body.querySelector(".phone_mask");
-      input_1?.addEventListener("keypress", (evt) => {
-        if (evt.keyCode < 47 || evt.keyCode > 57) {
-          evt.preventDefault();
-        }
-      });
-
-      input_1?.addEventListener("focus", () => {
-        if (input_1.value.length === 0) {
-          input_1.value = "+7";
-          input_1.selectionStart = input_1.value.length;
-        }
-      });
-
-      input_1?.addEventListener("click", (evt) => {
-        if (input_1.selectionStart < 2) {
-          input_1.selectionStart = input_1.value.length;
-        }
-        if (evt.key === "Backspace" && input_1.value.length <= 2) {
-          evt.preventDefault();
-        }
-      });
-
-      input_1?.addEventListener("blur", () => {
-        if (input_1.value === "+7") {
-          input_1.value = "";
-        }
-      });
-
-      input_1?.addEventListener("keydown", (evt) => {
-        if (evt.key === "Backspace" && input_1.value.length <= 2) {
-          evt.preventDefault();
-        }
-      });
-
-
-      var submenus = document.querySelectorAll(
-        ".dropdown-submenu .dropdown-toggle"
-      );
-      submenus.forEach(function (submenu) {
-        var dropdownContent = submenu.nextElementSibling; // Получаем подменю, связанное с каждым элементом
-
-        // Слушатель для открытия подменю по клику
-        submenu.addEventListener("click", function (event) {
-          event.stopPropagation(); // Предотвращаем всплытие события
-          // Переключаем видимость подменю
-          dropdownContent.style.display =
-            dropdownContent.style.display === "block" ? "none" : "block";
-        });
-      });
-
-      // Слушатель для закрытия всех подменю, если клик произошел вне подменю
-      document.addEventListener("click", function () {
-        var openDropdowns = document.querySelectorAll(
-          ".dropdown-submenu .dropdown-menu"
-        );
-        openDropdowns.forEach(function (openDropdown) {
-          if (openDropdown.style.display === "block") {
-            openDropdown.style.display = "none";
-          }
-        });
-      });
-    });
-  </script>
 
   <script src="{% static 'homeapp/js/main.js' %}"></script>
   <script src="{% static 'homeapp/js/slider.js' %}"></script>

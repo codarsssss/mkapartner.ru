@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container">
   <div class="page-section">
-    <h1 class="page-section__title">Практика адвокатов нашей коллегии</h1>
+    <h1 class="title title_h2">Практика адвокатов нашей коллегии</h1>
 
     <!-- ФИЛЬТРЫ -->
     <div class="row mb-4">
@@ -29,14 +29,10 @@
     </div>
 
     <!-- СПИСОК ДЕЛ -->
-    <div id="casesContainer">
+    <div class="practices" id="casesContainer">
       {% include 'homeapp/partials/_practice_list.html' with items=practice_instances %}
     </div>
   </div>
-</div>
-
-<div class="form-wrapper">
-  {% include "homeapp/forms/amo-form.html" %}
 </div>
 
 <!-- AJAX-скрипт -->
