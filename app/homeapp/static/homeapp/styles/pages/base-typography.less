@@ -1,0 +1,103 @@
+//main: ../main.less
+.base-typography {
+  font-size: 18px;
+
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-weight: 700;
+    color: #2a3554;
+    line-height: 1;
+    font-family: "Russo One";
+    font-size: 32px;
+    font-weight: 400;
+
+    &:not(:last-child) {
+      margin: 30px 0;
+    }
+  }
+
+  p {
+    margin: 0;
+
+    &:not(:last-child) {
+      margin: 20px 0;
+    }
+  }
+
+  ul {
+    margin: 0;
+    
+    &:not(:last-child) {
+      margin: 20px 0;
+    }
+
+    ol,
+    li {
+      &:not(:last-child) {
+        margin-bottom: 6px;
+      }
+    }
+
+    li {
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 6px;
+        height: 6px;
+        background: #2a3554;
+        border-radius: 50%;
+        position: absolute;
+        top: 7px;
+        left: 0;
+      }
+    }
+  }
+
+  blockquote {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+    position: relative;
+    padding-left: 20px;
+    border-left: 3px solid #2a3554;
+    
+    &:not(:last-child) {
+      margin: 20px 0;
+    }
+
+    .blockquote__icon {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      top: -38px;
+      left: 0;
+      z-index: -1;
+    }
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
+@media only screen and (max-width: 767px) {
+  .base-typography {
+    h2,
+    h3,
+    h4 {
+      font-size: 24px;
+
+      &:not(:last-child) {
+        margin: 20px 0;
+      }
+    }
+  }
+}
