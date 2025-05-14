@@ -55,6 +55,10 @@
       </div>
     </div>
 
+    <div class="team-banner">
+      <img class="team-banner__image" src="{% static 'homeapp/img/team-banner.webp' %}" alt="Фото команды Mkpartners">
+    </div>
+
     <div class="mission">
       <p>&laquo;Миссия МКА Партнер Групп заключается в&nbsp;предоставлении высококачественных юридических услуг , основанных на&nbsp;глубоком понимании потребностей и&nbsp;целей клиентов, с&nbsp;использованием инновационных подходов и&nbsp;экспертизы для достижения оптимальных результатов и&nbsp;установления долгосрочных партнерских отношений.&raquo;</p>
       
@@ -112,7 +116,7 @@
         </div>
 
         <div class="video__buttons">
-          <a class="btn2 button-blue" href="{% url 'homeapp:tariffs' %}">Тарифы</a>
+          <a class="btn2 button-blue" href="{% static 'homeapp/img/price-list.pdf' %}" target="_blank">Тарифы</a>
           <button type="button" class="btn1 button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Заказать звонок
           </button>
