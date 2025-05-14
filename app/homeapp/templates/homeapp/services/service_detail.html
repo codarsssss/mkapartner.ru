@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="container py-4">
-  <h1 class="page-section__title mb-4">{{ service.title }}</h1>
+  <h1 class="title title_h2">{{ service.title }}</h1>
 
   {% if service.image %}
     <img src="{{ service.image.url }}" alt="{{ service.title }}" class="img-fluid mb-4">
@@ -14,7 +14,7 @@
   {% endif %}
 
   {% if service.blocks.exists %}
-    <div class="service-blocks">
+    <div class="service-blocks base-typography">
       {% for block in service.blocks.all %}
         {% include "homeapp/service_blocks/"|add:block.type|add:".html" with block=block %}
       {% endfor %}
