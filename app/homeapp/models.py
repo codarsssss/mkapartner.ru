@@ -120,12 +120,13 @@ class PracticeCategory(models.Model):
 class PracticeInstance(models.Model):
     category = models.ForeignKey(PracticeCategory, on_delete=models.CASCADE, verbose_name="Категория практики")
     title = models.CharField("Название случая", max_length=255)
-    circumstances = models.TextField("Обстоятельства")
-    lawyer_position = models.TextField("Позиция адвоката")
-    outcome = models.TextField("Итог")
+    circumstances = RichTextField("Обстоятельства")
+    lawyer_position = RichTextField("Позиция адвоката")
+    outcome = RichTextField("Итог")
     verdict_url = models.URLField("Ссылка на приговор", blank=True, null=True)
     partner = models.ForeignKey(Partner, null=True, blank=True, on_delete=models.CASCADE,
                                 related_name='practice', verbose_name='Адвокат')
+    my_order = models.PositiveIntegerField("Порядок", default=0, db_index=True)
 
     # SEO
     meta_title = models.CharField("Meta Title", max_length=255, blank=True)
@@ -136,6 +137,7 @@ class PracticeInstance(models.Model):
     class Meta:
         verbose_name = "Случай практики"
         verbose_name_plural = "Случаи практики"
+        ordering = ["my_order"]
 
     def __str__(self):
         return self.title
@@ -169,7 +171,7 @@ class Review(models.Model):
     content = models.TextField("Текст отзыва")
     created_at = models.DateTimeField("Дата добавления", auto_now_add=True)
     is_active = models.BooleanField("Показывать на сайте", default=True)
-    image = models.ImageField("Изображение", upload_to='reviews/')
+    image = models.ImageField("Изображение", upload_to='reviews/', null=True, blank=True)
 
     class Meta:
         ordering = ['-created_at']
@@ -206,6 +208,7 @@ class Service(models.Model):
     short_description = models.TextField("Краткое описание", blank=True)
     image = models.ImageField("Обложка", upload_to="services/", blank=True, null=True)
     is_active = models.BooleanField("Активна", default=True)
+    my_order = models.IntegerField("Порядок", db_index=True)
 
     # SEO
     meta_title = models.CharField("Meta Title", max_length=255, blank=True)
@@ -216,6 +219,7 @@ class Service(models.Model):
     class Meta:
         verbose_name = "Услуга"
         verbose_name_plural = "Услуги"
+        ordering = ["my_order"]
 
     def __str__(self):
         return self.title

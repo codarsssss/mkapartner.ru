@@ -86,11 +86,13 @@ class VideoInline(admin.TabularInline):
     extra = 1
 
 
-class PracticeInstanceAdmin(admin.ModelAdmin):
+class PracticeInstanceAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ['title', 'get_category_title', 'partner']
+    list_display_links = ['title']
     search_fields = ['title', 'circumstances', 'lawyer_position', 'outcome']
     list_filter = ['category__title', 'partner']
     inlines = [PracticeInstanceImageInline, VideoInline]
+    ordering = ["my_order"]
     fieldsets = (
         (None, {
             'fields': ('title', 'category', 'partner')
@@ -130,8 +132,10 @@ class ServiceCategoryAdmin(admin.ModelAdmin):
     search_fields = ['title']
 
 
-class ServiceAdmin(SortableAdminBase, admin.ModelAdmin):
+class ServiceAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ['title', 'category', 'is_active']
+    list_display_links = ['title']
+    ordering = ["my_order"]
     list_filter = ['category__audience', 'category']
     search_fields = ['title', 'short_description']
     prepopulated_fields = {'slug': ('title',)}
