@@ -22,7 +22,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path("admin/", custom_admin_site.urls),
+    path("admin-backoffice/", custom_admin_site.urls),
     path("", include("homeapp.urls")),
 
     # Sitemap
