@@ -52,6 +52,7 @@ class HomePageView(TemplateView):
             'News': News.published.all(),
             'partners': Partner.objects.all(),
             'reviews': Review.objects.filter(is_active=True),
+            'clients': Client.objects.exclude(logo='').exclude(logo__isnull=True),
         }
 
 

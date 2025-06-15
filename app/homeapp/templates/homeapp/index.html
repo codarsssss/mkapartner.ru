@@ -463,34 +463,20 @@
   </div>
 </section>
 
+{% if clients %}
 <section class="container">
   <h2 class="title title_h2">Нам доверяют</h2>
   <div class="clients mySlider swiper" data-slides-count="5" data-slides-count-tablet="4" data-slides-count-mob="3" data-autoplay>
     <div class="swiper-wrapper">
-      <div class="clients__item swiper-slide">
-        <img src="{% static 'homeapp/img/partners/1.webp' %}" />
-      </div>
-      <div class="clients__item swiper-slide">
-        <img src="{% static 'homeapp/img/partners/2.webp' %}" />
-      </div>
-      <div class="clients__item swiper-slide">
-        <img src="{% static 'homeapp/img/partners/3.webp' %}" />
-      </div>
-      <div class="clients__item swiper-slide">
-        <img src="{% static 'homeapp/img/partners/4.webp' %}" />
-      </div>
-      <div class="clients__item swiper-slide">
-        <img src="{% static 'homeapp/img/partners/5.webp' %}" />
-      </div>
-      <div class="clients__item swiper-slide">
-        <img src="{% static 'homeapp/img/partners/6.webp' %}" />
-      </div>
-      <div class="clients__item swiper-slide">
-        <img src="{% static 'homeapp/img/partners/7.webp' %}" />
-      </div>
+      {% for client in clients %}
+        <div class="clients__item swiper-slide">
+          <img src="{{ client.logo.url }}" alt="{{ client.name }}">
+        </div>
+      {% endfor %}
     </div>
   </div>
 </section>
+{% endif %}
 
 {% if reviews %}
 <section class="container">
