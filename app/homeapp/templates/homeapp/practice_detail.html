@@ -8,9 +8,9 @@
     <div class="page-section">
         <h3 class="page-section__title">{{ practice.title }}</h3>
         <br />
-        <p><strong>Обстоятельства:</strong> {{ practice.circumstances }}</p>
-        <p><strong>Позиция адвоката:</strong> {{ practice.lawyer_position }}</p>
-        <p><strong>Итог:</strong> {{ practice.outcome }}</p>
+        <p><strong>Обстоятельства:</strong> {{ practice.circumstances|safe }}</p>
+        <p><strong>Позиция адвоката:</strong> {{ practice.lawyer_position|safe }}</p>
+        <p><strong>Итог:</strong> {{ practice.outcome|safe }}</p>
         <p>{{ practice.partner.photo.url }}</p>
         <p>{{ practice.partner.name }}</p>
         {% if practice.verdict_url %}
