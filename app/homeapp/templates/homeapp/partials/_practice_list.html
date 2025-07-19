@@ -1,9 +1,10 @@
+{% load html_utils %}
 {% for item in items %}
   <a class="practices__item" href="{% url 'homeapp:practice_detail' pk=item.id %}">
     <h3 class="title title_h3">{{ item.title }}</h3>
     <span class="practices__subtitle"><strong>Категория:</strong> {{ item.category.title }}</span>
     <span class="practices__subtitle"><strong>Адвокат:</strong> {{ item.partner.name }}</span>
-    <p class="practices__descr">{{ item.circumstances|truncatechars:160 }}</p>
+    <p class="practices__descr">{{ item.circumstances|clean_excerpt }}</p>
     <span class="practices__btn btn2 button-blue">Смотреть подробнее</span>
   </a>
 {% empty %}
