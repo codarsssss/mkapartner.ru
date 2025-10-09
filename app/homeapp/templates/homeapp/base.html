@@ -130,23 +130,9 @@
                 Практика адвокатов
               </a>
             </li>
-            <li class="header__nav-item dropdown">
-              <a class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Адвокаты
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a class="dropdown-item" href="{% url 'homeapp:team' %}">
-                    Офис в Москве
-                  </a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="https://ulsk.mkapartner.ru/">
-                    Филиал в Ульяновске
-                  </a>
-                </li>
-              </ul>
-            </li>
+            {% if menu_advocates_template %}
+              {% include menu_advocates_template %}
+            {% endif %}
             <li class="header__nav-item dropdown">
               <a class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Пресс-центр
@@ -198,19 +184,19 @@
                 </a>
               </li>
               <li class="header__social-item">
-                <a class="header__social-link" aria-current="page" href="https://t.me/MBA_Partner">
+                <a class="header__social-link" aria-current="page" href="{{ telegram_link }}">
                   <img src="{% static 'homeapp/img/Telegram.png' %}" alt="Иконка Телеграм" />
                 </a>
               </li>
               <li class="header__social-item">
-                <a class="header__social-link" aria-current="page" href="tel:+79671328133">
+                <a class="header__social-link" aria-current="page" href="tel:{{ phone }}">
                   <img src="{% static 'homeapp/img/WhatsApp_white.png' %}" alt="Иконка вотсап" />
                 </a>
               </li>
             </ul>
     
             <div class="header__contact">
-              <a class="btn1 button-white" href="tel:+79671328133">8 967 132 81 33</a>
+              <a class="btn1 button-white" href="tel:{{ phone }}">{{ phone_display }}</a>
             </div>
           </div>
         </nav>
@@ -223,19 +209,19 @@
               </a>
             </li>
             <li class="header__social-item">
-              <a class="header__social-link" aria-current="page" href="https://t.me/MBA_Partner">
+              <a class="header__social-link" aria-current="page" href="{{ telegram_link }}">
                 <img src="{% static 'homeapp/img/Telegram.png' %}" alt="Иконка Телеграм" />
               </a>
             </li>
             <li class="header__social-item">
-              <a class="header__social-link" aria-current="page" href="tel:+79671328133">
+              <a class="header__social-link" aria-current="page" href="tel:{{ phone }}">
                 <img src="{% static 'homeapp/img/WhatsApp_white.png' %}" alt="Иконка вотсап" />
               </a>
             </li>
           </ul>
   
           <div class="header__contact">
-            <a class="btn1 button-white" href="tel:+79671328133">8 967 132 81 33</a>
+            <a class="btn1 button-white" href="tel:{{ phone }}">{{ phone_display }}</a>
           </div>
         </div>
       </div>
@@ -331,13 +317,13 @@
                   Получить консультацию и пошаговый план действий
                 </p>
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="mailto:info@mkapartner.ru">
-                    info@mkapartner.ru
+                  <a class="nav-link" aria-current="page" href="mailto:{{ email }}">
+                    {{ email }}
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="tel:+79671328133">
-                    +79671328133
+                  <a class="nav-link" aria-current="page" href="tel:{{ phone }}">
+                    {{ phone }}
                   </a>
                 </li>
                 <p class="mb-2" style="
@@ -348,10 +334,8 @@
                   Адрес
                 </p>
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="page" href="https://yandex.ru/maps/-/CDFTaX~8">
-                    123112, Россия, г.Москва,
-                    <br />
-                    Пресненская наб., д. 12, помещ. 45н
+                  <a class="nav-link" aria-current="page" href="{{ map_link }}">
+                    {{ address|safe }}
                   </a>
                 </li>
               </ul>
@@ -359,8 +343,8 @@
           </div>
           <div class="footer-menu">
             <div class="footer__buttons" style="display: flex; gap: 8px">
-              <a class="btn2 button-blue" href="tel:+79671328133">
-                8 967 132 81 33
+              <a class="btn2 button-blue" href="tel:{{ phone }}">
+                {{ phone_display }}
               </a>
 
               <button type="button" class="btn1 button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -369,12 +353,12 @@
             </div>
             <div class="footer-socials">
               <div class="text-center">
-                <a class="nav-link footer__nav-link" aria-current="page" href="https://t.me/MBA_Partner">
+                <a class="nav-link footer__nav-link" aria-current="page" href="{{ telegram_link }}">
                   <i class="fa-brands fa-telegram fa-2xl" style="color: white"></i>
                 </a>
               </div>
               <div class="text-center">
-                <a class="nav-link footer__nav-link" aria-current="page" href="tel:+79671328133">
+                <a class="nav-link footer__nav-link" aria-current="page" href="tel:{{ phone }}">
                   <i class="fa-brands fa-whatsapp fa-2xl" style="color: white;"></i>
                 </a>
               </div>

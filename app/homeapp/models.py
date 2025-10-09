@@ -1,4 +1,6 @@
 import re
+
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models.query import QuerySet
 from django.utils.safestring import mark_safe
@@ -402,3 +404,43 @@ class Article(models.Model):
             "image": self.meta_image.url if self.meta_image else "",
         }
 
+
+class SiteConfig(models.Model):
+    """Единая конфигурация сайта (только одна запись)."""
+
+    CITY_CHOICES = [
+        ("moscow", "Москва"),
+        ("ulsk", "Ульяновск"),
+    ]
+
+    city = models.CharField("Город", max_length=20, choices=CITY_CHOICES, unique=True)
+    phone = models.CharField("Телефон (с +7)", max_length=20)
+    phone_display = models.CharField("Телефон (для отображения)", max_length=20)
+    email = models.EmailField("Email")
+    address = models.TextField("Адрес")
+    map_link = models.URLField("Ссылка на карту")
+    telegram_link = models.URLField("Ссылка на Telegram", blank=True)
+    instagram_link = models.URLField("Ссылка на Instagram", blank=True)
+
+    class Meta:
+        verbose_name = "Настройки сайта"
+        verbose_name_plural = "Настройки сайта"
+
+    def __str__(self):
+        return dict(self.CITY_CHOICES).get(self.city, self.city)
+
+    def clean(self):
+        """Запрещаем создавать больше одной записи."""
+        if SiteConfig.objects.exists() and not self.pk:
+            raise ValidationError("Можно создать только один экземпляр SiteConfig.")
+
+    @property
+    def banner_template(self):
+        if self.city == "ulsk":
+            return "homeapp/includes/banner_ulsk.html"
+        return "homeapp/includes/banner_moscow.html"
+
+    @property
+    def menu_advocates_template(self):
+        """Определяем шаблон меню 'Адвокаты' по городу."""
+        return f"homeapp/includes/menu_advocates_{self.city}.html"

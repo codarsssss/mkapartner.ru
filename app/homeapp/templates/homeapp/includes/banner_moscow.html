@@ -1,0 +1,28 @@
+{% load static %}
+<section class="hero">
+  <div class="container">
+    <img class="hero-1" src="{% static 'homeapp/img/fm.webp' %}" alt="" />
+    <div class="hero__text hero-2">
+      <h1>Партнер Групп</h1>
+      <span>Московская коллегия адвокатов</span>
+      <img src="{% static 'homeapp/img/Vector.webp' %}" alt="" />
+      <p class="hero__subtitle">
+        Сила в знании, справедливость в действии:<br />
+        ваша защита – наша миссия!
+      </p>
+      <button type="button" class="button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Получить консультацию
+      </button>
+    </div>
+    <img class="hero-3" src="{% static 'homeapp/img/ml.webp' %}" alt="" />
+
+    <div class="hero-mobile">
+      <div class="image-wrapper">
+        <img src="{% static 'homeapp/img/fm.webp' %}" alt="" />
+      </div>
+      <div class="image-wrapper">
+        <img src="{% static 'homeapp/img/ml.webp' %}" alt="" />
+      </div>
+    </div>
+  </div>
+</section>

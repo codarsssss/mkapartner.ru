@@ -1,0 +1,18 @@
+{% load static %}
+<li class="header__nav-item dropdown">
+  <a class="header__nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Адвокаты
+  </a>
+  <ul class="dropdown-menu">
+    <li>
+      <a class="dropdown-item" href="{% url 'homeapp:team' %}">
+        Офис в Ульяновске
+      </a>
+    </li>
+    <li>
+      <a class="dropdown-item" href="https://mkapartner.ru/">
+        Филиал в Москве
+      </a>
+    </li>
+  </ul>
+</li>

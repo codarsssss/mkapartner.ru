@@ -1,0 +1,45 @@
+{% load static %}
+<div class="hero">
+  <div class="container">
+    <div class="banner__content">
+      <div class="banner__text">
+        <h5>Филиал МКА «Партнер Групп» в г.Ульяновске</h5>
+        <h2 class="banner__title">Минимизируем правовые риски для Вас и вашего бизнеса!</h2>
+        <ul class="banner__list">
+          <li>Уголовно-правовая защита по делам об экономических и коррупционных преступлениях.</li>
+          <li>Защита деловой репутации в суде.</li>
+          <li>Арбитражная практика.</li>
+        </ul>
+        <div class="banner__text" style="max-width:none;margin-bottom:0.75rem;margin-top:1.5rem;">
+          Руководитель филиала МКА «Партнер Групп» в г.Ульяновске и Ульяновской области, адвокат
+          <br />
+          <span style="font-size:1.75em;font-weight:700;">Борзиков Андрей Анатольевич</span>
+        </div>
+        <p class="banner__desc">
+          Общий юридический стаж более 10 лет;<br />
+          Благодарственное письмо Президента ФАП РФ за заслуги в правозащитной деятельности;<br />
+          Успешная практика по защите интересов среднего и крупного бизнеса;<br />
+          Автор научно-практических публикаций в сфере права.
+        </p>
+        <div class="banner__buttons">
+          <button type="button" class="button-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Получить консультацию
+          </button>
+          <button type="button" class="button-blue" onclick="window.location.href='{% url 'homeapp:team' %}'">
+            <span>Все адвокаты</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+              <path fill="#ffffff"
+                    d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192
+                       c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7
+                       256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5
+                       45.3 0l192 192z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="banner__image">
+        <img src="{% static 'homeapp/img/bor.jpg' %}" alt="Юрист" />
+      </div>
+    </div>
+  </div>
+</div>
