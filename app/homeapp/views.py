@@ -14,12 +14,13 @@ from django.conf import settings
 
 from .models import (
     News, Partner, PracticeCategory, PracticeInstance,
-    Review, ServiceCategory, Service, Client, Article, Video
+    Review, ServiceCategory, Service, Client, Article, Video, SiteConfig
 )
 
+# === СЛУЖЕБНЫЕ ФУНКЦИИ ===
 
-# === ОСТАВЛЯЕМ ТАК ===
 def download_resume(request, file_path):
+    """Отдаёт файл резюме (PDF/DOCX) пользователю."""
     file_full_path = os.path.join(settings.MEDIA_ROOT, file_path)
     if os.path.exists(file_full_path):
         return FileResponse(open(file_full_path, 'rb'))
@@ -27,6 +28,7 @@ def download_resume(request, file_path):
 
 
 def cases_filter_view(request):
+    """AJAX-фильтр для страницы практики."""
     if request.headers.get('x-requested-with') == 'XMLHttpRequest':
         category_id = request.GET.get('category')
         partner_id = request.GET.get('partner')
@@ -40,44 +42,90 @@ def cases_filter_view(request):
         return JsonResponse({'html': html})
 
 
-# === КЛАССЫ ДЛЯ ШАБЛОННЫХ СТРАНИЦ ===
+# === МИКСИН ===
 
-class HomePageView(TemplateView):
-    template_name = 'homeapp/index.html'
+class SiteConfigMixin:
+    """Добавляет настройки сайта (город, контакты, шаблоны) в контекст."""
+
+    def get_site_config(self):
+        config = SiteConfig.objects.first()
+        if not config:
+            raise ValueError("Не найдена запись SiteConfig — создайте её в админке.")
+        return config
 
     def get_context_data(self, **kwargs):
-        return {
-            'title': 'Главная страница',
-            'user': self.request.session.get('username'),
-            'News': News.published.all(),
-            'partners': Partner.objects.all(),
-            'reviews': Review.objects.filter(is_active=True),
-            'clients': Client.objects.exclude(logo='').exclude(logo__isnull=True),
-        }
+        context = super().get_context_data(**kwargs)
+        config = self.get_site_config()
+
+        context.update({
+            "city_name": dict(SiteConfig.CITY_CHOICES).get(config.city),
+            "phone": config.phone,
+            "phone_display": config.phone_display,
+            "address": config.address,
+            "map_link": config.map_link,
+            "email": config.email,
+            "telegram_link": config.telegram_link,
+            "instagram_link": config.instagram_link,
+            "banner_template": config.banner_template,
+            "menu_advocates_template": config.menu_advocates_template,
+        })
+        return context
 
 
-class TeamView(TemplateView):
+# === ГЛАВНАЯ СТРАНИЦА ===
+
+class HomePageView(SiteConfigMixin, TemplateView):
+    """Главная страница."""
+    template_name = "homeapp/index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({
+            "title": "Главная страница",
+            "user": self.request.session.get("username"),
+            "News": News.published.all(),
+            "partners": Partner.objects.all(),
+            "reviews": Review.objects.filter(is_active=True),
+            "clients": Client.objects.exclude(logo="").exclude(logo__isnull=True),
+        })
+        return context
+
+
+# === КОМАНДА ===
+
+class TeamView(SiteConfigMixin, TemplateView):
     template_name = 'homeapp/team.html'
 
     def get_context_data(self, **kwargs):
-        return {
+        context = super().get_context_data(**kwargs)
+        context.update({
             'title': 'Команда',
             'user': self.request.session.get('username'),
             'partners': Partner.objects.all(),
-        }
+        })
+        return context
 
 
-class TariffsView(TemplateView):
+# === ТАРИФЫ ===
+
+class TariffsView(SiteConfigMixin, TemplateView):
     template_name = 'homeapp/tariffs.html'
     extra_context = {'title': 'Онлайн консультации'}
 
 
-class ProcedurePageView(TemplateView):
+# === ПРОЦЕДУРНЫЕ СТРАНИЦЫ ===
+
+class ProcedurePageView(SiteConfigMixin, TemplateView):
+    """Базовый класс для страниц процедуры."""
+    title = None
+
     def get_context_data(self, **kwargs):
-        return {
+        context = super().get_context_data(**kwargs)
+        context.update({
             'title': self.title,
-            'user': self.request.session.get('username')
-        }
+            'user': self.request.session.get('username'),
+        })
+        return context
 
 
 class RabotaemView(ProcedurePageView):
@@ -102,7 +150,7 @@ class SoglashenieView(ProcedurePageView):
 
 class VariantyView(ProcedurePageView):
     template_name = 'homeapp/procedure/varianty.html'
-    title = 'Варианты вознагрождения'
+    title = 'Варианты вознаграждения'
 
 
 class PrivicyView(ProcedurePageView):
@@ -112,20 +160,22 @@ class PrivicyView(ProcedurePageView):
 
 # === ПРАКТИКА ===
 
-class PracticesView(TemplateView):
+class PracticesView(SiteConfigMixin, TemplateView):
     template_name = 'homeapp/practices.html'
 
     def get_context_data(self, **kwargs):
-        return {
+        context = super().get_context_data(**kwargs)
+        context.update({
             'title': 'Практика адвокатов',
             'practice_categories': PracticeCategory.objects.all(),
             'partners': Partner.objects.all(),
             'practice_instances': PracticeInstance.objects.all(),
-            'user': self.request.session.get('username')
-        }
+            'user': self.request.session.get('username'),
+        })
+        return context
 
 
-class PracticeDetailView(DetailView):
+class PracticeDetailView(SiteConfigMixin, DetailView):
     model = PracticeInstance
     template_name = 'homeapp/practice_detail.html'
     context_object_name = 'practice'
@@ -137,10 +187,9 @@ class PracticeDetailView(DetailView):
         return context
 
 
-
 # === УСЛУГИ ===
 
-class ServiceListView(TemplateView):
+class ServiceListView(SiteConfigMixin, TemplateView):
     template_name = "homeapp/services/service_list.html"
 
     def get(self, request, audience):
@@ -161,7 +210,7 @@ class ServiceListView(TemplateView):
         })
 
 
-class ServiceDetailView(DetailView):
+class ServiceDetailView(SiteConfigMixin, DetailView):
     model = Service
     template_name = "homeapp/services/service_detail.html"
     context_object_name = "service"
@@ -176,7 +225,7 @@ class ServiceDetailView(DetailView):
 
 # === НОВОСТИ ===
 
-class NewsListView(ListView):
+class NewsListView(SiteConfigMixin, ListView):
     model = News
     queryset = News.published.all()
     template_name = "homeapp/press/article_news_list.html"
@@ -197,7 +246,7 @@ class NewsListView(ListView):
         return context
 
 
-class NewsDetailView(DetailView):
+class NewsDetailView(SiteConfigMixin, DetailView):
     model = News
     template_name = "homeapp/news_detail.html"
     context_object_name = "news_obj"
@@ -212,7 +261,7 @@ class NewsDetailView(DetailView):
 
 # === ПРОЧЕЕ ===
 
-class ReviewListView(ListView):
+class ReviewListView(SiteConfigMixin, ListView):
     model = Review
     template_name = 'homeapp/reviews.html'
     context_object_name = 'reviews'
@@ -229,7 +278,7 @@ class ReviewListView(ListView):
         return context
 
 
-class ClientListView(ListView):
+class ClientListView(SiteConfigMixin, ListView):
     model = Client
     template_name = 'homeapp/client_list.html'
     context_object_name = 'clients'
@@ -245,11 +294,11 @@ class ClientListView(ListView):
         return context
 
 
-class ArticleListView(ListView):
+class ArticleListView(SiteConfigMixin, ListView):
     model = Article
     queryset = Article.objects.filter(is_active=True)
     template_name = "homeapp/press/article_news_list.html"
-    context_object_name = "items"  # <- важно!
+    context_object_name = "items"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -266,7 +315,7 @@ class ArticleListView(ListView):
         return context
 
 
-class ArticleDetailView(DetailView):
+class ArticleDetailView(SiteConfigMixin, DetailView):
     model = Article
     template_name = "homeapp/article_detail.html"
     context_object_name = "article"
@@ -279,7 +328,7 @@ class ArticleDetailView(DetailView):
         return context
 
 
-class VideoListView(ListView):
+class VideoListView(SiteConfigMixin, ListView):
     model = Video
     queryset = Video.objects.filter(is_active=True)
     template_name = "homeapp/press/video_list.html"

@@ -6,7 +6,7 @@ from .models import (
     News, Partner, PartnerPhoto, Review,
     PracticeCategory, PracticeInstance, PracticeInstanceImage,
     ServiceCategory, Service, ServiceBlock,
-    Client, Video, Article
+    Client, Video, Article, SiteConfig
 )
 
 
@@ -185,8 +185,14 @@ class ArticleAdmin(admin.ModelAdmin):
     )
 
 
+class SiteConfigAdmin(admin.ModelAdmin):
+    list_display = ("city", "phone_display", "email")
+    list_filter = ("city",)
+    search_fields = ("city", "email", "phone")
+
 
 # ---------- Регистрация ----------
+custom_admin_site.register(SiteConfig, SiteConfigAdmin)
 custom_admin_site.register(News, NewsAdmin)
 custom_admin_site.register(Partner, PartnerAdmin)
 custom_admin_site.register(PracticeCategory, PracticeCategoryAdmin)
