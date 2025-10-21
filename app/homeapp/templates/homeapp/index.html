@@ -31,7 +31,7 @@
     </div>
 
     <div class="team-banner">
-      <img class="team-banner__image" src="{% static 'homeapp/img/team-banner.webp' %}" alt="Фото команды Mkpartners">
+      <img class="team-banner__image" src="{% static team_banner %}" alt="Фото команды Mkpartners">
     </div>
 
     <div class="mission">
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="good-place__button">
-          <a class="btn2 button-blue" href="https://yandex.ru/navi/org/mka_partner_grupp/23350636644/reviews/?ll=37.537434%2C55.749633&z=16" target="_blank">Смотреть отзывы</a>
+          <a class="btn2 button-blue" href="{{ reviews_link }}" target="_blank">Смотреть отзывы</a>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
     <div class="video__row">
       <div class="video__col">
         <div style="height: 100%" class="justify-content-center align-items-center d-flex rl-pos">
-          <iframe src="https://vk.com/video_ext.php?oid=4309729&id=456239062&hd=2&autoplay=1&muted=1" width="325" height="646" allow="autoplay; muted; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+          <iframe src="https://vk.com/video_ext.php?oid=4309729&id=456239062&hd=2&autoplay=0&muted=1" width="325" height="646" allow="muted; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
         </div>
       </div>
       <div class="video__col">

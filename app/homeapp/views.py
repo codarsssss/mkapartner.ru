@@ -68,6 +68,8 @@ class SiteConfigMixin:
             "instagram_link": config.instagram_link,
             "banner_template": config.banner_template,
             "menu_advocates_template": config.menu_advocates_template,
+            "reviews_link": config.reviews_link or "#",
+            "team_banner": config.team_banner,
         })
         return context
 

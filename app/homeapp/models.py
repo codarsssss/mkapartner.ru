@@ -421,6 +421,7 @@ class SiteConfig(models.Model):
     map_link = models.URLField("Ссылка на карту")
     telegram_link = models.URLField("Ссылка на Telegram", blank=True)
     instagram_link = models.URLField("Ссылка на Instagram", blank=True)
+    reviews_link = models.URLField(blank=True, null=True, verbose_name="Ссылка на отзывы в Яндекс Навигаторе")
 
     class Meta:
         verbose_name = "Настройки сайта"
@@ -444,3 +445,9 @@ class SiteConfig(models.Model):
     def menu_advocates_template(self):
         """Определяем шаблон меню 'Адвокаты' по городу."""
         return f"homeapp/includes/menu_advocates_{self.city}.html"
+
+    @property
+    def team_banner(self):
+        if self.city == "ulsk":
+            return "homeapp/img/team-banner-ulsk.webp"
+        return "homeapp/img/team-banner-msk.webp"
